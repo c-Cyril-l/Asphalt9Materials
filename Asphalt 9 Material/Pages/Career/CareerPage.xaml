@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="Asphalt_9_Materials.UI.Pages.Career.CareerPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:Asphalt_9_Materials.ViewModel.Converters;assembly=Asphalt9Materials.ViewModel"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="650"
+             d:DesignWidth="1200">
+
+    <UserControl.Resources>
+        <converters:ImageConverter x:Key="ThumbnailConverter"
+                                   DecodePixelHeight="190"
+                                   DecodePixelWidth="65" />
+    </UserControl.Resources>
+
+    <Grid>
+        <DataGrid AutoGenerateColumns="False"
+                  Background="{StaticResource DarkBrush}"
+                  BorderBrush="{StaticResource SeparatorBrush}"
+                  CanUserAddRows="False"
+                  CanUserSortColumns="True"
+                  FontFamily="{DynamicResource RajdhaniSemiBold}"
+                  FontSize="14"
+                  Foreground="{StaticResource LightBrush}"
+                  GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column"
+                  HorizontalGridLinesBrush="{StaticResource SeparatorBrush}"
+                  HorizontalScrollBarVisibility="Hidden"
+                  ItemsSource="{Binding CareerCollection}"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="{StaticResource SeparatorBrush}" />
+                    <Setter Property="Height" Value="41" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="Padding" Value="5" />
+                    <Setter Property="Height" Value="41" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                            <Setter Property="BorderBrush" Value="{StaticResource DarkerBrush}" />
+                        </Trigger>
+                        <Trigger Property="DataGridCell.IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                            <Setter Property="BorderBrush" Value="{StaticResource DarkerBrush}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="DataGridRow.IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                            <Setter Property="BorderBrush" Value="{StaticResource DarkerBrush}" />
+                        </Trigger>
+                        <Trigger Property="DataGridRow.IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                            <Setter Property="BorderBrush" Value="{StaticResource DarkerBrush}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Chapter}"
+                                    Header="Chapter"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Chapter}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Season}"
+                                    Foreground="DodgerBlue"
+                                    Header="Season"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Season}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Race}"
+                                    Header="Race"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Race}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Rank}"
+                                    Header="Rank"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Rank}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Mode}"
+                                    Header="Mode"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Mode}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Track}"
+                                    Foreground="Crimson"
+                                    Header="Track"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Track}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Time}"
+                                    Header="Time"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Time}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Credits}"
+                                    Foreground="SlateBlue"
+                                    Header="Credits"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Credits}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Reputation}"
+                                    Foreground="ForestGreen"
+                                    Header="Reputation"
+                                    IsReadOnly="True"
+                                    SortMemberPath="{Binding Reputation}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+
+</UserControl>

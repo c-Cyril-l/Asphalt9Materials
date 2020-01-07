@@ -1,0 +1,980 @@
+﻿<UserControl x:Class="Asphalt_9_Materials.UI.Pages.Misc.AddNewCar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:Asphalt_9_Materials.ViewModel.Converters;assembly=Asphalt9Materials.ViewModel"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d"
+             d:DesignWidth="1360" Height="877">
+    <UserControl.Resources>
+        <converters:DateConverter x:Key="DateConverter" />
+    </UserControl.Resources>
+    <Grid Margin="0">
+        <materialDesign:DialogHost Background="{StaticResource DarkerBrush}">
+
+            <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CanContentScroll="True">
+
+                <Grid>
+
+                    <!--Image-->
+                    <StackPanel x:Name="ImageStack" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="570" Margin="0" MinHeight="318" MaxWidth="570" MaxHeight="318">
+                        <Image 
+                        VerticalAlignment="Stretch"
+                        Margin="0"
+                        Source="{Binding CarImage}" Stretch="Fill" Height="318"
+                        />
+                        <Button
+                        TabIndex="9"
+                        Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                        ToolTip="Add Image"
+                     
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Command="{Binding AddImage}" Margin="0,-70,20,0"
+                        >
+                            <materialDesign:PackIcon
+                            Kind="Plus"
+                            Height="24"
+                            Width="24" />
+                        </Button>
+
+                    </StackPanel>
+
+                    <!--Car Information-->
+
+                    <GroupBox Header="Car Information"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="249" HorizontalAlignment="Left" Width="782" Background="Transparent" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="RenameBox" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="10,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding Car.CarBrand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="1"
+                                    ToolTip="Car brand (like MC Laren)"
+                                    materialDesign:HintAssist.Hint="Car Brand" x:Name="CarBrand"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="-5,-10,0,7" Width="315" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <materialDesign:PackIcon Kind="RenameBox" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="15,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding Car.CarName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="2"
+                                    ToolTip="Name of the car (like Senna)"
+                                    materialDesign:HintAssist.Hint="Car Name" x:Name="CarName1"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="315" VerticalAlignment="Center"
+                                    Margin="-5, -10, 0, 7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"  />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="AlphabetCCircle" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="10,4,20,5"
+                                                         Height="42" Width="24"/>
+
+                                    <ComboBox
+                                    SelectedValue="{Binding Car.CarClass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                        ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                                    TabIndex="3"
+                                    ToolTip="Car class (which class the car is in?)"
+                                    materialDesign:HintAssist.Hint="Class"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                    Margin="-5,-10,0,7"
+                                    Width="315"
+                                    VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Foreground="{StaticResource ResourceKey=LightBrush}" FontFamily="{DynamicResource RajdhaniBold}" Cursor="Hand" >
+                                        <ComboBox.ItemsSource>
+                                            <x:Array Type="{x:Type sys:String}">
+                                                <sys:String>D</sys:String>
+                                                <sys:String>C</sys:String>
+                                                <sys:String>B</sys:String>
+                                                <sys:String>A</sys:String>
+                                                <sys:String>S</sys:String>
+                                            </x:Array>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                    <materialDesign:PackIcon Kind="AlphabetTBox" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="15,4,20,5"
+                                                         Height="42" Width="24"/>
+
+                                    <ComboBox
+                                    SelectedValue="{Binding Car.Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                        ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                                    TabIndex="4"
+                                    ToolTip="Type of the car is it epic, rare or uncommon"
+                                    materialDesign:HintAssist.Hint="Type"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                    Margin="-5,-10,0,7"
+                                    Width="315"
+                                    VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center "
+                                    Foreground="{StaticResource LightBrush}" FontFamily="{DynamicResource RajdhaniBold}" Cursor="Hand" >
+                                        <ComboBox.ItemsSource>
+                                            <x:Array Type="{x:Type sys:String}">
+                                                <sys:String>Uncommon</sys:String>
+                                                <sys:String>Rare</sys:String>
+                                                <sys:String>Epic</sys:String>
+                                            </x:Array>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="Fuel" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="10,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <ComboBox
+                                    SelectedValue="{Binding Car.Fuel,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                                    TabIndex="5"
+                                    ToolTip="Car Fuels (How many fuels the car have)"
+                                    materialDesign:HintAssist.Hint="Fuels"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                    Margin="-5,-10,0,7"
+                                    Width="315"
+                                    VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center "
+                                    Foreground="{StaticResource ResourceKey=LightBrush}" FontFamily="{DynamicResource RajdhaniBold}" Cursor="Hand">
+                                        <ComboBox.ItemsSource>
+                                            <x:Array Type="{x:Type system:Int32}">
+                                                <sys:Int32>1</sys:Int32>
+                                                <sys:Int32>2</sys:Int32>
+                                                <sys:Int32>3</sys:Int32>
+                                                <sys:Int32>4</sys:Int32>
+                                                <sys:Int32>5</sys:Int32>
+                                                <sys:Int32>6</sys:Int32>
+                                            </x:Array>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                    <materialDesign:PackIcon Kind="AccessTime" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="15,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding Car.ReleaseDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="6"
+                                    ToolTip="Since when the car is released in the game ?"
+                                    materialDesign:HintAssist.Hint="Release Date (ex: Update 9 – 12/2019)"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Margin="7,-10,0,7"
+                                   
+                                    VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center "
+                                    Foreground="{StaticResource ResourceKey=LightBrush}" FontFamily="{DynamicResource RajdhaniBold}" Width="306"/>
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="55">
+                                    <materialDesign:PackIcon Kind="GaugeFull" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="10,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox 
+                                        Text="{Binding Refill, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                        TabIndex="7"
+                                        ToolTip="Car Refill Time (how much time the car requires to refill)&#x0a;- For hour(s) eg. 1.20 (1 hour and 20 minutes), 3.40 (3 hours and 40 minutes)&#x0a;- for minutes eg. 15 (15 minutes), 59 (59 minutes)&#x0a;=> in both cases choose Next Option to Min(s) or Hr(s)."
+                                        materialDesign:HintAssist.Hint="Refill Time (Like 3.20)"
+                                        ToolTipService.ShowDuration="80000"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                        Margin="-5,2,15,19"
+                                        VerticalAlignment="Center"
+                                        HorizontalContentAlignment="Center "
+                                        Foreground="{StaticResource LightBrush}" Width="242" FontFamily="{DynamicResource RajdhaniBold}"
+                                        />
+
+                                    <ComboBox
+                                        SelectedValue="{Binding RefillDetection, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                        ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                                        TabIndex="3"
+                                        ToolTip="Is provided refill is in hours or minutes !"
+                                        materialDesign:HintAssist.Hint=""
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                        Margin="-5,1,0,18"
+                                        Width="60"
+                                        VerticalAlignment="Center"
+                                        HorizontalContentAlignment="Center"
+                                        Foreground="{StaticResource LightBrush}" FontFamily="{DynamicResource RajdhaniBold}" Cursor="Hand" >
+                                        <ComboBox.ItemsSource>
+                                            <x:Array Type="{x:Type sys:String}">
+                                                <sys:String>Min(s)</sys:String>
+                                                <sys:String>Hr(s)</sys:String>
+                                            </x:Array>
+                                        </ComboBox.ItemsSource>
+
+                                    </ComboBox>
+                                    <materialDesign:PackIcon Kind="StarFace" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="15,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <materialDesign:RatingBar
+                                    TabIndex="8"
+                                    ToolTip="Provide the car stars number"
+                                    x:Name="CustomRatingBar"
+                                    Max="6"
+                                    Value="{Binding Car.Stars,Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                    Margin="50,13,0,10"
+                                    Width="193"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center "
+                                    Orientation="Horizontal" FontFamily="{DynamicResource RajdhaniSemiBold}" FontSize="14">
+                                        <materialDesign:RatingBar.ValueItemTemplate>
+                                            <DataTemplate
+                                            DataType="system:Int32">
+                                                <Grid>
+                                                    <materialDesign:PackIcon
+                                                    Kind="Star"
+                                                    Height="32"
+                                                    Width="32" />
+                                                    <TextBlock
+                                                    Text="{Binding}"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="8"
+                                                    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </materialDesign:RatingBar.ValueItemTemplate>
+                                    </materialDesign:RatingBar>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+                    <!--Car Performance-->
+
+                    <GroupBox Header="Performance"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="144" HorizontalAlignment="Left" Width="782" Background="Transparent" Margin="0,260,0,0" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="Speedometer" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="10,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding StockTopSpeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="10"
+                                    ToolTip="Car Top Speed at Stock"
+                                    materialDesign:HintAssist.Hint="Stock Top Speed"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="-5,-10,0,7" Width="120" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <materialDesign:PackIcon Kind="GaugeFull" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="15,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding StockAcceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="11"
+                                    ToolTip="Car Acceleration at Stock"
+                                    materialDesign:HintAssist.Hint="Stock Acceleration"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="120" VerticalAlignment="Center"
+                                    Margin="-5, -10, 0, 7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <materialDesign:PackIcon Kind="SearchHandsFree" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="10,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding StockHandling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="12"
+                                    ToolTip="Car Handling at Stock"
+                                    materialDesign:HintAssist.Hint="Stock Handling"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="-5,-10,0,7" Width="120" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <materialDesign:PackIcon Kind="GaugeLow" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="15,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding StockNitro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="13"
+                                    ToolTip="Car Nitro at Stock"
+                                    materialDesign:HintAssist.Hint="Stock Nitro"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="120" VerticalAlignment="Center"
+                                    Margin="-5, -10, 0, 7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="Speedometer" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="10,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding MaxTopSpeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="14"
+                                    ToolTip="Car Top Speed at Max"
+                                    materialDesign:HintAssist.Hint="Max Top Speed"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="-5,-10,0,7" Width="120" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <materialDesign:PackIcon Kind="GaugeFull" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="15,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding MaxAcceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="15"
+                                    ToolTip="Car Acceleration at Max"
+                                    materialDesign:HintAssist.Hint="Max Acceleration"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="120" VerticalAlignment="Center"
+                                    Margin="-5, -10, 0, 7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <materialDesign:PackIcon Kind="SearchHandsFree" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="10,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding MaxHandling, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="16"
+                                    ToolTip="Car Handling at Max"
+                                    materialDesign:HintAssist.Hint="Max Handling"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="-5,-10,0,7" Width="120" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <materialDesign:PackIcon Kind="GaugeLow" 
+                                                         Foreground="{StaticResource ResourceKey=LightBrush}"
+                                                         VerticalAlignment="Center"
+                                                         Margin="15,4,20,5"
+                                                         Height="42" Width="24"/>
+                                    <TextBox
+                                    Text="{Binding MaxNitro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="17"
+                                    ToolTip="Car Nitro at Max"
+                                    materialDesign:HintAssist.Hint="Max Nitro"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="120" VerticalAlignment="Center"
+                                    Margin="-5, -10, 0, 7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                </StackPanel>
+
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+                    <!--Car Blueprints-->
+
+                    <GroupBox Header="Blueprints"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="84" HorizontalAlignment="Right" Width="570" Background="Transparent" Margin="0,320,0,0" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <TextBox
+                                    Text="{Binding FirstStar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="18"
+                                    ToolTip="Blueprints required for the 1st star (unlocking)."
+                                    materialDesign:HintAssist.Hint="1st Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,0,0,7" Width="70" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding SecondStar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="19"
+                                    ToolTip="Blueprints required for the 2nd star"
+                                    materialDesign:HintAssist.Hint="2nd Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="70" VerticalAlignment="Center"
+                                    Margin="20,0,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding ThirdStar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="20"
+                                    ToolTip="Blueprints required for the 3rd star"
+                                    materialDesign:HintAssist.Hint="3rd Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,0,0,7" Width="70" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding FourthStar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="21"
+                                    ToolTip="Blueprints required for the 4th star"
+                                    materialDesign:HintAssist.Hint="4th Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="70" VerticalAlignment="Center"
+                                    Margin="20,0,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding FifthStar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="22"
+                                    ToolTip="Blueprints required for the 5th star"
+                                    materialDesign:HintAssist.Hint="5th Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="70" VerticalAlignment="Center"
+                                    Margin="20,0,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding SixthStar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="23"
+                                    ToolTip="Blueprints required for the 6th star"
+                                    materialDesign:HintAssist.Hint="6th Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="70" VerticalAlignment="Center"
+                                    Margin="20,0,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+                    <!--Car Ranks-->
+
+                    <GroupBox Header="Star Ranks"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="84" HorizontalAlignment="Right" Width="570" Background="Transparent" Margin="0,425,0,0" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <TextBox
+                                    Text="{Binding StockRank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="24"
+                                    ToolTip="Car rank at stock"
+                                    materialDesign:HintAssist.Hint="Stock Rank"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="10,0,0,7" Width="60" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding FirstStarRank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="25"
+                                    ToolTip="Car rank at 1st Star"
+                                    materialDesign:HintAssist.Hint="1st Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,0,0,7" Width="60" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding SecondStarRank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="26"
+                                    ToolTip="Car rank at 2nd Star"
+                                    materialDesign:HintAssist.Hint="2nd Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="60" VerticalAlignment="Center"
+                                    Margin="20,0,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding ThirdStarRank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="27"
+                                    ToolTip="Car rank at 3rd Star"
+                                    materialDesign:HintAssist.Hint="3rd Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,0,0,7" Width="60" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding FourthStarRank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="28"
+                                    ToolTip="Car rank at 4th Star"
+                                    materialDesign:HintAssist.Hint="4th Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="60" VerticalAlignment="Center"
+                                    Margin="20,0,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding FifthStarRank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="29"
+                                    ToolTip="Car rank at 5th Star"
+                                    materialDesign:HintAssist.Hint="5th Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="60" VerticalAlignment="Center"
+                                    Margin="20,0,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding SixthStarRank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="30"
+                                    ToolTip="Car rank at 6th Star"
+                                    materialDesign:HintAssist.Hint="6th Star"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="60" VerticalAlignment="Center"
+                                    Margin="20,0,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+                    <!--Uncommon Parts-->
+
+                    <GroupBox Header="Uncommon Parts"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="84" HorizontalAlignment="Right" Width="570" Background="Transparent" Margin="0,530,0,0" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <TextBox
+                                    Text="{Binding UncommonCost, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="31"
+                                    ToolTip="Credit cost for a single part in uncommon parts."
+                                    materialDesign:HintAssist.Hint="Single Cost"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,0,0,7" Width="240" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <ComboBox
+                                    SelectedValue="{Binding Car.AdditionalParts.UncommonQuantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                                    TabIndex="32"
+                                    ToolTip="Total uncommon parts required for this car"
+                                    materialDesign:HintAssist.Hint="Quantities"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                    Margin="20,0,0,7"
+                                    Width="240"
+                                    VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center "
+                                    Foreground="{StaticResource ResourceKey=LightBrush}" FontFamily="{DynamicResource RajdhaniBold}" Cursor="Hand">
+                                        <ComboBox.ItemsSource>
+                                            <x:Array Type="{x:Type system:Int32}">
+                                                <sys:Int32>0</sys:Int32>
+                                                <sys:Int32>4</sys:Int32>
+                                                <sys:Int32>8</sys:Int32>
+                                                <sys:Int32>12</sys:Int32>
+                                                <sys:Int32>16</sys:Int32>
+                                                <sys:Int32>20</sys:Int32>
+                                                <sys:Int32>24</sys:Int32>
+                                                <sys:Int32>28</sys:Int32>
+                                                <sys:Int32>32</sys:Int32>
+                                                <sys:Int32>36</sys:Int32>
+                                                <sys:Int32>40</sys:Int32>
+                                            </x:Array>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+                    <!--Rare Parts-->
+
+                    <GroupBox Header="Rare Parts"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="84" HorizontalAlignment="Right" Width="570" Background="Transparent" Margin="0,625,0,0" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <TextBox
+                                    Text="{Binding RareCost, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="33"
+                                    ToolTip="Credit cost for a single part in rare parts."
+                                    materialDesign:HintAssist.Hint="Single Cost"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,0,0,7"  
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    HorizontalContentAlignment="Center" Width="240" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <ComboBox
+                                    SelectedValue="{Binding Car.AdditionalParts.RareQuantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                                    TabIndex="34"
+                                    ToolTip="Total rare parts required for this car"
+                                    materialDesign:HintAssist.Hint="Quantities"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                    Margin="20,0,0,7"
+                                    VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center "
+                                    Foreground="{StaticResource ResourceKey=LightBrush}" HorizontalAlignment="Right" Width="240" FontFamily="{DynamicResource RajdhaniBold}" Cursor="Hand">
+                                        <ComboBox.ItemsSource>
+                                            <x:Array Type="{x:Type system:Int32}">
+                                                <sys:Int32>0</sys:Int32>
+                                                <sys:Int32>4</sys:Int32>
+                                                <sys:Int32>8</sys:Int32>
+                                                <sys:Int32>12</sys:Int32>
+                                                <sys:Int32>16</sys:Int32>
+                                                <sys:Int32>20</sys:Int32>
+                                                <sys:Int32>24</sys:Int32>
+                                                <sys:Int32>28</sys:Int32>
+                                                <sys:Int32>32</sys:Int32>
+                                                <sys:Int32>36</sys:Int32>
+                                            </x:Array>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+                    <!--Epic Parts-->
+
+                    <GroupBox Header="Epic Parts"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="84" HorizontalAlignment="Right" Width="570" Background="Transparent" Margin="0,730,0,0" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <TextBox
+                                    Text="{Binding EpicCost, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    x:Name="EpicSingleCost"
+                                    
+                                    TabIndex="35"
+                                    ToolTip="Credit cost for a single part in epic parts."
+                                    materialDesign:HintAssist.Hint="Single Cost"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,0,0,7" Width="240" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <ComboBox
+                                    IsTextSearchEnabled="True"
+                                    SelectedValue="{Binding Car.AdditionalParts.EpicQuantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                                    TabIndex="36"
+                                    ToolTip="Total epic parts required for this car"
+                                    materialDesign:HintAssist.Hint="Quantities"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                    Margin="20,0,0,7"
+                                    Width="240"
+                                    VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center "
+                                    Foreground="{StaticResource ResourceKey=LightBrush}" FontFamily="{DynamicResource RajdhaniBold}" Cursor="Hand">
+                                        <ComboBox.ItemsSource>
+                                            <x:Array Type="{x:Type system:Int32}">
+                                                <sys:Int32>0</sys:Int32>
+                                                <sys:Int32>4</sys:Int32>
+                                                <sys:Int32>8</sys:Int32>
+                                                <sys:Int32>12</sys:Int32>
+                                                <sys:Int32>16</sys:Int32>
+                                                <sys:Int32>20</sys:Int32>
+                                                <sys:Int32>24</sys:Int32>
+                                            </x:Array>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+
+                    <!--Car Upgrades-->
+
+                    <GroupBox Header="Upgrades"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="274" HorizontalAlignment="Left" Width="769" Background="Transparent" Margin="0,425,0,0" RenderTransformOrigin="0.5,0.5" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+
+                            <StackPanel VerticalAlignment="Top">
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,20,0,0">
+                                    <TextBox
+                                    Text="{Binding Stage0, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="37"
+                                    ToolTip="Credits required for a single upgrade 1st stage"
+                                    materialDesign:HintAssist.Hint="Stage1"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    FontFamily="{StaticResource RajdhaniMedium}"
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,-10,0,7" Width="160" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center"/>
+                                    <TextBox
+
+                                    Text="{Binding Stage1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="38"
+                                    ToolTip="Credits required for a single upgrade 2nd stage"
+                                    materialDesign:HintAssist.Hint="Stage2"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="160" VerticalAlignment="Center"
+                                    Margin="20,-10,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding Stage2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="39"
+                                    ToolTip="Credits required for a single upgrade 3rd stage"
+                                    materialDesign:HintAssist.Hint="Stage3"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,-10,0,7" Width="160" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+
+                                    Text="{Binding Stage3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="40"
+                                    ToolTip="Credits required for a single upgrade 4th stage"
+                                    materialDesign:HintAssist.Hint="Stage4"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="160" VerticalAlignment="Center"
+                                    Margin="20,-10,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,20,0,0">
+                                    <TextBox
+                                    Text="{Binding Stage4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="41"
+                                    ToolTip="Credits required for a single upgrade 5th stage"
+                                    materialDesign:HintAssist.Hint="Stage5"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,-10,0,7" Width="160" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding Stage5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="42"
+                                    ToolTip="Credits required for a single upgrade 6th stage"
+                                    materialDesign:HintAssist.Hint="Stage6"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="160" VerticalAlignment="Center"
+                                    Margin="20,-10,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding Stage6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="43"
+                                    ToolTip="Credits required for a single upgrade 4th stage"
+                                    materialDesign:HintAssist.Hint="Stage7"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,-10,0,7" Width="160" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding Stage7, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="44"
+                                    ToolTip="Credits required for a single upgrade 4th stage"
+                                    materialDesign:HintAssist.Hint="Stage8"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="160" VerticalAlignment="Center"
+                                    Margin="20,-10,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,20,0,0">
+                                    <TextBox
+                                    Text="{Binding Stage8, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="45"
+                                    ToolTip="Credits required for a single upgrade 9th stage"
+                                    materialDesign:HintAssist.Hint="Stage9"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,-10,0,7" Width="160" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding Stage9, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="45"
+                                    ToolTip="Credits required for a single upgrade 10th stage"
+                                    materialDesign:HintAssist.Hint="Stage10"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="160" VerticalAlignment="Center"
+                                    Margin="20,-10,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding Stage10, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="46"
+                                    ToolTip="Credits required for a single upgrade 11th stage"
+                                    materialDesign:HintAssist.Hint="Stage11"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,-10,0,7" Width="160" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                    <TextBox
+                                    Text="{Binding Stage11, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="47"
+                                    ToolTip="Credits required for a single upgrade 12th stage"
+                                    materialDesign:HintAssist.Hint="Stage12"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Width="160" VerticalAlignment="Center"
+                                    Margin="20,-10,0,7" HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,20,0,0">
+                                    <TextBox
+                                    Text="{Binding Stage12, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                    TabIndex="45"
+                                    ToolTip="Credits required for a single upgrade 13th stage"
+                                    materialDesign:HintAssist.Hint="Stage13"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    Foreground="{StaticResource ResourceKey=LightBrush}"
+                                    Margin="20,-10,0,7" Width="160" VerticalAlignment="Center"
+                                    HorizontalContentAlignment="Center" FontFamily="{DynamicResource RajdhaniBold}"/>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+                    <!--Car Add-->
+
+                    <GroupBox Header="Add New Car"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                          BorderThickness="0"
+                          VerticalAlignment="Top" Height="111" HorizontalAlignment="Left" Width="769" Background="Transparent" Margin="0,725,0,0" RenderTransformOrigin="0.5,0.5" FontFamily="{DynamicResource RajdhaniBold}">
+
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+
+
+                                <Button  
+                                    ToolTip="{Binding Car.Error}"
+                             
+                                    FontSize="20" 
+                                    FontFamily="{DynamicResource RajdhaniSemiBold}" 
+                                    Height="60" 
+                                    Command="{Binding AddNewCarCommand}"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Left" Width="230"
+                                    >
+                                    <StackPanel
+                                        Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Margin="-16 -2 8 0"
+                                            Kind="AddCircleOutline"
+                                            Width="32"
+                                            Height="32"
+                                            VerticalAlignment="Center"
+                                            />
+                                        <TextBlock VerticalAlignment="Center">
+                                            Add New Car
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button  
+                                    ToolTip="Draft current written informations"
+                          
+                                    FontSize="20" 
+                                    FontFamily="{DynamicResource RajdhaniSemiBold}" 
+                                    Height="60" 
+                                    Command="{Binding DraftCommand}"
+                                    VerticalAlignment="Stretch" Width="230" HorizontalAlignment="Center" Margin="30,0"
+                                    >
+                                    <StackPanel
+                                        Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Margin="-16 -2 8 0"
+                                            Kind="EditOutline"
+                                            Width="32"
+                                            Height="32"
+                                            VerticalAlignment="Center"
+                                            />
+                                        <TextBlock VerticalAlignment="Center">
+                                            Draft Current
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Button>
+
+ <Button  
+                                    ToolTip="Draft current written informations"
+                          
+                                    FontSize="20" 
+                                    FontFamily="{DynamicResource RajdhaniSemiBold}" 
+                                    Height="60" 
+                                    Command="{Binding ClearDraft}"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Right" Width="230"
+                                    >
+                                    <StackPanel
+                                        Orientation="Horizontal">
+                                        <materialDesign:PackIcon
+                                            Margin="-16 -2 8 0"
+                                            Kind="DeleteEmptyOutline"
+                                            Width="32"
+                                            Height="32"
+                                            VerticalAlignment="Center"
+                                            />
+                                        <TextBlock VerticalAlignment="Center">
+                                            Clear Fields
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+
+                </Grid>
+
+
+            </ScrollViewer>
+        </materialDesign:DialogHost>
+
+    </Grid>
+</UserControl>

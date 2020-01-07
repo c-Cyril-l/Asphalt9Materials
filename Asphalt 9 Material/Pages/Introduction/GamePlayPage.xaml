@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Asphalt_9_Materials.UI.Pages.Introduction.GamePlayPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="650"
+             d:DesignWidth="1200">
+
+    <Grid>
+        <ScrollViewer CanContentScroll="True"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Visible">
+            <Grid ScrollViewer.CanContentScroll="True">
+                <StackPanel>
+                    
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        GamePlay.
+                    </Label>
+                    
+                    <TextBlock Margin="18, 5, 4, 4"
+                             VerticalAlignment="Stretch"                       
+                             FontFamily="Gorgia"
+                             FontSize="15"
+                               LineHeight="22"
+                             TextWrapping="WrapWithOverflow"
+                               Foreground="{StaticResource LightBrush}">
+                        The gameplay in Asphalt 9 is similar to <Bold>Asphalt 8: Airborne</Bold>, with noticeable differences in graphics and design. There were 48 cars featured in the game when soft-launched, but the worldwide release saw the introduction of four new cars, leading to 52 cars. There are currently 82 cars as of December 2019. Like its predecessor, each of the cars belongs to a class progressively featuring higher performance and rarity: <Bold>D, C, B, A, S</Bold>. The player starts with a car in the lowest class (Class D), the <Bold>Mitsubishi Lancer Evolution X</Bold>. All cars in the game now require "blueprints" to unlock and then subsequently "star up", with each of them having anywhere from 3 to 6 stars. For each new star, the car's performance capability is increased (at the cost of a lesser fuel tank quantity). Each car can also be customized with the new car editor feature. Upon unlocking a car, the player can choose from a few official stock colors. Once the car has been starred up at least once, the player can create custom paint job colors to the body, rims, and brake calipers for most models. Some models also allow for carbon parts on the hood, trunk, and wings. Several cars are also convertibles (they can be converted from closed roofs to open ones in game), like the <Bold>BMW Z4 LCI E89</Bold> and <Bold>McLaren 570S</Bold>. Introduced in the 2019 Summer Update, several cars like the <Bold>Mercedes-AMG GTS</Bold> could have special tyres, rims and changes to the bodywork added to the car. Also new to the series are "clubs", where up to 20 players can collaboratively score “reputation points” to achieve rewards. The more reputation points the club scores, the better rewards, ranging from credits to blueprints for cars.
+                        <LineBreak /><LineBreak />
+                        The game also features "nitro shockwave", returning from <Bold>Asphalt 6</Bold>: <Bold>Adrenaline</Bold> and <Bold>Asphalt 7: Heat</Bold>. When the player has a full nitro bar and taps twice on the Nitro button, a purple pulse is released from the vehicle while the car's speed increases. On mobile platforms, Asphalt 9 has three control schemes: Tilt to Steer, Tap to Steer, and the brand new "Touch Drive" in which the player selects routes and stunts by swiping left and right. On Windows 10 devices, Touch Drive and manual controls can be used with the keyboard; or with tilt to steer, if the device has a touchscreen and an accelerometer.
+                        <LineBreak /><LineBreak />
+                        In the game, there are three playing modes: Career, Multiplayer, and Events. In career mode, the player completes single-player "chapters" that each consist of several series of races focusing on a certain car class or manufacturer. In Multiplayer, the player competes against other online players in real time. In Events, the player participates in a daily or weekly competition to beat other players' times or earn other items.
+                        <LineBreak /><LineBreak />
+                        There are 3 race types in Asphalt 9. The "classic" race mode from previous games has returned alongside new races, "Time Attack" and "Hunted." In Time Attack, the vehicle has to cross the finish line before a timer runs out. In Hunted, the player must escape a police pursuit in a car chase without crashing or running out of time.
+                        <LineBreak /><LineBreak />
+                        The game features a number of race tracks set in new locations: <Bold Foreground="{StaticResource PrimaryHueMidBrush}">Cairo</Bold>, <Bold Foreground="{StaticResource PrimaryHueMidBrush}">Osaka</Bold>, the <Bold Foreground="{StaticResource PrimaryHueMidBrush}">Himalayas</Bold>, the <Bold Foreground="{StaticResource PrimaryHueMidBrush}">U.S. Midwest</Bold>, <Bold Foreground="{StaticResource PrimaryHueMidBrush}">Scotland</Bold>, and <Bold Foreground="{StaticResource PrimaryHueMidBrush}">Caribbean</Bold>. It also brings back three locations from previous games in the series: <Bold Foreground="{StaticResource PrimaryHueMidBrush}">San Francisco</Bold>, <Bold Foreground="{StaticResource PrimaryHueMidBrush}">Rome</Bold>, and <Bold Foreground="{StaticResource PrimaryHueMidBrush}">Shanghai</Bold>.
+                    </TextBlock>
+       
+              
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

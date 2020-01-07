@@ -1,0 +1,316 @@
+﻿<UserControl x:Class="Asphalt_9_Materials.UI.Pages.Introduction.IntroductionPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="650"
+             d:DesignWidth="1200">
+
+    <Grid>
+        <ScrollViewer CanContentScroll="True"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Visible">
+            <Grid ScrollViewer.CanContentScroll="True">
+                <StackPanel>
+                    
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Asphalt 9: Legends.
+                    </Label>
+                    
+                    <TextBox Margin="18, 5, 4, 4"
+                             VerticalAlignment="Stretch"
+                             AcceptsReturn="True"
+                             FontFamily="Gorgia"
+                             FontSize="17"
+                             Foreground="{StaticResource LightBrush}"
+                             IsReadOnly="True"
+                             SpellCheck.IsEnabled="True"
+                             TextWrapping="WrapWithOverflow">
+                        Asphalt 9: Legends is an arcade racing video game developed and published by Gameloft as part of the Asphalt series. It was released on February 26th, 2018 for iOS in the Philippines as a soft launch, and it was released worldwide on July 25th, 2018.
+                    </TextBox>
+         
+                    <Rectangle Margin="18,0,0,0"
+                               MinWidth="1024"
+                               Height="550">
+                    <Rectangle.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage DecodePixelHeight="550"
+                                             DecodePixelWidth="1024"
+                                             UriSource="/Assets/Asphalt9Legends.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+     
+                    <Border Margin="18, 10, 0, 0"
+                            BorderBrush="{StaticResource PrimaryHueDarkBrush}"
+                            BorderThickness="2 0 0 0">
+                        <StackPanel Margin="8 0 0 0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Developer(s) : " />
+                                <TextBlock Margin="10 0"
+                                           Foreground="{StaticResource LightBrush}"
+                                           Text="Gameloft Barcelona" />
+                            </StackPanel>
+                            <StackPanel Margin="0 10"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Publisher(s)  : " />
+                                <TextBlock Margin="11 0">
+                                    <Hyperlink Foreground="MediumSlateBlue"
+                                               NavigateUri="https://www.gameloft.com/">
+                                        Gameloft
+                                    </Hyperlink>
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Margin="0 0 0 5"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Series : " />
+                                <TextBlock Margin="45 0"
+                                           Foreground="{StaticResource LightBrush}"
+                                           Text="Asphalt" />
+                            </StackPanel>
+                            <StackPanel Margin="0 5"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Engine : " />
+                                <TextBlock Margin="40 0"
+                                           Foreground="{StaticResource LightBrush}"
+                                           Text="Jet Engine" />
+                            </StackPanel>
+                            <StackPanel Margin="0 5"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Platform(s) : " />
+                                <TextBlock Margin="17 0"
+                                           Foreground="{StaticResource LightBrush}"
+                                           Text="iOS, Android, Windows 10, Nintendo Switch" />
+                            </StackPanel>
+                            <StackPanel Margin="0 5"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Release Date : " />
+                                <StackPanel Margin="8 2">
+                                    <TextBlock FontWeight="Bold"
+                                               Foreground="{StaticResource PrimaryHueDarkBrush}"
+                                               Text="Soft launch" />
+                                    <TextBlock FontSize="10"
+                                               Foreground="{StaticResource LightBrush}"
+                                               Text="February 26, 2018" />
+                                    <TextBlock FontWeight="Bold"
+                                               Foreground="{StaticResource PrimaryHueDarkBrush}"
+                                               Text="Global launch" />
+                                    <TextBlock FontSize="10"
+                                               Foreground="{StaticResource LightBrush}"
+                                               Text="July 25, 2018" />
+                                    <TextBlock FontWeight="Bold"
+                                               Foreground="{StaticResource PrimaryHueDarkBrush}"
+                                               Text="Nintendo Switch" />
+                                    <TextBlock FontSize="10"
+                                               Foreground="{StaticResource LightBrush}"
+                                               Text="October 8, 2019" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Margin="0 5"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Genre : " />
+                                <TextBlock Margin="44 0"
+                                           Foreground="{StaticResource LightBrush}"
+                                           Text="Racing" />
+                            </StackPanel>
+                            <StackPanel Margin="0 5"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Price : " />
+                                <TextBlock Margin="50 0"
+                                           Foreground="{StaticResource LightBrush}"
+                                           Text="Free" />
+                            </StackPanel>
+                            <StackPanel Margin="0 5"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="IAP : "
+                                           ToolTip="In App Purchases ?" />
+                                <TextBlock Margin="59 0"
+                                           Foreground="{StaticResource LightBrush}"
+                                           Text="Yes" />
+                            </StackPanel>
+                            <StackPanel Margin="0 5"
+                                        Orientation="Horizontal">
+                                <TextBlock Foreground="{StaticResource LightBrush}"
+                                           Text="Mode : "
+                                           ToolTip="In App Purchases ?" />
+                                <TextBlock Margin="47 0"
+                                           Foreground="{StaticResource LightBrush}"
+                                           Text="Single Player, Online Multiplayer" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Label Margin="16,15,4,4"
+                           FontSize="32"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Description
+                    </Label>
+                    
+                    <TextBox Margin="18,4,4,4"
+                             AcceptsReturn="True"
+                             FontSize="14"
+                             Foreground="{StaticResource LightBrush}"
+                             SpellCheck.IsEnabled="True"
+                             TextWrapping="WrapWithOverflow">
+                        Take on the most fearless drivers and become the next Asphalt Legend in this brand new arcade racing experience. In Asphalt 9: Legends, players will be able to take the wheel of over 50 prestigious dream cars across the most amazing real world locations. Complete hundreds of events in the solo Career mode and face up to 8 players in real time in the multiplayer mode. You can even create your own Race Club and recruit players to compete as a team to be the best in the world!
+                    </TextBox>
+                    
+                    <Label Margin="16,15,4,4"
+                           FontSize="32"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Overview
+                    </Label>
+                    
+                    <TextBlock Margin="18,4,4,4"
+                               FontSize="14"
+                               Foreground="{StaticResource LightBrush}"
+                               TextWrapping="WrapWithOverflow">
+                        A CONSOLE EXPERIENCE IN THE PALMS OF YOUR HANDS
+                        Immerse yourself in this hyper-realistic arcade racing game, with meticulously detailed real cars, HDR techniques and stunning visual and particle effects that turn every race into a real blockbuster movie.
+                        <LineBreak />
+                        <LineBreak />
+                        <Italic>THE MOST PRESTIGIOUS CARS</Italic>
+                        <LineBreak />
+                        Collect over 50 of the world’s most amazing speed machines. Each vehicle has been carefully selected based on its aesthetics and high performance to create the most desirable line-up of any Asphalt game to date.
+                        <LineBreak />
+                        <LineBreak />
+                        <Italic>CUSTOMISATION AT YOUR FINGERTIPS</Italic>
+                        <LineBreak />
+                        Use the new car editor to define the exact colour and materials for your car. You can also pick the colour of the Rims and Brake Calipers and add carbon parts to fully customise your rides.
+                        <LineBreak />
+                        <LineBreak />
+                        <Italic>BREATHTAKING LOCATIONS</Italic>
+                        <LineBreak />
+                        Feel the thrill of gravity-defying races across 70 tracks in the most amazing real-world locations. Race around giant tornados in the American wilderness, avoid landslides in the Himalayas and hit the ramps to perform awesome stunts.
+                        <LineBreak />
+                        <LineBreak />
+                        <Italic>A BLAST OF ARCADE FUN</Italic>
+                        <LineBreak />
+                        Charge your nitro to unleash the ultimate Nitro Pulse and break the sound barrier. Double-tap on the brake to do a 360° at any time and take down your opponents in style.
+                        <LineBreak />
+                        <LineBreak />
+                        <Italic>BECOME A LEGEND</Italic>
+                        <LineBreak />
+                        Start your journey in Career mode by completing over 60 seasons and 800 races. Become a real Asphalt legend by racing against up to 8 players in real time through the different leagues of the World Series Multiplayer mode.
+                        <LineBreak />
+                        <LineBreak />
+                        <Italic>ULTIMATE RACING CONTROL</Italic>
+                        <LineBreak />
+                        Master the innovative TOUCH DRIVE, a new control scheme that streamlines steering to let players focus on the fun of racing. You can also switch to manual controls (tilt or tap to steer) and learn how to drive like a pro Asphalt racer.
+                        <LineBreak />
+                        <LineBreak />
+                        <Italic>STRENGTH IN NUMBERS</Italic>
+                        <LineBreak />
+                        For the first time in the Asphalt series, you can create your own community of like-minded racers with the Club feature. Collaborate with your Club members to unlock Milestone rewards and rise up the ranks of the Club leaderboard.
+                    </TextBlock>
+                    
+                    <Label Margin="16,15,4,4"
+                           FontSize="32"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Race Modes
+                    </Label>
+                    
+                    <TextBlock Margin="18,4,4,0"
+                               FontSize="14"
+                               Foreground="{StaticResource LightBrush}"
+                               TextWrapping="WrapWithOverflow">
+                        <Bold Foreground="{StaticResource PrimaryHueDarkBrush}">Classic</Bold>
+                        : In Classic mode, the goal is to win the race (come in 1st, 2nd or 3rd depending on the race's Goals).
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueDarkBrush}">Time Attack</Bold>
+                        : The race has a time limit. To win the race, the player has to cross the finish line before the timer runs out. A bit of time is added to the timer each time the player crosses a checkpoint, and time can also be gained by collecting green clocks around the track.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueDarkBrush}">Hunted</Bold>
+                        : The race has a time limit. To win the race, the player will have to escape in time or will be busted. To take down the cops, you can either Shockwave-knockdown them, land on them, or do a 360, as they are stronger than normal cars. For this race mode, the player has to successfully do stunts without hitting the cars at the end (not doing so will cause you to hit the cops' barricade) to win the race. Any wreck instantly results in disqualification. In future updates, the player will no longer get busted upon any wrecks (unless running out of time or hitting the barricades at the end of the track).
+                        <LineBreak />
+                        <LineBreak />
+                    </TextBlock>
+                    
+                    <Label Margin="16,0,4,4"
+                           FontSize="32"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Car Tuning
+                    </Label>
+                    
+                    <TextBlock Margin="18,4,4,4"
+                               FontSize="14"
+                               Foreground="{StaticResource LightBrush}"
+                               TextWrapping="WrapWithOverflow">
+                        "Tuning" a car is required to get your car to higher stats. This game encourages upgrading more than games such as Asphalt 8. You can star up cars to unlock more upgrades by collecting blueprints for the car. As you star up your car, the upgrades progressively increase in price.
+                        <LineBreak />
+                        <LineBreak />
+                        All cars in the game allow you to upgrade cars with blueprints called "Import parts." Every car has a base price for upgrading with these parts, and regardless of how many you have already used, they do not change price as you go on. The 3 different import parts are as follows:
+                        <LineBreak />
+                        <LineBreak />
+                        <materialDesign:Chip
+                              Content="Uncommon"
+                              IconBackground="#14BBE7"
+                              IconForeground="White">
+                              <materialDesign:Chip.Icon>
+                                <materialDesign:PackIcon
+                                  Kind="Cards"></materialDesign:PackIcon>
+                              </materialDesign:Chip.Icon>
+                            </materialDesign:Chip>
+                        <LineBreak />
+                        <materialDesign:Chip
+                            Margin="0 5"
+                              Content="Rare"
+                              IconBackground="#85359A"
+                              IconForeground="White">
+                              <materialDesign:Chip.Icon>
+                                <materialDesign:PackIcon
+                                  Kind="Cards"></materialDesign:PackIcon>
+                              </materialDesign:Chip.Icon>
+                            </materialDesign:Chip>
+
+                  
+                        <LineBreak />
+                                                <materialDesign:Chip
+                              Content="Epic"
+                              IconBackground="#FFD800"
+                              IconForeground="White">
+                              <materialDesign:Chip.Icon>
+                                <materialDesign:PackIcon
+                                  Kind="Cards"></materialDesign:PackIcon>
+                              </materialDesign:Chip.Icon>
+                            </materialDesign:Chip>
+
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="#14BBE7">Uncommon</Bold>
+                        : import parts are parts that are shared with every car in the game. You can use these parts to upgrade every classed car alike, so you can upgrade Class D or Class A cars with the same import card. These are generally the cheapest parts to upgrade with.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="#85359A">Rare</Bold>
+                        : import parts are parts that are class specific. There are still 4 different parts that you recieve, but they do vary between the different classes. Some parts are only used for Class C, while others are only used for Class B. Obviously, you cannot apply a rare import onto a car that isn’t in the respective class. These are a bit more expensive than the uncommon import parts.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="#FFD800">Epic</Bold>
+                        : import parts are the most expensive parts you upgrade with, most of them being at the Credits small a9 100,000 range, and they are car specific parts. Some cars in the game, especially cars that are high in their class, or are high in class (i.e. Lamborghini Centenario, Ford GT, Pininfarina H2 Speed, W Motors Lykan Hypersport, Porsche 918, etc.) are cars that commonly require these parts to level up. They are mostly found within specific packs, such as event packs, and are needed only when your car is high in stars.
+                        <LineBreak />
+                        <LineBreak />
+                    </TextBlock>
+                    
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,252 @@
+﻿<UserControl x:Class="Asphalt_9_Materials.UI.Pages.Introduction.HowToPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="2650"
+             d:DesignWidth="1200">
+
+    <Grid>
+        <ScrollViewer CanContentScroll="True"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Visible">
+            <Grid ScrollViewer.CanContentScroll="True">
+                <StackPanel>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Tokens.
+                    </Label>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - How To Get Tokens?
+                    </Label>
+                    <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">
+                        <Bold Foreground="Orange">1. Limited Time Events</Bold>
+                        <LineBreak />
+                        <Bold>
+                            <Italic>Limited Time Events</Italic>
+                        </Bold>
+                        Are Giving the most Tokens.
+                        <LineBreak />
+                        Every Week there is a Weekly Competition which gives 15 – 200 Tokens, depending on your Leaderboard Rank.
+                        <LineBreak />
+                        Check also other Daily Events which Races are currently offered. Some Daily Events gives alot of Tokens as Ranked Reward.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">2. Multiplayer</Bold>
+                        <LineBreak />
+                        Every End of a Multiplayer Season gives alot of Tokens. The higher your league at the end of a Multiplayer Season, the more Tokens you`ll receive.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">3. Career</Bold>
+                        <LineBreak />
+                        Once you unlocked the last race of a career season you can collect free Tokens.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">4. Club Milestones</Bold>
+                        <LineBreak />
+                        When all members of a Club earn enough Reputation Points you unlock Milestones which gives a nice amount of Tokens. If you are an active Player search a good Club so you gain more Rewards. If you wanna search a good Club check the Links here:
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">5. Car and Event Packs</Bold>
+                        <LineBreak />
+                        Every 4 Hours you can collect the Classic Free Pack and you can watch 4 Ads Packs every Day. It can contain Blueprints, Import Parts and Credits and Tokens. The amount of Tokens from this 2 Packs is depending on your Garage Level, for example: Classic Pack gives
+                        <Bold>20 Tokens</Bold>
+                        for Garage Level 8 and the Ads Pack gives
+                        <Bold>15 Tokens</Bold>
+                        .
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">6. Daily Goals</Bold>
+                        <LineBreak />
+                        There are different Goals which gives 5 Tokens. For Example upgrading a Car or playing 3 daily events etc. if you complete more goals you unlock the goal combo and get 15 extra tokens.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">7. Buy in Legend Store</Bold>
+                        <LineBreak />
+                        In this way you have to use real money to buy tokens.
+                    </TextBlock>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - How To Spend Tokens?
+                    </Label>
+                    <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">
+                        Best way to spend
+                        <Bold>Tokens</Bold>
+                        is to wait for a special event with the containing “Featured Car Packs”. This pack contain blueprints, which are only during the time of the event available. If you buy 1 Pack for 75 Tokens there is a 10% chance of getting the Featured Car Blueprints. If you buy 10 Packs you get guaranted “featured car blueprints” up to 15 from 1 Pack!
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Crimson">Warning :</Bold>
+                        Dont use Tokens to refill event tickets or car fuel, just watch ads to refill your Car.
+                    </TextBlock>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Credits.
+                    </Label>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - How To Get Credits?
+                    </Label>
+                    <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">
+                        <Bold Foreground="Orange">1. Limited Time Events</Bold>
+                        <LineBreak />
+                        Every 24 hours there are 3 Races :
+                        <LineBreak />
+                        <LineBreak />
+                        <materialDesign:Chip Margin="0 0 0 -10"
+                                             Content="Amateur Race"
+                                             Icon="A"
+                                             IconBackground="Orange" />
+                        (
+                        <Bold Foreground="Orange">50,000</Bold>
+                        Credits) with
+                        <Bold Foreground="CadetBlue">Class D</Bold>
+                        and
+                        <Bold Foreground="CadetBlue">Class C</Bold>
+                        Cars.
+                        <LineBreak />
+                        <LineBreak />
+                        <materialDesign:Chip Margin="0 0 0 -10"
+                                             Content="Advanced Race"
+                                             Icon="A"
+                                             IconBackground="Orange" />
+                        (
+                        <Bold Foreground="Orange">100,000</Bold>
+                        Credits) with
+                        <Bold Foreground="CadetBlue">Class B</Bold>
+                        and
+                        <Bold Foreground="CadetBlue">Class A</Bold>
+                        Cars.
+                        <LineBreak />
+                        <LineBreak />
+                        <materialDesign:Chip Margin="0 0 0 -10"
+                                             Content="Expert Race"
+                                             Icon="E"
+                                             IconBackground="Orange" />
+                        (
+                        <Bold Foreground="Orange">150,000</Bold>
+                        Credits) with
+                        <Bold Foreground="CadetBlue">Class S</Bold>
+                        Cars.
+                        <LineBreak />
+                        <LineBreak />
+                        Check also other Daily Events which Races are currently offered. Some Daily Events gives alot of Credits as Ranked Reward or after every Race. So if you have done all Daily Events and still have Event Tickets use them to farm Races.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">2. Multiplayer</Bold>
+                        <LineBreak />
+                        Multiplayer gives alot of Credits after every Race depending on your Position and Reputation Level. Also Multiplayer is more fun than Daily Events or Career. Farm Multiplayer to earn alot of Credits after every Race and to reach a higher League. The higher your rank at the end of a Multiplayer Season, the more Credits you`ll receive.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">3. Career</Bold>
+                        <LineBreak />
+                        Look for Race Goals in My Career seasons. You get extra Credits for every Season Flag you earn once. If you earn enough Season Flags you unlock more Races and extra Credits to collect. You can also farm the same Race which you are able to do over and over again. To see what Races gives the most Credits depending on your career progress and Route check the link below. Career race farm can easy done with touchdrive the relaxed way.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">4. Club Milestones</Bold>
+                        <LineBreak />
+                        When all members of a Club earn enough Reputation Points you unlock Milestones which gives a nice amount of Credits. If you are an active Player search a good Club so you gain more Rewards.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">5. Car and Event Packs</Bold>
+                        <LineBreak />
+                        Every 4 Hours you can collect the Classic Free Pack and you can watch 4 Ads Packs every Day. It can contain Blueprints, Import Parts and Credits. The amount of Credits from Car and Event Packs is depending on your Garage Level, for example: Classic Pack gives 50.000 Credits for Garage Level 8 and the Ads Pack gives 20.000 Credits. Most Event Packs can contain also Credits so just do all Daily Events which gives Packs as Reward.                                  
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">6. Exchange for Tokens</Bold>
+                        <LineBreak />
+                        Bad Practice (Not Recommended At All).
+        
+                    </TextBlock>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - How To Spend Credits?
+                    </Label>
+                    <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">
+                        Best way to spend
+                        <Bold>Credits</Bold>
+                        is spend them on upgrades of the cars, if you don't have millions of credits then its better to not spend them for buy blueprints in legend store.
+                    </TextBlock>
+                    
+                     <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Trade Coins.
+                    </Label>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - How To Get Trade Coins?
+                    </Label>
+                      <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">                        
+                        <Bold>Trade Coins</Bold>
+                        can be achieved via (converted maxed car blueprints 'automatically', selling Additional parts 'Uncommon, Rare, Epics', selling blueprints from unlocked cars 'not maxed').
+                    </TextBlock>
+                           <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - What Trade Coins get you?
+                    </Label>
+                     <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">                         
+                        You can buy (Blueprints, Uncommon parts, Rare Parts, Epic Parts) via trade coins in legend store.
+                    </TextBlock>
+                    <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow"> 
+                        <Bold Foreground="Red">Note</Bold>
+                         Never sell your epic parts if you don't maxed out (Fully Maxed) the car already.
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

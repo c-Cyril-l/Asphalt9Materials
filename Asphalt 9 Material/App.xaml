@@ -1,0 +1,31 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--  MaterialDesign Themes  -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/materialdesigncolor.indigo.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+
+                <!--  Custom DataGrid  -->
+                <ResourceDictionary Source="Styles/DataGrid.xaml" />
+                <!--  Custom ScrollBar  -->
+                <ResourceDictionary Source="Templates/ScrollBar.xaml" />
+                <!--  Icons  -->
+                <ResourceDictionary Source="Styles/Icons.xaml" />
+                <!--  Rajdhani Fonts (Which is used by GameLoft For Asphalt 9)  -->
+                <ResourceDictionary Source="Styles/Fonts.xaml" />
+                <!--  Custom Brushes  -->
+                <ResourceDictionary Source="Styles/Brushes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <ItemsPanelTemplate x:Key="ItemsPanelTemplate">
+                <VirtualizingStackPanel />
+            </ItemsPanelTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

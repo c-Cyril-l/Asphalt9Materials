@@ -1,0 +1,116 @@
+﻿<UserControl
+    x:Class="Asphalt_9_Materials.UI.Pages.About.CreditsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="650"
+    d:DesignWidth="1200"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer
+            CanContentScroll="True"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Visible">
+            <Grid ScrollViewer.CanContentScroll="True">
+                <StackPanel>
+                    <Label
+                        Margin="18,30,0,0"
+                        HorizontalAlignment="Left"
+                        FontSize="38"
+                        Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Credtis
+                    </Label>
+                    <TextBlock
+                        Margin="18,15,4,4"
+                        VerticalAlignment="Stretch"
+                        FontFamily="Gorgia"
+                        FontSize="18"
+                        Foreground="{StaticResource LightBrush}"
+                        LineHeight="22"
+                        TextWrapping="WrapWithOverflow">
+                        Credits And Special Thanks To:<LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">
+                            1.
+                            <TextBlock
+                                x:Name="A9InfoTb"
+                                Cursor="Hand"
+                                Foreground="Crimson"
+                                Tag="https://asphalt9.info/"
+                                Text="Asphal9.Info"
+                                ToolTip="Go To Asphalt9.Info">
+                                <TextBlock.InputBindings>
+                                    <MouseBinding
+                                        Command="{Binding OpenLinkCommand}"
+                                        CommandParameter="{Binding ElementName=A9InfoTb, Path=Tag}"
+                                        Gesture="LeftClick" />
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+                        </Bold>
+                        Most of the informations about the cars as well images and some information about tokens and credits... in Introduction section has been taken from this amazing website.<LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">
+                            2.
+                            <TextBlock
+                                x:Name="A9DexTb"
+                                Cursor="Hand"
+                                Foreground="Crimson"
+                                Tag="https://github.com/adnyey/A9Dex"
+                                Text="A9Dex"
+                                ToolTip="Go To A9Dex Githup Repository Page.">
+                                <TextBlock.InputBindings>
+                                    <MouseBinding
+                                        Command="{Binding OpenLinkCommand}"
+                                        CommandParameter="{Binding ElementName=A9DexTb, Path=Tag}"
+                                        Gesture="LeftClick" />
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+                        </Bold>
+                        Many of early informations of cars and... taken from the database that has been provided in A9Dex.<LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">
+                            3.
+                            <TextBlock
+                                x:Name="A9FandomTb"
+                                Cursor="Hand"
+                                Foreground="Crimson"
+                                Tag="https://asphalt.fandom.com/wiki/Asphalt_9:_Legends"
+                                Text="Asphalt.Fandom.com"
+                                ToolTip="Go To Asphalt.Fandom.Com">
+                                <TextBlock.InputBindings>
+                                    <MouseBinding
+                                        Command="{Binding OpenLinkCommand}"
+                                        CommandParameter="{Binding ElementName=A9FandomTb, Path=Tag}"
+                                        Gesture="LeftClick" />
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+                        </Bold>
+                        Some informations in Introduction section has been haken from Asphalt.Fandom.com website.<LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">
+                            3.
+                            <TextBlock
+                                x:Name="WikipediaTb"
+                                Cursor="Hand"
+                                Foreground="Crimson"
+                                Tag="https://en.wikipedia.org/wiki/Asphalt_9:_Legends"
+                                Text="Wikipedia.Com"
+                                ToolTip="Go To Asphalt9 Page In Wikipedia.">
+                                <TextBlock.InputBindings>
+                                    <MouseBinding
+                                        Command="{Binding OpenLinkCommand}"
+                                        CommandParameter="{Binding ElementName=WikipediaTb, Path=Tag}"
+                                        Gesture="LeftClick" />
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+                        </Bold>
+                        Some informations in Introduction section has been haken from wikipedia.</TextBlock>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

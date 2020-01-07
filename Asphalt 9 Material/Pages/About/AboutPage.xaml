@@ -1,0 +1,90 @@
+﻿<UserControl
+    x:Class="Asphalt_9_Materials.UI.Pages.About.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="650"
+    d:DesignWidth="1200"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer
+            CanContentScroll="True"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Visible">
+            <Grid ScrollViewer.CanContentScroll="True">
+                <StackPanel>
+                    <Label
+                        Margin="18,10,0,0"
+                        FontSize="38"
+                        Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        About
+                    </Label>
+                    <TextBlock
+                        Margin="18,5,4,4"
+                        VerticalAlignment="Stretch"
+                        FontFamily="Gorgia"
+                        FontSize="16"
+                        Foreground="{StaticResource LightBrush}"
+                        LineHeight="22"
+                        TextWrapping="WrapWithOverflow">
+                        Asphalt 9 Materials is unofficial and open source application to help Asphalt 9 users get informations about the cars and mostly everything about this game.<LineBreak />
+                        This Application currently is client side so that it needs versioning to keep it up to date, using this application enables users knowing mostly everything about this game of the available cars and stats as well as it gives some tips and tricks about how play the game and improve faster, it also enables users to add, update, delete the cars ofc this will be client side as long as the application currently client sided, if you the user wanted your changes be available in next version of the application you can let us know, another cool feature that this application has is you can compare the cars to each other as much as you want.<LineBreak />
+                        if you have any suggestions or critics you can let me know and I work on them due to the time I can spend on the development of this application.<LineBreak />
+
+                    </TextBlock>
+                    <Label
+                        Margin="18,10,0,0"
+                        FontSize="28"
+                        Foreground="{DynamicResource PrimaryHueLightBrush}">
+                        Contact
+                    </Label>
+                    <StackPanel Margin="18,15,0,0" Orientation="Horizontal">
+                        <Button
+                            Margin="10,0"
+                            Background="ForestGreen"
+                            BorderBrush="ForestGreen"
+                            Command="{Binding SendingMailCommand}"
+                            Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                            ToolTip="Sending An Email To The Author.">
+                            <materialDesign:PackIcon
+                                Width="24"
+                                Height="24"
+                                Kind="Email" />
+
+                        </Button>
+                        <Button
+                            Margin="10,0"
+                            Command="{Binding FacebookContactCommand}"
+                            Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                            ToolTip="Facebook Profile Of The Author.">
+                            <materialDesign:PackIcon
+                                Width="24"
+                                Height="24"
+                                Kind="Facebook" />
+                        </Button>
+                        <Button
+                            Margin="10,0"
+                            Background="#24292e"
+                            BorderBrush="#24292e"
+                            
+                            Command="{Binding GithubLinkCommand}"
+                            Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                            ToolTip="Project Page In Github.">
+                            <materialDesign:PackIcon
+                                Foreground="#f6f8fa"
+                                Width="28"
+                                Height="28"
+                                Kind="GithubFace" />
+                        </Button>
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

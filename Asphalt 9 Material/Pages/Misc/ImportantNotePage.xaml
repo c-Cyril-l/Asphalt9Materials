@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="Asphalt_9_Materials.UI.Pages.Misc.ImportantNotePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="2650"
+             d:DesignWidth="1200">
+
+    <Grid>
+        <ScrollViewer CanContentScroll="True"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Visible">
+            <Grid ScrollViewer.CanContentScroll="True">
+                <StackPanel>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Adding New Car(s).
+                    </Label>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - How To Add New Car(s)?
+                    </Label>
+                    <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">
+                        <Bold Foreground="OrangeRed">Required: Car Brand, Car Name, Car Class, Car Type, Car Release Date, Car Stars.</Bold>
+                        <LineBreak />
+                        When you add a new car the properties above are required at least, which means you can not add new car(s) without having every single property mentioned above.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="Orange">How to fill the fields ?!</Bold>
+                        <LineBreak />
+                        Fields in "
+                        <Bold>Add New Car</Bold>
+                        " page divided by some sections:
+                        <LineBreak /><LineBreak />
+                        <materialDesign:Chip Content="Informations Section"
+                                             Icon="A" Margin="0 -15 0 -13"/>                    
+                        contains mostly required properties for the new car:
+                        <LineBreak /><LineBreak />
+                        <Bold Foreground="Crimson">Car Brand: </Bold>
+                         must be at least 3 characters length and first letter must be in capital.
+                        <LineBreak />
+                        <Bold Foreground="Crimson">Car Name: </Bold>
+                         must contain at least 1 character and the first letter must be in capital.
+                        <LineBreak />
+                        <Bold Foreground="Crimson">Car Class, Car Type, Car Fuels: </Bold>
+                         you have options to choose(you dont need to write anything) that makes the job easier for you.
+                        <LineBreak />
+                        <Bold Foreground="Crimson">Release Date, Refill: </Bold>
+                         are a bit senstive, in first one its better to write like this "Update version - date of release", for the refill field if you write minutes you must choose the next option to minutes, if you write hours like 1 hour and 20 minutes write it like "1.20" or "1.2" then choose the next option to Hr(s).
+                        <LineBreak />
+                        <Bold Foreground="Crimson">Stars: </Bold>
+                         its like a rate system, choose how many stars the car have.
+                        <LineBreak />
+                        <Bold Foreground="Crimson">Image: </Bold>
+                        there is a button that lets you choose the car image from you PC.
+                        <LineBreak /><LineBreak />
+                        <materialDesign:Chip Content="Performance Section"
+                                             Icon="A" Margin="0 -15 0 -13"/> 
+                        write with points like 76.64, if you don't have any informations about the peformance of the new car then leave this section empty.
+                        <LineBreak /><LineBreak />
+                        <materialDesign:Chip Content="Blueprints, Ranks Sections"
+                                             Icon="A" Margin="0 -15 0 -13"/>
+                        if you have the informations then fill them according to what you have (you don't need to fill every single field of these two sections just as <LineBreak /><LineBreak />much as you have). 
+                        <LineBreak /><LineBreak />
+                        <materialDesign:Chip Content="Upgrades Section"
+                                             Icon="A" Margin="0 -15 0 -13"/>
+                         fill them as much as you have if you don't then leave the field or fields empty, these fields doesn't support dots or points you have to write real<LineBreak /><LineBreak /> numbers like 45000.
+                        <LineBreak /><LineBreak />
+                        <materialDesign:Chip Content="Additional Parts"
+                                             Icon="A" Margin="0 -15 0 -13"/>
+                        you have to write real numbers (no points or dots) every cost field in Additional Parts Section is for a single part like most of B class cars are required 8 
+                        <LineBreak /><LineBreak />epics which 2 for each top speed, handling, acceleration, nitro, the cost field is for 1 epic of those 8                         
+                        epics, so that if you add a car that required total 8 epics you write the cost for 1/8 of those epics.
+                        <LineBreak />
+                  <Bold Foreground="Red">Note</Bold>
+                        <LineBreak />
+                        if you still don't have a clue about how to fill the fields then hover the mouse to any field and it will tell you enough info about it.
+                        <LineBreak />
+                        <Bold Foreground="Red">Note</Bold>
+                        <LineBreak />
+                        For the car image I recommend you to download the car image for the car you're adding from the <Hyperlink NavigateUri="Asphalt9.Info" TextDecorations="None">Asphalt9.Info</Hyperlink> website
+           
+                    
+                     
+                    </TextBlock>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Update Car(s).
+                    </Label>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - How To Update Car(s)?
+                    </Label>
+                    <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow" Height="90">
+                        <Bold Foreground="OrangeRed">Required: Car Brand, Car Name, Car Class, Car Type, Car Release Date, Car Stars.</Bold>
+                        <LineBreak />
+                        For Updating a car, choose the car you want to update from "Car To Update" section (Every Available Car Located There).
+                        When you update a car the properties above are required, which means you can not leave them empty, for other fields you can fill them as much as you know about the car, like for performance section if you only know the top speed at max then just fill that field and leave other max fields empty.
+                        <LineBreak />
+                        <LineBreak />
+                      
+                    </TextBlock>
+                    
+                            <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Deleting Car(s).
+                    </Label>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="24"
+                           Foreground="DarkOrchid">
+                        - How To Delete Car(s)?
+                    </Label>
+                    <TextBlock Margin="18, 15, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">
+                        
+                        For Deleting a car, choose the car you want to delete from "Car To Delete" section (Every Available Car Located There), then you see the car informations bellow, after you decided about the deletion hit "Delete Car" from "Delete" section in top right corner, a message pops up to make you sure if you really want to delete the car if you want to delete choose "Yes" then the car will deleted.
+                               
+                                      
+                    </TextBlock>
+                  
+                   
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

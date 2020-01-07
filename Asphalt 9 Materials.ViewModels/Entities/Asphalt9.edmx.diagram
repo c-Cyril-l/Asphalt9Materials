@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="47001cb425e741afb64d55b8db275819" Name="Diagram1">
+        <EntityTypeShape EntityType="Asphalt9Model.Blueprint" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.Career" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.EpicPart" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.Grande" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.MaxDetail" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.RarePart" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.RouteTrack" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.StarRank" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.StockDetail" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.UncommonPart" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Asphalt9Model.Upgrade" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <AssociationConnector Association="Asphalt9Model.FK_Blueprints_Grande" ManuallyRouted="false" />
+        <AssociationConnector Association="Asphalt9Model.FK_EpicParts_Grande" ManuallyRouted="false" />
+        <AssociationConnector Association="Asphalt9Model.FK_MaxDetails_Grande" ManuallyRouted="false" />
+        <AssociationConnector Association="Asphalt9Model.FK_RareParts_Grande" ManuallyRouted="false" />
+        <AssociationConnector Association="Asphalt9Model.FK_StarRanks_Grande" ManuallyRouted="false" />
+        <AssociationConnector Association="Asphalt9Model.FK_StockDetails_Grande" ManuallyRouted="false" />
+        <AssociationConnector Association="Asphalt9Model.FK_UncommonParts_Grande" ManuallyRouted="false" />
+        <AssociationConnector Association="Asphalt9Model.FK_Upgrades_Grande" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

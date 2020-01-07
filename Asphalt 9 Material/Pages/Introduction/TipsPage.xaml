@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="Asphalt_9_Materials.UI.Pages.Introduction.TipsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="650"
+             d:DesignWidth="1200">
+
+    <Grid>
+        <ScrollViewer CanContentScroll="True"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Visible">
+            <Grid ScrollViewer.CanContentScroll="True">
+                <StackPanel>
+                    <Label Margin="18, 10, 0, 0"
+                           FontSize="38"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}">
+                        Tips And Tricks.
+                    </Label>
+                    <TextBlock Margin="18, 20, 4, 4"
+                               VerticalAlignment="Stretch"
+                               FontFamily="Gorgia"
+                               FontSize="15"
+                               Foreground="{StaticResource LightBrush}"
+                               LineHeight="22"
+                               TextWrapping="WrapWithOverflow">
+                        Here are some tips and tricks that help you improve.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">1.</Bold >
+                        Don't waste your credits, upgrade cars only when its necessary.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">2.</Bold>
+                        Save your tokens especially for special events and the other events that you need or want the featured car(s) so badly.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">3.</Bold>
+                        Don't waste your tokens on refilling the cars or buying legend store blueprints.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">4.</Bold>
+                        Use the type of nitros correctly :
+                        <LineBreak />
+                        <LineBreak />
+                        <materialDesign:Chip Content="One Tap Nitro" Margin="0 -10 0 -10"
+                                             IconBackground="Orange"
+                                             IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                             Icon="Y"/> <Bold Foreground="Orange"> One Tap Tap Nitro Or Yellow Nitro</Bold>
+                        use this kind of nitro when you're on the high speed, this helps you maintain speed as well as staying at high speed.
+                                             
+                        <LineBreak />
+                        <LineBreak />
+                        <materialDesign:Chip Content="Double Tap Nitro" Margin="0 -10 0 -10"
+                                             IconBackground="DarkOrange"
+                                             IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                             Icon="O"/> <Bold Foreground="DarkOrange"> Double Tap Nitro Or Orange Nitro</Bold>
+                        use this kind of nitro when you want to go to the highest speed as well as in barells.
+                           <LineBreak />
+                        <LineBreak />
+                        <materialDesign:Chip Content="Perfect Nitro" Margin="0 -10 0 -10"
+                                             IconBackground="DodgerBlue"
+                                             IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                             Icon="P"/> <Bold Foreground="DodgerBlue"> Perfect Nitro Or Blue Nitro</Bold>
+                        use this kind of nitro when you go for the corners, it helps you lose less speed.
+                           <LineBreak />
+                        <LineBreak />
+                        <materialDesign:Chip Content="Shockwave" Margin="0 -10 0 -10"
+                                             IconBackground="MediumPurple"
+                                             IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                             Icon="S"/> <Bold Foreground="MediumPurple"> Shockwave Or Purple Nitro</Bold>
+                        use this kind of nitro when you want to go to the highest speed as soon as possible also in barells and when you want to wreck opponents.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">5.</Bold>
+                        Learn when to drift and how long to hold it.
+                        <LineBreak />
+                        <LineBreak />
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">6.</Bold>
+                        Try to learn the best routes so that you can win races better than before and make better timings.
+                        <LineBreak />
+                        <LineBreak />
+                          <Bold Foreground="{StaticResource PrimaryHueMidBrush}">7.</Bold>
+                        Try to learn Manual instead of Touch Drive, you will do better timing and go for best routes with manual.
+                        <LineBreak />
+                        <LineBreak />
+                          <Bold Foreground="{StaticResource PrimaryHueMidBrush}">8.</Bold>
+                        Don't use 360 spining on the ground it costs you lose a lot of speed also if you use this against your Multiplayer opponents you get called "Dirty Player".
+                        <LineBreak />
+                        <LineBreak />
+                                    <Bold Foreground="{StaticResource PrimaryHueMidBrush}">9.</Bold>
+                        Don't get triggered when you get wrecked by other players, they have the same feelling when you wreck them too, at the end it meant to be for fun not getting angry or cursing others.
+                        <LineBreak />
+                        <LineBreak />
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+            <FontFamily x:Key="RajdhaniBold">/Fonts/Rajdhani-Bold.ttf#Rajdhani</FontFamily>
+            <FontFamily x:Key="RajdhaniLight">/Fonts/Rajdhani-Light.ttf#Rajdhani</FontFamily>
+            <FontFamily x:Key="RajdhaniMedium">/Fonts/Rajdhani-Medium.ttf#Rajdhani</FontFamily>
+            <FontFamily x:Key="RajdhaniRegular">/Fonts/Rajdhani-Regular.ttf#Rajdhani</FontFamily>
+            <FontFamily x:Key="RajdhaniSemiBold">/Fonts/Rajdhani-SemiBold.ttf#Rajdhani</FontFamily>
+    
+</ResourceDictionary>

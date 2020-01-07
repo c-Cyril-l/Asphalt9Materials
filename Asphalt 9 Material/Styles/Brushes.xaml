@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ice="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    >
+        
+    <SolidColorBrush ice:Freeze="True" x:Key="DarkBrush" Color="#F4191B23" />
+    <SolidColorBrush ice:Freeze="True" x:Key="DarkerBrush" Color="#F41C1E26" />
+    <SolidColorBrush ice:Freeze="True" x:Key="NavBrush" Color="#F21C1E26" />
+    <SolidColorBrush ice:Freeze="True" x:Key="LightBrush" Color="#DCBBBBBB" />
+    <SolidColorBrush ice:Freeze="True" x:Key="SeparatorBrush" Color="#E313151A" />
+    
+</ResourceDictionary>

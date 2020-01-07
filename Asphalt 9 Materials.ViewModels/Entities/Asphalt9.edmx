@@ -1,0 +1,1073 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Asphalt9Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blueprints">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="FirstStarBP" Type="int" />
+          <Property Name="SecondStarBP" Type="int" />
+          <Property Name="ThirdStarBP" Type="int" />
+          <Property Name="FourthStarBP" Type="int" />
+          <Property Name="FifthStarBP" Type="int" />
+          <Property Name="SixthStarBP" Type="int" />
+          <Property Name="TotalBP" Type="int" />
+        </EntityType>
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Chapter" Type="int" Nullable="false" />
+          <Property Name="Season" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Race" Type="int" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Mode" Type="nvarchar(max)" />
+          <Property Name="Track" Type="nvarchar(max)" />
+          <Property Name="Time" Type="nchar" MaxLength="10" />
+          <Property Name="Credits" Type="int" />
+          <Property Name="Reputation" Type="int" />
+        </EntityType>
+        <EntityType Name="EpicParts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Cost" Type="int" />
+          <Property Name="TotalCost" Type="int" />
+        </EntityType>
+        <EntityType Name="Grande">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand" Type="varchar(max)" />
+          <Property Name="CarName" Type="varchar(max)" />
+          <Property Name="CarClass" Type="varchar(max)" />
+          <Property Name="Stars" Type="int" />
+          <Property Name="CarImage" Type="varchar(max)" />
+          <Property Name="Refill" Type="float" />
+          <Property Name="Fuel" Type="int" />
+          <Property Name="CarType" Type="varchar" MaxLength="50" />
+          <Property Name="ReleaseDate" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="MaxDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="TopSpeed" Type="float" />
+          <Property Name="Acceleration" Type="float" />
+          <Property Name="Handling" Type="float" />
+          <Property Name="Nitro" Type="float" />
+        </EntityType>
+        <EntityType Name="RareParts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Cost" Type="int" />
+          <Property Name="TotalCost" Type="int" />
+        </EntityType>
+        <EntityType Name="RouteTracks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="varchar(max)" />
+          <Property Name="Track" Type="varchar(max)" />
+          <Property Name="duration" Type="int" />
+          <Property Name="video" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="StarRanks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="StockStarRank" Type="int" />
+          <Property Name="FirstStarRank" Type="int" />
+          <Property Name="SecondStarRank" Type="int" />
+          <Property Name="ThirdStarRank" Type="int" />
+          <Property Name="FourthStarRank" Type="int" />
+          <Property Name="FifthStarRank" Type="int" />
+          <Property Name="SixthStarRank" Type="int" />
+          <Property Name="Max" Type="int" />
+        </EntityType>
+        <EntityType Name="StockDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="TopSpeed" Type="float" />
+          <Property Name="Acceleration" Type="float" />
+          <Property Name="Handling" Type="float" />
+          <Property Name="Nitro" Type="float" />
+        </EntityType>
+        <EntityType Name="UncommonParts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Cost" Type="int" />
+          <Property Name="TotalCost" Type="int" />
+        </EntityType>
+        <EntityType Name="Upgrades">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Stage1" Type="int" />
+          <Property Name="Stage2" Type="int" />
+          <Property Name="Stage3" Type="int" />
+          <Property Name="Stage4" Type="int" />
+          <Property Name="Stage5" Type="int" />
+          <Property Name="Stage6" Type="int" />
+          <Property Name="Stage7" Type="int" />
+          <Property Name="Stage8" Type="int" />
+          <Property Name="Stage9" Type="int" />
+          <Property Name="Stage10" Type="int" />
+          <Property Name="Stage11" Type="int" />
+          <Property Name="Stage12" Type="int" />
+          <Property Name="Stage13" Type="int" />
+          <Property Name="Total" Type="int" />
+        </EntityType>
+        <Association Name="FK_Blueprints_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Blueprints" Type="Self.Blueprints" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Blueprints">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EpicParts_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EpicParts" Type="Self.EpicParts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EpicParts">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaxDetails_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MaxDetails" Type="Self.MaxDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MaxDetails">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RareParts_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RareParts" Type="Self.RareParts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RareParts">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StarRanks_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StarRanks" Type="Self.StarRanks" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StarRanks">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockDetails_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StockDetails" Type="Self.StockDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StockDetails">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UncommonParts_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UncommonParts" Type="Self.UncommonParts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UncommonParts">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Upgrades_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Upgrades" Type="Self.Upgrades" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Upgrades">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="carname" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="AddCars" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="class" Type="varchar(max)" Mode="In" />
+          <Parameter Name="isClass" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="AddChapters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="chapter" Type="int" Mode="In" />
+          <Parameter Name="isChapter" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="Asphalt9ModelStoreContainer">
+          <EntitySet Name="Blueprints" EntityType="Self.Blueprints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Career" EntityType="Self.Career" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EpicParts" EntityType="Self.EpicParts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grande" EntityType="Self.Grande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaxDetails" EntityType="Self.MaxDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RareParts" EntityType="Self.RareParts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RouteTracks" EntityType="Self.RouteTracks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StarRanks" EntityType="Self.StarRanks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockDetails" EntityType="Self.StockDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UncommonParts" EntityType="Self.UncommonParts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Upgrades" EntityType="Self.Upgrades" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Blueprints_Grande" Association="Self.FK_Blueprints_Grande">
+            <End Role="Grande" EntitySet="Grande" />
+            <End Role="Blueprints" EntitySet="Blueprints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EpicParts_Grande" Association="Self.FK_EpicParts_Grande">
+            <End Role="Grande" EntitySet="Grande" />
+            <End Role="EpicParts" EntitySet="EpicParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaxDetails_Grande" Association="Self.FK_MaxDetails_Grande">
+            <End Role="Grande" EntitySet="Grande" />
+            <End Role="MaxDetails" EntitySet="MaxDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RareParts_Grande" Association="Self.FK_RareParts_Grande">
+            <End Role="Grande" EntitySet="Grande" />
+            <End Role="RareParts" EntitySet="RareParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StarRanks_Grande" Association="Self.FK_StarRanks_Grande">
+            <End Role="Grande" EntitySet="Grande" />
+            <End Role="StarRanks" EntitySet="StarRanks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockDetails_Grande" Association="Self.FK_StockDetails_Grande">
+            <End Role="Grande" EntitySet="Grande" />
+            <End Role="StockDetails" EntitySet="StockDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UncommonParts_Grande" Association="Self.FK_UncommonParts_Grande">
+            <End Role="Grande" EntitySet="Grande" />
+            <End Role="UncommonParts" EntitySet="UncommonParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Upgrades_Grande" Association="Self.FK_Upgrades_Grande">
+            <End Role="Grande" EntitySet="Grande" />
+            <End Role="Upgrades" EntitySet="Upgrades" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Asphalt9Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Blueprint">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="FirstStarBP" Type="Int32" />
+          <Property Name="SecondStarBP" Type="Int32" />
+          <Property Name="ThirdStarBP" Type="Int32" />
+          <Property Name="FourthStarBP" Type="Int32" />
+          <Property Name="FifthStarBP" Type="Int32" />
+          <Property Name="SixthStarBP" Type="Int32" />
+          <Property Name="TotalBP" Type="Int32" />
+          <NavigationProperty Name="Grande" Relationship="Self.FK_Blueprints_Grande" FromRole="Blueprints" ToRole="Grande" />
+        </EntityType>
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Chapter" Type="Int32" Nullable="false" />
+          <Property Name="Season" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Race" Type="Int32" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Mode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Track" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Credits" Type="Int32" />
+          <Property Name="Reputation" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EpicPart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Cost" Type="Int32" />
+          <Property Name="TotalCost" Type="Int32" />
+          <NavigationProperty Name="Grande" Relationship="Self.FK_EpicParts_Grande" FromRole="EpicParts" ToRole="Grande" />
+        </EntityType>
+        <EntityType Name="Grande">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CarName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CarClass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Stars" Type="Int32" />
+          <Property Name="CarImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Refill" Type="Double" />
+          <Property Name="Fuel" Type="Int32" />
+          <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReleaseDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Blueprint" Relationship="Self.FK_Blueprints_Grande" FromRole="Grande" ToRole="Blueprints" />
+          <NavigationProperty Name="EpicPart" Relationship="Self.FK_EpicParts_Grande" FromRole="Grande" ToRole="EpicParts" />
+          <NavigationProperty Name="MaxDetail" Relationship="Self.FK_MaxDetails_Grande" FromRole="Grande" ToRole="MaxDetails" />
+          <NavigationProperty Name="RarePart" Relationship="Self.FK_RareParts_Grande" FromRole="Grande" ToRole="RareParts" />
+          <NavigationProperty Name="StarRank" Relationship="Self.FK_StarRanks_Grande" FromRole="Grande" ToRole="StarRanks" />
+          <NavigationProperty Name="StockDetail" Relationship="Self.FK_StockDetails_Grande" FromRole="Grande" ToRole="StockDetails" />
+          <NavigationProperty Name="UncommonPart" Relationship="Self.FK_UncommonParts_Grande" FromRole="Grande" ToRole="UncommonParts" />
+          <NavigationProperty Name="Upgrade" Relationship="Self.FK_Upgrades_Grande" FromRole="Grande" ToRole="Upgrades" />
+        </EntityType>
+        <EntityType Name="MaxDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="TopSpeed" Type="Double" />
+          <Property Name="Acceleration" Type="Double" />
+          <Property Name="Handling" Type="Double" />
+          <Property Name="Nitro" Type="Double" />
+          <NavigationProperty Name="Grande" Relationship="Self.FK_MaxDetails_Grande" FromRole="MaxDetails" ToRole="Grande" />
+        </EntityType>
+        <EntityType Name="RarePart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Cost" Type="Int32" />
+          <Property Name="TotalCost" Type="Int32" />
+          <NavigationProperty Name="Grande" Relationship="Self.FK_RareParts_Grande" FromRole="RareParts" ToRole="Grande" />
+        </EntityType>
+        <EntityType Name="RouteTrack">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Track" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="duration" Type="Int32" />
+          <Property Name="video" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StarRank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="StockStarRank" Type="Int32" />
+          <Property Name="FirstStarRank" Type="Int32" />
+          <Property Name="SecondStarRank" Type="Int32" />
+          <Property Name="ThirdStarRank" Type="Int32" />
+          <Property Name="FourthStarRank" Type="Int32" />
+          <Property Name="FifthStarRank" Type="Int32" />
+          <Property Name="SixthStarRank" Type="Int32" />
+          <Property Name="Max" Type="Int32" />
+          <NavigationProperty Name="Grande" Relationship="Self.FK_StarRanks_Grande" FromRole="StarRanks" ToRole="Grande" />
+        </EntityType>
+        <EntityType Name="StockDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="TopSpeed" Type="Double" />
+          <Property Name="Acceleration" Type="Double" />
+          <Property Name="Handling" Type="Double" />
+          <Property Name="Nitro" Type="Double" />
+          <NavigationProperty Name="Grande" Relationship="Self.FK_StockDetails_Grande" FromRole="StockDetails" ToRole="Grande" />
+        </EntityType>
+        <EntityType Name="UncommonPart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Cost" Type="Int32" />
+          <Property Name="TotalCost" Type="Int32" />
+          <NavigationProperty Name="Grande" Relationship="Self.FK_UncommonParts_Grande" FromRole="UncommonParts" ToRole="Grande" />
+        </EntityType>
+        <EntityType Name="Upgrade">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Stage1" Type="Int32" />
+          <Property Name="Stage2" Type="Int32" />
+          <Property Name="Stage3" Type="Int32" />
+          <Property Name="Stage4" Type="Int32" />
+          <Property Name="Stage5" Type="Int32" />
+          <Property Name="Stage6" Type="Int32" />
+          <Property Name="Stage7" Type="Int32" />
+          <Property Name="Stage8" Type="Int32" />
+          <Property Name="Stage9" Type="Int32" />
+          <Property Name="Stage10" Type="Int32" />
+          <Property Name="Stage11" Type="Int32" />
+          <Property Name="Stage12" Type="Int32" />
+          <Property Name="Stage13" Type="Int32" />
+          <Property Name="Total" Type="Int32" />
+          <NavigationProperty Name="Grande" Relationship="Self.FK_Upgrades_Grande" FromRole="Upgrades" ToRole="Grande" />
+        </EntityType>
+        <Association Name="FK_Blueprints_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Blueprints" Type="Self.Blueprint" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Blueprints">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EpicParts_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EpicParts" Type="Self.EpicPart" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EpicParts">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaxDetails_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MaxDetails" Type="Self.MaxDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MaxDetails">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RareParts_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RareParts" Type="Self.RarePart" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RareParts">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StarRanks_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StarRanks" Type="Self.StarRank" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StarRanks">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockDetails_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StockDetails" Type="Self.StockDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StockDetails">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UncommonParts_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UncommonParts" Type="Self.UncommonPart" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UncommonParts">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Upgrades_Grande">
+          <End Role="Grande" Type="Self.Grande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Upgrades" Type="Self.Upgrade" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grande">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Upgrades">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Asphalt9Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blueprints" EntityType="Self.Blueprint" />
+          <EntitySet Name="Careers" EntityType="Self.Career" />
+          <EntitySet Name="EpicParts" EntityType="Self.EpicPart" />
+          <EntitySet Name="Grandes" EntityType="Self.Grande" />
+          <EntitySet Name="MaxDetails" EntityType="Self.MaxDetail" />
+          <EntitySet Name="RareParts" EntityType="Self.RarePart" />
+          <EntitySet Name="RouteTracks" EntityType="Self.RouteTrack" />
+          <EntitySet Name="StarRanks" EntityType="Self.StarRank" />
+          <EntitySet Name="StockDetails" EntityType="Self.StockDetail" />
+          <EntitySet Name="UncommonParts" EntityType="Self.UncommonPart" />
+          <EntitySet Name="Upgrades" EntityType="Self.Upgrade" />
+          <AssociationSet Name="FK_Blueprints_Grande" Association="Self.FK_Blueprints_Grande">
+            <End Role="Grande" EntitySet="Grandes" />
+            <End Role="Blueprints" EntitySet="Blueprints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EpicParts_Grande" Association="Self.FK_EpicParts_Grande">
+            <End Role="Grande" EntitySet="Grandes" />
+            <End Role="EpicParts" EntitySet="EpicParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaxDetails_Grande" Association="Self.FK_MaxDetails_Grande">
+            <End Role="Grande" EntitySet="Grandes" />
+            <End Role="MaxDetails" EntitySet="MaxDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RareParts_Grande" Association="Self.FK_RareParts_Grande">
+            <End Role="Grande" EntitySet="Grandes" />
+            <End Role="RareParts" EntitySet="RareParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StarRanks_Grande" Association="Self.FK_StarRanks_Grande">
+            <End Role="Grande" EntitySet="Grandes" />
+            <End Role="StarRanks" EntitySet="StarRanks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockDetails_Grande" Association="Self.FK_StockDetails_Grande">
+            <End Role="Grande" EntitySet="Grandes" />
+            <End Role="StockDetails" EntitySet="StockDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UncommonParts_Grande" Association="Self.FK_UncommonParts_Grande">
+            <End Role="Grande" EntitySet="Grandes" />
+            <End Role="UncommonParts" EntitySet="UncommonParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Upgrades_Grande" Association="Self.FK_Upgrades_Grande">
+            <End Role="Grande" EntitySet="Grandes" />
+            <End Role="Upgrades" EntitySet="Upgrades" />
+          </AssociationSet>
+          <FunctionImport Name="AddCar" ReturnType="Collection(Asphalt9Model.AddCar_Result)">
+            <Parameter Name="carname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddCars" ReturnType="Collection(Asphalt9Model.AddCars_Result)">
+            <Parameter Name="class" Mode="In" Type="String" />
+            <Parameter Name="isClass" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="AddChapters" ReturnType="Collection(Asphalt9Model.AddChapters_Result)">
+            <Parameter Name="chapter" Mode="In" Type="Int32" />
+            <Parameter Name="isChapter" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="AddCar_Result">
+          <Property Type="String" Name="CarBrand" Nullable="true" />
+          <Property Type="String" Name="CarName" Nullable="true" />
+          <Property Type="String" Name="FullName" Nullable="false" />
+          <Property Type="Int32" Name="Stars" Nullable="true" />
+          <Property Type="String" Name="Image" Nullable="true" />
+          <Property Type="Double" Name="Refill" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Fuel" Nullable="true" />
+          <Property Type="String" Name="ReleaseDate" Nullable="true" />
+          <Property Type="String" Name="CarClass" Nullable="true" />
+          <Property Type="Double" Name="MaxSpeed" Nullable="true" />
+          <Property Type="Double" Name="MaxAcceleration" Nullable="true" />
+          <Property Type="Double" Name="MaxHandling" Nullable="true" />
+          <Property Type="Double" Name="MaxNitro" Nullable="true" />
+          <Property Type="Double" Name="StockSpeed" Nullable="true" />
+          <Property Type="Double" Name="StockAcceleration" Nullable="true" />
+          <Property Type="Double" Name="StockHandling" Nullable="true" />
+          <Property Type="Double" Name="StockNitro" Nullable="true" />
+          <Property Type="Int32" Name="FirstStarBP" Nullable="true" />
+          <Property Type="Int32" Name="SecondStarBP" Nullable="true" />
+          <Property Type="Int32" Name="ThirdStarBP" Nullable="true" />
+          <Property Type="Int32" Name="FourthStarBP" Nullable="true" />
+          <Property Type="Int32" Name="FifthStarBP" Nullable="true" />
+          <Property Type="Int32" Name="SixthStarBP" Nullable="true" />
+          <Property Type="Int32" Name="TotalBP" Nullable="true" />
+          <Property Type="Int32" Name="StockStarRank" Nullable="true" />
+          <Property Type="Int32" Name="FirstStarRank" Nullable="true" />
+          <Property Type="Int32" Name="SecondStarRank" Nullable="true" />
+          <Property Type="Int32" Name="ThirdStarRank" Nullable="true" />
+          <Property Type="Int32" Name="FourthStarRank" Nullable="true" />
+          <Property Type="Int32" Name="FifthStarRank" Nullable="true" />
+          <Property Type="Int32" Name="SixthStarRank" Nullable="true" />
+          <Property Type="Int32" Name="MaxRank" Nullable="true" />
+          <Property Type="Int32" Name="Stage1" Nullable="true" />
+          <Property Type="Int32" Name="Stage2" Nullable="true" />
+          <Property Type="Int32" Name="Stage3" Nullable="true" />
+          <Property Type="Int32" Name="Stage4" Nullable="true" />
+          <Property Type="Int32" Name="Stage5" Nullable="true" />
+          <Property Type="Int32" Name="Stage6" Nullable="true" />
+          <Property Type="Int32" Name="Stage7" Nullable="true" />
+          <Property Type="Int32" Name="Stage8" Nullable="true" />
+          <Property Type="Int32" Name="Stage9" Nullable="true" />
+          <Property Type="Int32" Name="Stage10" Nullable="true" />
+          <Property Type="Int32" Name="Stage11" Nullable="true" />
+          <Property Type="Int32" Name="Stage12" Nullable="true" />
+          <Property Type="Int32" Name="Stage13" Nullable="true" />
+          <Property Type="Int32" Name="TotalStagesCost" Nullable="true" />
+          <Property Type="Int32" Name="EpicQuantity" Nullable="true" />
+          <Property Type="Int32" Name="EpicCost" Nullable="true" />
+          <Property Type="Int32" Name="EpicTotalCost" Nullable="true" />
+          <Property Type="Int32" Name="RareQuantity" Nullable="true" />
+          <Property Type="Int32" Name="RareCost" Nullable="true" />
+          <Property Type="Int32" Name="RareTotalCost" Nullable="true" />
+          <Property Type="Int32" Name="UncommonQuantity" Nullable="true" />
+          <Property Type="Int32" Name="UncommonCost" Nullable="true" />
+          <Property Type="Int32" Name="UncommonTotalCost" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="AddCars_Result">
+          <Property Type="String" Name="CarBrand" Nullable="true" />
+          <Property Type="String" Name="CarName" Nullable="true" />
+          <Property Type="String" Name="FullName" Nullable="false" />
+          <Property Type="Int32" Name="Stars" Nullable="true" />
+          <Property Type="String" Name="Image" Nullable="true" />
+          <Property Type="Double" Name="Refill" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Fuel" Nullable="true" />
+          <Property Type="String" Name="ReleaseDate" Nullable="true" />
+          <Property Type="String" Name="CarClass" Nullable="true" />
+          <Property Type="Double" Name="MaxSpeed" Nullable="true" />
+          <Property Type="Double" Name="MaxAcceleration" Nullable="true" />
+          <Property Type="Double" Name="MaxHandling" Nullable="true" />
+          <Property Type="Double" Name="MaxNitro" Nullable="true" />
+          <Property Type="Double" Name="StockSpeed" Nullable="true" />
+          <Property Type="Double" Name="StockAcceleration" Nullable="true" />
+          <Property Type="Double" Name="StockHandling" Nullable="true" />
+          <Property Type="Double" Name="StockNitro" Nullable="true" />
+          <Property Type="Int32" Name="FirstStarBP" Nullable="true" />
+          <Property Type="Int32" Name="SecondStarBP" Nullable="true" />
+          <Property Type="Int32" Name="ThirdStarBP" Nullable="true" />
+          <Property Type="Int32" Name="FourthStarBP" Nullable="true" />
+          <Property Type="Int32" Name="FifthStarBP" Nullable="true" />
+          <Property Type="Int32" Name="SixthStarBP" Nullable="true" />
+          <Property Type="Int32" Name="TotalBP" Nullable="true" />
+          <Property Type="Int32" Name="StockStarRank" Nullable="true" />
+          <Property Type="Int32" Name="FirstStarRank" Nullable="true" />
+          <Property Type="Int32" Name="SecondStarRank" Nullable="true" />
+          <Property Type="Int32" Name="ThirdStarRank" Nullable="true" />
+          <Property Type="Int32" Name="FourthStarRank" Nullable="true" />
+          <Property Type="Int32" Name="FifthStarRank" Nullable="true" />
+          <Property Type="Int32" Name="SixthStarRank" Nullable="true" />
+          <Property Type="Int32" Name="MaxRank" Nullable="true" />
+          <Property Type="Int32" Name="Stage1" Nullable="true" />
+          <Property Type="Int32" Name="Stage2" Nullable="true" />
+          <Property Type="Int32" Name="Stage3" Nullable="true" />
+          <Property Type="Int32" Name="Stage4" Nullable="true" />
+          <Property Type="Int32" Name="Stage5" Nullable="true" />
+          <Property Type="Int32" Name="Stage6" Nullable="true" />
+          <Property Type="Int32" Name="Stage7" Nullable="true" />
+          <Property Type="Int32" Name="Stage8" Nullable="true" />
+          <Property Type="Int32" Name="Stage9" Nullable="true" />
+          <Property Type="Int32" Name="Stage10" Nullable="true" />
+          <Property Type="Int32" Name="Stage11" Nullable="true" />
+          <Property Type="Int32" Name="Stage12" Nullable="true" />
+          <Property Type="Int32" Name="Stage13" Nullable="true" />
+          <Property Type="Int32" Name="TotalStagesCost" Nullable="true" />
+          <Property Type="Int32" Name="EpicQuantity" Nullable="true" />
+          <Property Type="Int32" Name="EpicCost" Nullable="true" />
+          <Property Type="Int32" Name="EpicTotalCost" Nullable="true" />
+          <Property Type="Int32" Name="RareQuantity" Nullable="true" />
+          <Property Type="Int32" Name="RareCost" Nullable="true" />
+          <Property Type="Int32" Name="RareTotalCost" Nullable="true" />
+          <Property Type="Int32" Name="UncommonQuantity" Nullable="true" />
+          <Property Type="Int32" Name="UncommonCost" Nullable="true" />
+          <Property Type="Int32" Name="UncommonTotalCost" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="AddChapters_Result">
+          <Property Type="Int32" Name="Chapter" Nullable="false" />
+          <Property Type="String" Name="Season" Nullable="false" />
+          <Property Type="Int32" Name="Race" Nullable="true" />
+          <Property Type="Int32" Name="Rank" Nullable="true" />
+          <Property Type="String" Name="Mode" Nullable="true" />
+          <Property Type="String" Name="Track" Nullable="true" />
+          <Property Type="String" Name="Time" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Credits" Nullable="true" />
+          <Property Type="Int32" Name="Reputation" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Asphalt9ModelStoreContainer" CdmEntityContainer="Asphalt9Entities">
+          <EntitySetMapping Name="Blueprints">
+            <EntityTypeMapping TypeName="Asphalt9Model.Blueprint">
+              <MappingFragment StoreEntitySet="Blueprints">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FirstStarBP" ColumnName="FirstStarBP" />
+                <ScalarProperty Name="SecondStarBP" ColumnName="SecondStarBP" />
+                <ScalarProperty Name="ThirdStarBP" ColumnName="ThirdStarBP" />
+                <ScalarProperty Name="FourthStarBP" ColumnName="FourthStarBP" />
+                <ScalarProperty Name="FifthStarBP" ColumnName="FifthStarBP" />
+                <ScalarProperty Name="SixthStarBP" ColumnName="SixthStarBP" />
+                <ScalarProperty Name="TotalBP" ColumnName="TotalBP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Careers">
+            <EntityTypeMapping TypeName="Asphalt9Model.Career">
+              <MappingFragment StoreEntitySet="Career">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Chapter" ColumnName="Chapter" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Mode" ColumnName="Mode" />
+                <ScalarProperty Name="Track" ColumnName="Track" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="Reputation" ColumnName="Reputation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EpicParts">
+            <EntityTypeMapping TypeName="Asphalt9Model.EpicPart">
+              <MappingFragment StoreEntitySet="EpicParts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grandes">
+            <EntityTypeMapping TypeName="Asphalt9Model.Grande">
+              <MappingFragment StoreEntitySet="Grande">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="CarName" ColumnName="CarName" />
+                <ScalarProperty Name="CarClass" ColumnName="CarClass" />
+                <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="CarImage" ColumnName="CarImage" />
+                <ScalarProperty Name="Refill" ColumnName="Refill" />
+                <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaxDetails">
+            <EntityTypeMapping TypeName="Asphalt9Model.MaxDetail">
+              <MappingFragment StoreEntitySet="MaxDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TopSpeed" ColumnName="TopSpeed" />
+                <ScalarProperty Name="Acceleration" ColumnName="Acceleration" />
+                <ScalarProperty Name="Handling" ColumnName="Handling" />
+                <ScalarProperty Name="Nitro" ColumnName="Nitro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RareParts">
+            <EntityTypeMapping TypeName="Asphalt9Model.RarePart">
+              <MappingFragment StoreEntitySet="RareParts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteTracks">
+            <EntityTypeMapping TypeName="Asphalt9Model.RouteTrack">
+              <MappingFragment StoreEntitySet="RouteTracks">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Track" ColumnName="Track" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="video" ColumnName="video" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StarRanks">
+            <EntityTypeMapping TypeName="Asphalt9Model.StarRank">
+              <MappingFragment StoreEntitySet="StarRanks">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="StockStarRank" ColumnName="StockStarRank" />
+                <ScalarProperty Name="FirstStarRank" ColumnName="FirstStarRank" />
+                <ScalarProperty Name="SecondStarRank" ColumnName="SecondStarRank" />
+                <ScalarProperty Name="ThirdStarRank" ColumnName="ThirdStarRank" />
+                <ScalarProperty Name="FourthStarRank" ColumnName="FourthStarRank" />
+                <ScalarProperty Name="FifthStarRank" ColumnName="FifthStarRank" />
+                <ScalarProperty Name="SixthStarRank" ColumnName="SixthStarRank" />
+                <ScalarProperty Name="Max" ColumnName="Max" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockDetails">
+            <EntityTypeMapping TypeName="Asphalt9Model.StockDetail">
+              <MappingFragment StoreEntitySet="StockDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TopSpeed" ColumnName="TopSpeed" />
+                <ScalarProperty Name="Acceleration" ColumnName="Acceleration" />
+                <ScalarProperty Name="Handling" ColumnName="Handling" />
+                <ScalarProperty Name="Nitro" ColumnName="Nitro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UncommonParts">
+            <EntityTypeMapping TypeName="Asphalt9Model.UncommonPart">
+              <MappingFragment StoreEntitySet="UncommonParts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Upgrades">
+            <EntityTypeMapping TypeName="Asphalt9Model.Upgrade">
+              <MappingFragment StoreEntitySet="Upgrades">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Stage1" ColumnName="Stage1" />
+                <ScalarProperty Name="Stage2" ColumnName="Stage2" />
+                <ScalarProperty Name="Stage3" ColumnName="Stage3" />
+                <ScalarProperty Name="Stage4" ColumnName="Stage4" />
+                <ScalarProperty Name="Stage5" ColumnName="Stage5" />
+                <ScalarProperty Name="Stage6" ColumnName="Stage6" />
+                <ScalarProperty Name="Stage7" ColumnName="Stage7" />
+                <ScalarProperty Name="Stage8" ColumnName="Stage8" />
+                <ScalarProperty Name="Stage9" ColumnName="Stage9" />
+                <ScalarProperty Name="Stage10" ColumnName="Stage10" />
+                <ScalarProperty Name="Stage11" ColumnName="Stage11" />
+                <ScalarProperty Name="Stage12" ColumnName="Stage12" />
+                <ScalarProperty Name="Stage13" ColumnName="Stage13" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddCar" FunctionName="Asphalt9Model.Store.AddCar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Asphalt9Model.AddCar_Result">
+                <ScalarProperty Name="CarBrand" ColumnName="CarBrand" />
+                <ScalarProperty Name="CarName" ColumnName="CarName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Refill" ColumnName="Refill" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="CarClass" ColumnName="CarClass" />
+                <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+                <ScalarProperty Name="MaxAcceleration" ColumnName="MaxAcceleration" />
+                <ScalarProperty Name="MaxHandling" ColumnName="MaxHandling" />
+                <ScalarProperty Name="MaxNitro" ColumnName="MaxNitro" />
+                <ScalarProperty Name="StockSpeed" ColumnName="StockSpeed" />
+                <ScalarProperty Name="StockAcceleration" ColumnName="StockAcceleration" />
+                <ScalarProperty Name="StockHandling" ColumnName="StockHandling" />
+                <ScalarProperty Name="StockNitro" ColumnName="StockNitro" />
+                <ScalarProperty Name="FirstStarBP" ColumnName="FirstStarBP" />
+                <ScalarProperty Name="SecondStarBP" ColumnName="SecondStarBP" />
+                <ScalarProperty Name="ThirdStarBP" ColumnName="ThirdStarBP" />
+                <ScalarProperty Name="FourthStarBP" ColumnName="FourthStarBP" />
+                <ScalarProperty Name="FifthStarBP" ColumnName="FifthStarBP" />
+                <ScalarProperty Name="SixthStarBP" ColumnName="SixthStarBP" />
+                <ScalarProperty Name="TotalBP" ColumnName="TotalBP" />
+                <ScalarProperty Name="StockStarRank" ColumnName="StockStarRank" />
+                <ScalarProperty Name="FirstStarRank" ColumnName="FirstStarRank" />
+                <ScalarProperty Name="SecondStarRank" ColumnName="SecondStarRank" />
+                <ScalarProperty Name="ThirdStarRank" ColumnName="ThirdStarRank" />
+                <ScalarProperty Name="FourthStarRank" ColumnName="FourthStarRank" />
+                <ScalarProperty Name="FifthStarRank" ColumnName="FifthStarRank" />
+                <ScalarProperty Name="SixthStarRank" ColumnName="SixthStarRank" />
+                <ScalarProperty Name="MaxRank" ColumnName="MaxRank" />
+                <ScalarProperty Name="Stage1" ColumnName="Stage1" />
+                <ScalarProperty Name="Stage2" ColumnName="Stage2" />
+                <ScalarProperty Name="Stage3" ColumnName="Stage3" />
+                <ScalarProperty Name="Stage4" ColumnName="Stage4" />
+                <ScalarProperty Name="Stage5" ColumnName="Stage5" />
+                <ScalarProperty Name="Stage6" ColumnName="Stage6" />
+                <ScalarProperty Name="Stage7" ColumnName="Stage7" />
+                <ScalarProperty Name="Stage8" ColumnName="Stage8" />
+                <ScalarProperty Name="Stage9" ColumnName="Stage9" />
+                <ScalarProperty Name="Stage10" ColumnName="Stage10" />
+                <ScalarProperty Name="Stage11" ColumnName="Stage11" />
+                <ScalarProperty Name="Stage12" ColumnName="Stage12" />
+                <ScalarProperty Name="Stage13" ColumnName="Stage13" />
+                <ScalarProperty Name="TotalStagesCost" ColumnName="TotalStagesCost" />
+                <ScalarProperty Name="EpicQuantity" ColumnName="EpicQuantity" />
+                <ScalarProperty Name="EpicCost" ColumnName="EpicCost" />
+                <ScalarProperty Name="EpicTotalCost" ColumnName="EpicTotalCost" />
+                <ScalarProperty Name="RareQuantity" ColumnName="RareQuantity" />
+                <ScalarProperty Name="RareCost" ColumnName="RareCost" />
+                <ScalarProperty Name="RareTotalCost" ColumnName="RareTotalCost" />
+                <ScalarProperty Name="UncommonQuantity" ColumnName="UncommonQuantity" />
+                <ScalarProperty Name="UncommonCost" ColumnName="UncommonCost" />
+                <ScalarProperty Name="UncommonTotalCost" ColumnName="UncommonTotalCost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AddCars" FunctionName="Asphalt9Model.Store.AddCars">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Asphalt9Model.AddCars_Result">
+                <ScalarProperty Name="CarBrand" ColumnName="CarBrand" />
+                <ScalarProperty Name="CarName" ColumnName="CarName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Refill" ColumnName="Refill" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="CarClass" ColumnName="CarClass" />
+                <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+                <ScalarProperty Name="MaxAcceleration" ColumnName="MaxAcceleration" />
+                <ScalarProperty Name="MaxHandling" ColumnName="MaxHandling" />
+                <ScalarProperty Name="MaxNitro" ColumnName="MaxNitro" />
+                <ScalarProperty Name="StockSpeed" ColumnName="StockSpeed" />
+                <ScalarProperty Name="StockAcceleration" ColumnName="StockAcceleration" />
+                <ScalarProperty Name="StockHandling" ColumnName="StockHandling" />
+                <ScalarProperty Name="StockNitro" ColumnName="StockNitro" />
+                <ScalarProperty Name="FirstStarBP" ColumnName="FirstStarBP" />
+                <ScalarProperty Name="SecondStarBP" ColumnName="SecondStarBP" />
+                <ScalarProperty Name="ThirdStarBP" ColumnName="ThirdStarBP" />
+                <ScalarProperty Name="FourthStarBP" ColumnName="FourthStarBP" />
+                <ScalarProperty Name="FifthStarBP" ColumnName="FifthStarBP" />
+                <ScalarProperty Name="SixthStarBP" ColumnName="SixthStarBP" />
+                <ScalarProperty Name="TotalBP" ColumnName="TotalBP" />
+                <ScalarProperty Name="StockStarRank" ColumnName="StockStarRank" />
+                <ScalarProperty Name="FirstStarRank" ColumnName="FirstStarRank" />
+                <ScalarProperty Name="SecondStarRank" ColumnName="SecondStarRank" />
+                <ScalarProperty Name="ThirdStarRank" ColumnName="ThirdStarRank" />
+                <ScalarProperty Name="FourthStarRank" ColumnName="FourthStarRank" />
+                <ScalarProperty Name="FifthStarRank" ColumnName="FifthStarRank" />
+                <ScalarProperty Name="SixthStarRank" ColumnName="SixthStarRank" />
+                <ScalarProperty Name="MaxRank" ColumnName="MaxRank" />
+                <ScalarProperty Name="Stage1" ColumnName="Stage1" />
+                <ScalarProperty Name="Stage2" ColumnName="Stage2" />
+                <ScalarProperty Name="Stage3" ColumnName="Stage3" />
+                <ScalarProperty Name="Stage4" ColumnName="Stage4" />
+                <ScalarProperty Name="Stage5" ColumnName="Stage5" />
+                <ScalarProperty Name="Stage6" ColumnName="Stage6" />
+                <ScalarProperty Name="Stage7" ColumnName="Stage7" />
+                <ScalarProperty Name="Stage8" ColumnName="Stage8" />
+                <ScalarProperty Name="Stage9" ColumnName="Stage9" />
+                <ScalarProperty Name="Stage10" ColumnName="Stage10" />
+                <ScalarProperty Name="Stage11" ColumnName="Stage11" />
+                <ScalarProperty Name="Stage12" ColumnName="Stage12" />
+                <ScalarProperty Name="Stage13" ColumnName="Stage13" />
+                <ScalarProperty Name="TotalStagesCost" ColumnName="TotalStagesCost" />
+                <ScalarProperty Name="EpicQuantity" ColumnName="EpicQuantity" />
+                <ScalarProperty Name="EpicCost" ColumnName="EpicCost" />
+                <ScalarProperty Name="EpicTotalCost" ColumnName="EpicTotalCost" />
+                <ScalarProperty Name="RareQuantity" ColumnName="RareQuantity" />
+                <ScalarProperty Name="RareCost" ColumnName="RareCost" />
+                <ScalarProperty Name="RareTotalCost" ColumnName="RareTotalCost" />
+                <ScalarProperty Name="UncommonQuantity" ColumnName="UncommonQuantity" />
+                <ScalarProperty Name="UncommonCost" ColumnName="UncommonCost" />
+                <ScalarProperty Name="UncommonTotalCost" ColumnName="UncommonTotalCost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AddChapters" FunctionName="Asphalt9Model.Store.AddChapters">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Asphalt9Model.AddChapters_Result">
+                <ScalarProperty Name="Chapter" ColumnName="Chapter" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Mode" ColumnName="Mode" />
+                <ScalarProperty Name="Track" ColumnName="Track" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="Reputation" ColumnName="Reputation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

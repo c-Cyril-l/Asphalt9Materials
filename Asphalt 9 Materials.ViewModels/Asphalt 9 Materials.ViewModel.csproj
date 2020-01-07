@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0B263DA-F88F-49A1-A2DA-4D853AD04982}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>Asphalt_9_Materials.ViewModel</RootNamespace>
+    <AssemblyName>Asphalt9Materials.ViewModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\Microsoft SQL Server\140\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\Microsoft SQL Server\140\SDK\Assemblies\Microsoft.SqlServer.SqlEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\AddCars_Result.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AddCar_Result.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AddChapters_Result.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Asphalt9.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Asphalt9.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Asphalt9.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Asphalt9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Asphalt9.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Blueprint.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Career.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EpicPart.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Grande.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MaxDetail.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RarePart.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RouteTrack.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StarRank.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StockDetail.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UncommonPart.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Upgrade.cs">
+      <DependentUpon>Asphalt9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DatabaseScript.cs" />
+    <Compile Include="Helpers\GetCarInformations.cs" />
+    <Compile Include="Services\Interfaces\IDialogService.cs" />
+    <Compile Include="Services\WindowsDialogService.cs" />
+    <Compile Include="ViewModels\About\AboutViewModel.cs" />
+    <Compile Include="ViewModels\About\CreditsViewModel.cs" />
+    <Compile Include="ViewModels\Career\CareerViewModel.cs" />
+    <Compile Include="ViewModels\Misc\Comparison\BlueprintsComparisonViewModel.cs" />
+    <Compile Include="Converters\RefillMeasurementConverter.cs" />
+    <Compile Include="ViewModels\Misc\CompareViewModel.cs" />
+    <Compile Include="ViewModels\Misc\DeleteCarViewModel.cs" />
+    <Compile Include="ViewModels\Misc\Comparison\MaxComparisonViewModel.cs" />
+    <Compile Include="ViewModels\Misc\Comparison\RankComparisonViewModel.cs" />
+    <Compile Include="ViewModels\Misc\Comparison\StockComparisonViewModel.cs" />
+    <Compile Include="Helpers\File Helpers.cs" />
+    <Compile Include="ViewModels\Introduction\HowToViewModel.cs" />
+    <Compile Include="ViewModels\Introduction\CurrenciesViewModel.cs" />
+    <Compile Include="ViewModels\Introduction\GamePlayViewModel.cs" />
+    <Compile Include="ViewModels\Introduction\IntroductionViewModel.cs" />
+    <Compile Include="ViewModels\Introduction\TipsViewModel.cs" />
+    <Compile Include="ViewModels\Misc\ImportantNoteViewModel.cs" />
+    <Compile Include="ViewModels\Performance\Performance\MaxPerformanceViewModel.cs" />
+    <Compile Include="ViewModels\Performance\Performance\StockPerformanceViewModel.cs" />
+    <Compile Include="ViewModels\Misc\UpdateCarViewModel.cs" />
+    <Compile Include="ViewModels\Misc\AddNewViewModel.cs" />
+    <Compile Include="ViewModels\Blueprints\BlueprintsViewModel.cs" />
+    <Compile Include="ViewModels\AvailableCars\CarCardViewModel.cs" />
+    <Compile Include="ViewModels\Ranks\StarRanksViewModel.cs" />
+    <Compile Include="ViewModels\AvailableCars\CarsPageViewModel.cs" />
+    <Compile Include="Converters\DateConverter.cs" />
+    <Compile Include="Converters\DecimalConverter.cs" />
+    <Compile Include="Converters\GetStageTotalNumber.cs" />
+    <Compile Include="Converters\ImageConverter.cs" />
+    <Compile Include="Converters\NumberSeparator.cs" />
+    <Compile Include="Converters\ToLowerCaseConverter.cs" />
+    <Compile Include="Converters\AdditionalValuesConverter.cs" />
+    <Compile Include="Services\Interfaces\IPageService.cs" />
+    <Compile Include="ViewModels\MainView\MainModelView.cs" />
+    <Compile Include="ViewModels\Performance\PerformanceViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ViewModels\Routes\TracksViewModel.cs" />
+    <Compile Include="Helpers\Getting Info.cs" />
+    <Compile Include="Validation\CarValidation.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Entities\Asphalt9.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Asphalt9.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\Asphalt9.edmx.diagram">
+      <DependentUpon>Asphalt9.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Asphalt 9 Materials.Core\Asphalt 9 Materials.Core.csproj">
+      <Project>{ec1d6d3e-5198-4255-b490-715b9e078526}</Project>
+      <Name>Asphalt 9 Materials.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Asphalt9DB.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asphalt9DB_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>Asphalt9DB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Entities\Asphalt9.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Asphalt9.edmx</DependentUpon>
+      <LastGenOutput>Asphalt9.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\Asphalt9.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Asphalt9.edmx</DependentUpon>
+      <LastGenOutput>Asphalt9.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+</Project>

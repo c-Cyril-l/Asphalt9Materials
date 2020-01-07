@@ -1,0 +1,2545 @@
+﻿<Window
+    x:Class="Asphalt_9_Materials.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:aboutPages="clr-namespace:Asphalt_9_Materials.UI.Pages.About"
+    xmlns:availableCarsPages="clr-namespace:Asphalt_9_Materials.UI.Pages.AvailableCars"
+    xmlns:blueprintsPages="clr-namespace:Asphalt_9_Materials.UI.Pages.Blueprints"
+    xmlns:careerPages="clr-namespace:Asphalt_9_Materials.UI.Pages.Career"
+    xmlns:con="clr-namespace:Asphalt_9_Materials.ViewModel.Converters;assembly=Asphalt9Materials.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:introPages="clr-namespace:Asphalt_9_Materials.UI.Pages.Introduction"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:miscComparisonPages="clr-namespace:Asphalt_9_Materials.UI.Pages.Misc.Comparison"
+    xmlns:miscPages="clr-namespace:Asphalt_9_Materials.UI.Pages.Misc"
+    xmlns:performancePages="clr-namespace:Asphalt_9_Materials.UI.Pages.Performance"
+    xmlns:rankPages="clr-namespace:Asphalt_9_Materials.UI.Pages.Ranks"
+    xmlns:routePages="clr-namespace:Asphalt_9_Materials.UI.Pages.Routes"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:vmAbout="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.About;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmAvailableCars="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.AvailableCars;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmBlueprints="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Blueprints;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmCareer="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Career;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmIntroduction="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Introduction;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmMisc="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Misc;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmMiscComarison="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Misc.Comparison;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmPerformance="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Performance.Performance;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmRanks="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Ranks;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmTracks="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Routes;assembly=Asphalt9Materials.ViewModel"
+    x:Name="MainView"
+    Title="MainWindow"
+    Width="1700"
+    Height="1030"
+    MaxWidth="1700"
+    MaxHeight="1030"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Closing="MainView_Closing"
+    MouseLeftButtonDown="Window_MouseLeftButtonDown"
+    ResizeMode="NoResize"
+    SnapsToDevicePixels="True"
+    WindowStartupLocation="CenterScreen"
+    WindowState="{Binding WindowState, Mode=TwoWay}"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <!--#region Converters-->
+        <con:ToLowerCaseConverter x:Key="ToLowerCase" />
+        <con:ImageConverter
+            x:Key="ImageConverter"
+            DecodePixelHeight="1030"
+            DecodePixelWidth="1700" />
+        <!--#endregion-->
+        <!--#region Pages-->
+        <DataTemplate DataType="{x:Type vmAbout:AboutViewModel}">
+            <aboutPages:AboutPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmAbout:CreditsViewModel}">
+            <aboutPages:CreditsPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmAvailableCars:CarsPageViewModel}">
+            <availableCarsPages:CarsPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmIntroduction:TipsViewModel}">
+            <introPages:TipsPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmIntroduction:IntroductionViewModel}">
+            <introPages:IntroductionPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmIntroduction:HowToViewModel}">
+            <introPages:HowToPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmIntroduction:CurrenciesViewModel}">
+            <introPages:CurrenciesPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmIntroduction:GamePlayViewModel}">
+            <introPages:GamePlayPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmMisc:AddNewViewModel}">
+            <miscPages:AddNewCar />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmMisc:DeleteCarViewModel}">
+            <miscPages:DeletePage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmCareer:CareerViewModel}">
+            <careerPages:CareerPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmMisc:UpdateCarViewModel}">
+            <miscPages:UpdateCarPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmMisc:ImportantNoteViewModel}">
+            <miscPages:ImportantNotePage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmMiscComarison:MaxComparisonViewModel}">
+            <miscComparisonPages:MaxComparisonPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmMiscComarison:StockComparisonViewModel}">
+            <miscComparisonPages:StockComparisonPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmMiscComarison:RankComparisonViewModel}">
+            <miscComparisonPages:RankComparisonPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmMiscComarison:BlueprintsComparisonViewModel}">
+            <miscComparisonPages:BlueprintsComparisonPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmBlueprints:BlueprintsViewModel}">
+            <blueprintsPages:BlueprintsPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmPerformance:MaxPerformanceViewModel}">
+            <performancePages:MaxPerformancePage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmPerformance:StockPerformanceViewModel}">
+            <performancePages:StockPerformancePage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmRanks:StarRanksViewModel}">
+            <rankPages:RanksPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmTracks:TracksViewModel}">
+            <routePages:RoutesPage />
+        </DataTemplate>
+        <!--#endregion-->
+    </Window.Resources>
+
+    <!--#region Fading Window Effects-->
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard x:Name="WindowStartupAnimate">
+                    <DoubleAnimation
+                        AutoReverse="False"
+                        RepeatBehavior="1x"
+                        Storyboard.TargetName="MainView"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.0"
+                        To="1.0"
+                        Duration="0:0:1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Window.Unloaded">
+            <BeginStoryboard>
+                <Storyboard x:Name="WindowCloseAnimate" Completed="WindowCloseAnimate_Completed">
+                    <DoubleAnimation
+                        AutoReverse="False"
+                        RepeatBehavior="1x"
+                        Storyboard.TargetName="MainView"
+                        Storyboard.TargetProperty="Opacity"
+                        From="1.0"
+                        To="0.0"
+                        Duration="0:0:1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <!--#endregion-->
+
+    <materialDesign:DialogHost Background="{StaticResource DarkBrush}" BorderBrush="{x:Null}">
+        <materialDesign:DialogHost.DialogContent>
+            <Grid
+                Width="350"
+                Height="150"
+                HorizontalAlignment="Center"
+                Background="{StaticResource DarkBrush}">
+                <StackPanel Margin="15" Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Width="50"
+                        Height="50"
+                        Foreground="{StaticResource PrimaryHueMidBrush}"
+                        Kind="Close" />
+                    <TextBlock
+                        Margin="15,15"
+                        FontSize="18"
+                        Foreground="{StaticResource LightBrush}"
+                        TextWrapping="Wrap">
+                        Are you sure want to exit...?
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+                    Margin="15"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="4"
+                        VerticalAlignment="Center"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        Style="{DynamicResource MaterialDesignFlatButton}">
+                        Cancel
+                    </Button>
+                    <Button
+                        Margin="4"
+                        VerticalAlignment="Center"
+                        Command="{Binding CloseApplicationCommand}"
+                        Style="{DynamicResource MaterialDesignFlatButton}">
+                        Yes
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid Height="1030">
+            <!--#region Rows & Columns Definitions-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="330" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="70" />
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+            <!--#region Grid Background-->
+            <Grid.Background>
+                <ImageBrush Opacity=".2" Stretch="fill">
+                    <ImageBrush.ImageSource>
+                        <BitmapImage
+                            DecodePixelHeight="1030"
+                            DecodePixelWidth="1700"
+                            UriSource="Assets/bg.jpg" />
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
+            </Grid.Background>
+            <!--#endregion-->
+            <!--#region Header-->
+            <Grid
+                x:Name="HeaderGrid"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="1370"
+                Height="100"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top">
+                <DockPanel
+                    x:Name="HeaderDock"
+                    Width="1370"
+                    HorizontalAlignment="Right"
+                    Background="{StaticResource DarkerBrush}">
+                    <materialDesign:PackIcon
+                        Width="32"
+                        Height="32"
+                        Margin="0,0,30,0"
+                        VerticalAlignment="Center"
+                        Cursor="Hand"
+                        DockPanel.Dock="Right"
+                        Foreground="{StaticResource LightBrush}"
+                        Kind="Close"
+                        ToolTip="Closing Application">
+                        <materialDesign:PackIcon.InputBindings>
+                            <MouseBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Gesture="LeftClick" />
+                        </materialDesign:PackIcon.InputBindings>
+                    </materialDesign:PackIcon>
+                    <materialDesign:PackIcon
+                        Width="32"
+                        Height="24"
+                        Margin="0,0,7,0"
+                        VerticalAlignment="Center"
+                        Cursor="Hand"
+                        DockPanel.Dock="Right"
+                        Foreground="{StaticResource LightBrush}"
+                        Kind="WindowMinimize"
+                        ToolTip="Minimize Application">
+                        <materialDesign:PackIcon.InputBindings>
+                            <MouseBinding Command="{Binding MinimizeApplicationCommand}" Gesture="LeftClick" />
+                        </materialDesign:PackIcon.InputBindings>
+                    </materialDesign:PackIcon>
+                    <Viewbox
+                        Width="1"
+                        Height="28"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Right">
+                        <Border BorderBrush="{StaticResource SeparatorBrush}" BorderThickness="1,28" />
+                    </Viewbox>
+                    <materialDesign:PopupBox
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        DockPanel.Dock="Right"
+                        Foreground="{StaticResource LightBrush}"
+                        IsPopupOpen="False"
+                        PlacementMode="BottomAndAlignRightEdges"
+                        Style="{StaticResource MaterialDesignPopupBox}">
+                        <materialDesign:PopupBox.ToggleContent>
+                            <materialDesign:PackIcon
+                                Width="28"
+                                Height="28"
+                                Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=materialDesign:PopupBox}, Path=Foreground}"
+                                Kind="Gear" />
+                        </materialDesign:PopupBox.ToggleContent>
+                        <materialDesign:PopupBox.ToggleCheckedContent>
+                            <materialDesign:PackIcon
+                                Width="28"
+                                Height="28"
+                                Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=materialDesign:PopupBox}, Path=Foreground}"
+                                Kind="GearOutline" />
+                        </materialDesign:PopupBox.ToggleCheckedContent>
+                        <ListBox Height="auto">
+                            <ListBoxItem HorizontalContentAlignment="Center">
+                                <TextBlock
+                                    x:Name="ExportDbX"
+                                    Padding="0,4"
+                                    Cursor="Hand"
+                                    FontFamily="{DynamicResource RajdhaniMedium}"
+                                    FontSize="15"
+                                    Foreground="{StaticResource LightBrush}"
+                                    Text="Export Database">
+                                    <TextBlock.InputBindings>
+                                        <MouseBinding Command="{Binding ExportDatabaseCommand}" Gesture="LeftClick" />
+                                    </TextBlock.InputBindings>
+                                </TextBlock>
+                            </ListBoxItem>
+                        </ListBox>
+                    </materialDesign:PopupBox>
+                </DockPanel>
+            </Grid>
+            <!--#endregion-->
+            <!--#region  Logo-->
+            <Grid
+                x:Name="LogoGrid"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Width="330"
+                Height="220"
+                Margin="0"
+                Background="{StaticResource NavBrush}">
+                <Rectangle
+                    x:Name="LogoImage"
+                    Width="290"
+                    Height="200"
+                    Margin="-15,0,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage
+                                    DecodePixelHeight="200"
+                                    DecodePixelWidth="290"
+                                    UriSource="Assets/AsphaltMaterials.png" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <!--#endregion-->
+            <!--#region Footer-->
+            <Grid
+                x:Name="FooterGrid"
+                Grid.Row="2"
+                Grid.Column="1"
+                Height="70"
+                VerticalAlignment="Bottom">
+                <DockPanel
+                    x:Name="StatusBarDock"
+                    Background="{StaticResource DarkerBrush}"
+                    LastChildFill="False">
+                    <TextBlock
+                        x:Name="TimeTb"
+                        Width="94"
+                        Margin="0,25,10,25"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Right"
+                        FontFamily="{StaticResource RajdhaniSemiBold}"
+                        FontSize="20"
+                        Foreground="{StaticResource LightBrush}" />
+                </DockPanel>
+            </Grid>
+            <!--#endregion-->
+            <!--#region Navbar-->
+            <Grid
+                x:Name="NavGrid"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Width="330"
+                Height="810"
+                Background="{StaticResource NavBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="810" />
+                    <RowDefinition Height="0" />
+                </Grid.RowDefinitions>
+                <!--#region ScrollViewer-->
+                <ScrollViewer
+                    x:Name="NavScrollViewer"
+                    Margin="0,0,0,67"
+                    VerticalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
+                    Background="{x:Null}"
+                    CanContentScroll="True"
+                    HorizontalScrollBarVisibility="Disabled"
+                    SnapsToDevicePixels="True"
+                    VerticalScrollBarVisibility="Visible">
+                    <StackPanel Height="810">
+                        <!--#region Introduction-->
+                        <Expander
+                            x:Name="IntroExpander"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="1">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox
+                                        Width="24"
+                                        Height="24"
+                                        Margin="0,-6,0,0"
+                                        RenderTransformOrigin="0.5,0.5">
+                                        <materialDesign:PackIcon
+                                            Width="21"
+                                            Height="20"
+                                            Margin="0,0,0,-7"
+                                            VerticalAlignment="Stretch"
+                                            Foreground="{StaticResource LightBrush}"
+                                            Kind="Comments" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,3,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        Text="INTRODUCTION" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <ItemsControl HorizontalContentAlignment="Center">
+                                    <Button
+                                        x:Name="IntroPage"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowIntroductionCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=IntroPage}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Intro|Introduction">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CommentTextMultiple" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Introduction" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="GamePlayBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowIntroductionCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=GamePlayBtn}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Game_Play|Introduction">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CommentTextMultiple" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="GamePlay" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="CurrenciesBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowIntroductionCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=CurrenciesBtn}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Currencies|Introduction">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CommentTextMultiple" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Currencies" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="HowToBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowIntroductionCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=HowToBtn}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="How_To|Introduction">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CommentTextMultiple" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="How To...?" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="TipsBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowIntroductionCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=TipsBtn}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Tips|Introduction">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CommentTextMultiple" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Tips And Trick" />
+                                        </StackPanel>
+                                    </Button>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                        <!--#region Cars Available-->
+                        <Expander
+                            x:Name="CarExpander"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="1">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox Width="24" Height="24">
+                                        <Path
+                                            Margin="0,-10,0,0"
+                                            HorizontalAlignment="Left"
+                                            Data="{StaticResource AvailableCarsIcon}"
+                                            Fill="{DynamicResource LightBrush}" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,3,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        Text="AVAILABLE CARS" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <ItemsControl HorizontalContentAlignment="Center">
+                                    <Button
+                                        x:Name="ClassDCars"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectCarsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassDCars}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="D|Cars">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Class D" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassCCars"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectCarsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassCCars}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="C|Cars">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Class C" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassBCars"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectCarsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassBCars}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="B|Cars">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Class B" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassACars"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectCarsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassACars}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="A|Cars">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Class A" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassSCars"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectCarsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassSCars}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="S|Cars">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Class S" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="EveryClass"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectCarsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=EveryClass}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="All|Cars">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    Margin="0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarMultiple" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                FontWeight="Normal"
+                                                Text="Whole" />
+                                        </StackPanel>
+                                    </Button>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                        <!--#region Blueprints-->
+                        <Expander
+                            x:Name="BlueprintsExpander"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="2">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox Width="22" Height="22">
+                                        <Path Data="{StaticResource BlueprintsIcon}" Fill="{StaticResource LightBrush}" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,3,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        Text="BLUEPRINTS" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <ItemsControl x:Name="ItemsControl2" HorizontalContentAlignment="Center">
+                                    <Button
+                                        x:Name="ClassDBps"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectBlueprintsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassDBps}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="D|Blueprints">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Class D" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassCBps"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectBlueprintsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassCBps}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="C|Blueprints">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Class C" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassBBps"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectBlueprintsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassBBps}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="B|Blueprints">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Class B" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassABps"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectBlueprintsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassABps}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="A|Blueprints">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Class A" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassSBps"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectBlueprintsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassSBps}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="S|Blueprints">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Class S" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassAllBps"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding CollectBlueprintsCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassAllBps}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="All|Blueprints">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarMultiple" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Whole" />
+                                        </StackPanel>
+                                    </Button>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                        <!--#region Performance-->
+                        <Expander
+                            x:Name="PerformanceExpander"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="3">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox Width="24" Height="24">
+                                        <Path Data="{StaticResource PerformanceIcon}" Fill="{StaticResource LightBrush}" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,3,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        FontSize="18"
+                                        Text="PERFORMANCE" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <!--#region Stock Performance-->
+                                <Expander
+                                    x:Name="StockExpander"
+                                    Margin="0"
+                                    Padding="2"
+                                    HorizontalContentAlignment="Stretch"
+                                    Background="{x:Null}"
+                                    Cursor="Hand"
+                                    FontFamily="{StaticResource RajdhaniMedium}"
+                                    FontSize="18"
+                                    Foreground="{DynamicResource LightBrush}">
+                                    <Expander.Header>
+                                        <StackPanel
+                                            Margin="15,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="24" Height="24">
+                                                <materialDesign:PackIcon
+                                                    Width="24"
+                                                    Margin="0,0,-20,0"
+                                                    Kind="GaugeEmpty" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="28,3,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="STOCK" />
+                                        </StackPanel>
+                                    </Expander.Header>
+                                    <StackPanel>
+                                        <ItemsControl x:Name="StockIc" HorizontalContentAlignment="Center">
+                                            <Button
+                                                x:Name="ClassDPerformStock"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassDPerformStock}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="D|Stock|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class D" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="ClassCPerformStock"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassCPerformStock}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="C|Stock|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class C" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="ClassBPerformStock"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassBPerformStock}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="B|Stock|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class B" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="ClassAPerformStock"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassAPerformStock}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="A|Stock|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class A" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="ClassSPerformStock"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassSPerformStock}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="S|Stock|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class S" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="AllPerformStock"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=AllPerformStock}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="All|Stock|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarMultiple" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Whole" />
+                                                </StackPanel>
+                                            </Button>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </Expander>
+                                <!--#endregion-->
+                                <!--#region Max Performance-->
+                                <Expander
+                                    x:Name="MaxExpander"
+                                    Margin="0"
+                                    Padding="2"
+                                    HorizontalContentAlignment="Stretch"
+                                    Background="{x:Null}"
+                                    Cursor="Hand"
+                                    FontFamily="{StaticResource RajdhaniMedium}"
+                                    FontSize="18"
+                                    Foreground="{DynamicResource LightBrush}">
+                                    <Expander.Header>
+                                        <StackPanel
+                                            Margin="15,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="24" Height="24">
+                                                <materialDesign:PackIcon
+                                                    Width="24"
+                                                    Margin="0,0,-20,0"
+                                                    Kind="GaugeFull" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="28,3,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="MAX" />
+                                        </StackPanel>
+                                    </Expander.Header>
+                                    <StackPanel>
+                                        <ItemsControl x:Name="PerformanceMaxIc" HorizontalContentAlignment="Center">
+                                            <Button
+                                                x:Name="ClassDPerformMax"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassDPerformMax}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="D|Max|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class D" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="ClassCPerformMax"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassCPerformMax}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="C|Max|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class C" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="ClassBPerformMax"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassBPerformMax}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="B|Max|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class B" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="ClassAPerformMax"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassAPerformMax}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="A|Max|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class A" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="ClassSPerformMax"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=ClassSPerformMax}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="S|Max|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarBack" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Class S" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="AllPerformMax"
+                                                Height="45"
+                                                Margin="0"
+                                                Command="{Binding CollectPerformanceStatsCommand}"
+                                                CommandParameter="{Binding Tag, ElementName=AllPerformMax}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="All|Max|Performance">
+                                                <StackPanel
+                                                    Margin="-60,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarMultiple" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Whole" />
+                                                </StackPanel>
+                                            </Button>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </Expander>
+                                <!--#endregion-->
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                        <!--#region Ranks-->
+                        <Expander
+                            x:Name="RanksExpander"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="4">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox
+                                        Width="24"
+                                        Height="24"
+                                        Margin="0,-8,0,0"
+                                        RenderTransformOrigin="0.5,0.5">
+                                        <Viewbox.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="1.25" ScaleY="1.25" />
+                                                <SkewTransform />
+                                                <RotateTransform />
+                                                <TranslateTransform />
+                                            </TransformGroup>
+                                        </Viewbox.RenderTransform>
+                                        <Path Data="{StaticResource RanksIcon}" Fill="{StaticResource LightBrush}" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,1,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        Text="CAR RANKS" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <ItemsControl x:Name="StockRankIc" HorizontalContentAlignment="Center">
+                                    <Button
+                                        x:Name="ClassDRanks"
+                                        Width="309"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ProvideRanksCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassDRanks}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="D|Ranks">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Class D" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassCRanks"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ProvideRanksCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassCRanks}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="C|Ranks">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Class C" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassBRanks"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ProvideRanksCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassBRanks}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="B|Ranks">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Class B" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassARanks"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ProvideRanksCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassARanks}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="A|Ranks">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Class A" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassSRanks"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ProvideRanksCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassSRanks}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="S|Ranks">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Class S" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ClassAllRanks"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRanksCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ClassAllRanks}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="All|Ranks">
+                                        <StackPanel
+                                            Margin="48,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarMultiple" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Whole" />
+                                        </StackPanel>
+                                    </Button>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                        <!--#region Career-->
+                        <Expander
+                            x:Name="CareerExpander"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="4">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox
+                                        Width="24"
+                                        Height="24"
+                                        Margin="0,-6,0,0"
+                                        RenderTransformOrigin="0.5,0.5">
+                                        <materialDesign:PackIcon Foreground="{StaticResource LightBrush}" Kind="Airballoon" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,1,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        Text="CAREER" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <ItemsControl x:Name="CareerIc" HorizontalContentAlignment="Center">
+                                    <Button
+                                        x:Name="Capter1"
+                                        Width="309"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ShowChaptersCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=Capter1}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="1|Chapters">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="DnsOutline" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Chapter 1" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="Chapter2"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ShowChaptersCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=Chapter2}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="2|Chapters">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="DnsOutline" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Chapter2" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="Chapter3"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ShowChaptersCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=Chapter3}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="3|Chapters">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="DnsOutline" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Chapter3" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="Chapter4"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ShowChaptersCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=Chapter4}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="4|Chapters">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="DnsOutline" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Chapter4" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="Chapter5"
+                                        Height="45"
+                                        Margin="0"
+                                        Command="{Binding ShowChaptersCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=Chapter5}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="5|Chapters">
+                                        <StackPanel
+                                            Margin="-90,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="DnsOutline" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="Chapter5" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="AllChapters"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowChaptersCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=AllChapters}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="All|Chapters">
+                                        <StackPanel
+                                            Margin="48,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="Dns" />
+                                            </Viewbox>
+                                            <TextBlock Margin="8,0,0,0" Text="All Chapters" />
+                                        </StackPanel>
+                                    </Button>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                        <!--#region Tracks-->
+                        <Expander
+                            x:Name="TracksExpander"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="5">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox Width="24" Height="24">
+                                        <Path Data="{StaticResource TracksIcon}" Fill="{StaticResource LightBrush}" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,3,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        Text="TRACKS" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <ItemsControl x:Name="TracksIc" HorizontalContentAlignment="Center">
+                                    <Button
+                                        x:Name="CairoBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Center"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Path=Tag, ElementName=CairoBtn, Converter={StaticResource ToLowerCase}}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Cairo|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Cairo" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="CaribbeanBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=CaribbeanBtn, Converter={StaticResource ToLowerCase}}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="The Caribbean|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Caribbean" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="HimalayasBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=HimalayasBtn, Converter={StaticResource ToLowerCase}}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Himalayas|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Himalayas" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="OsakaBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Tag, Converter={StaticResource ToLowerCase}, ElementName=OsakaBtn}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Osaka|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Osaka" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="RomeBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=RomeBtn, Converter={StaticResource ToLowerCase}}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Rome|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Rome" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ScotlandBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ScotlandBtn, Converter={StaticResource ToLowerCase}}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Scotland|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Scotland" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="FranciscoBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=FranciscoBtn, Converter={StaticResource ToLowerCase}}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="San Francisco|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="San Francisco" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="ShanghaiBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=ShanghaiBtn, Converter={StaticResource ToLowerCase}}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Shanghai|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Shanghai" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="MidwestBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ProvideRoutesCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=MidwestBtn, Converter={StaticResource ToLowerCase}}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="U. S. Midwest|Route">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="GoKartTrack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="US Midwest" />
+                                        </StackPanel>
+                                    </Button>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                        <!--#region Miscellaneous-->
+                        <Expander
+                            x:Name="Miscellaneous"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="6">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox Width="24" Height="24">
+                                        <materialDesign:PackIcon Kind="Cube" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,3,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        Text="Miscellaneous " />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <ItemsControl x:Name="MiscIc" HorizontalContentAlignment="Center">
+                                    <Button
+                                        x:Name="ImportantNoteBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowMiscCommand}"
+                                        CommandParameter="{Binding ElementName=ImportantNoteBtn, Path=Tag}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="ImportantNote|Misc|None">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Important !" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="AddNewBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowMiscCommand}"
+                                        CommandParameter="{Binding ElementName=AddNewBtn, Path=Tag}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="AddNewCar|Misc|None">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarBack" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Add New" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="EditBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowMiscCommand}"
+                                        CommandParameter="{Binding ElementName=EditBtn, Path=Tag}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="UpdateCar|Misc|None">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarConvertible" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Update" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="DeleteBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowMiscCommand}"
+                                        CommandParameter="{Binding ElementName=DeleteBtn, Path=Tag}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="DeleteCar|Misc|None">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="CarOff" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Delete" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Expander
+                                        x:Name="Comparing"
+                                        Margin="0"
+                                        Padding="2"
+                                        HorizontalContentAlignment="Stretch"
+                                        Background="{x:Null}"
+                                        Cursor="Hand"
+                                        FontFamily="{StaticResource RajdhaniMedium}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        TabIndex="6">
+                                        <Expander.Header>
+                                            <StackPanel
+                                                Margin="50,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                Orientation="Horizontal">
+                                                <Viewbox Width="16" Height="16">
+                                                    <materialDesign:PackIcon
+                                                        Width="48"
+                                                        Height="48"
+                                                        FontSize="16"
+                                                        Kind="Ballot" />
+                                                </Viewbox>
+                                                <TextBlock
+                                                    Margin="8,3,0,0"
+                                                    FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                    FontSize="16"
+                                                    Text="Compare " />
+                                            </StackPanel>
+                                        </Expander.Header>
+                                        <StackPanel>
+                                            <Button
+                                                x:Name="CompareStockBtn"
+                                                Height="45"
+                                                Margin="0"
+                                                HorizontalContentAlignment="Stretch"
+                                                Command="{Binding ShowMiscCommand}"
+                                                CommandParameter="{Binding Path=Tag, ElementName=CompareStockBtn}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="CarComparison|Misc|Stock">
+                                                <StackPanel
+                                                    Margin="70,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarConnected" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Stock Performance" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="CompareMaxBtn"
+                                                Height="45"
+                                                Margin="0"
+                                                HorizontalContentAlignment="Stretch"
+                                                Command="{Binding ShowMiscCommand}"
+                                                CommandParameter="{Binding Path=Tag, ElementName=CompareMaxBtn}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="CarComparison|Misc|Max">
+                                                <StackPanel
+                                                    Margin="70,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarConnected" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Max Performance" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="CompareRankBtn"
+                                                Height="45"
+                                                Margin="0"
+                                                HorizontalContentAlignment="Stretch"
+                                                Command="{Binding ShowMiscCommand}"
+                                                CommandParameter="{Binding Path=Tag, ElementName=CompareRankBtn}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="CarComparison|Misc|Rank">
+                                                <StackPanel
+                                                    Margin="70,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarConnected" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Star Ranks" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button
+                                                x:Name="CompareBlueprintsBtn"
+                                                Height="45"
+                                                Margin="0"
+                                                HorizontalContentAlignment="Stretch"
+                                                Command="{Binding ShowMiscCommand}"
+                                                CommandParameter="{Binding Path=Tag, ElementName=CompareBlueprintsBtn}"
+                                                FontSize="16"
+                                                Foreground="{DynamicResource LightBrush}"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Tag="CarComparison|Misc|Blueprints">
+                                                <StackPanel
+                                                    Margin="70,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    Orientation="Horizontal">
+                                                    <Viewbox Width="16" Height="16">
+                                                        <materialDesign:PackIcon
+                                                            Width="48"
+                                                            Height="48"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Top"
+                                                            Kind="CarConnected" />
+                                                    </Viewbox>
+                                                    <TextBlock
+                                                        Margin="8,0,0,0"
+                                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                        Text="Blueprints" />
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+                                    </Expander>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                        <!--#region About-->
+                        <Expander
+                            x:Name="About"
+                            Margin="0"
+                            Padding="2"
+                            HorizontalContentAlignment="Stretch"
+                            Background="{x:Null}"
+                            Cursor="Hand"
+                            FontFamily="{StaticResource RajdhaniMedium}"
+                            FontSize="18"
+                            Foreground="{DynamicResource LightBrush}"
+                            TabIndex="6">
+                            <Expander.Header>
+                                <StackPanel
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <Viewbox Width="24" Height="24">
+                                        <materialDesign:PackIcon Kind="Information" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="15,3,0,0"
+                                        FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                        Text="About" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <ItemsControl x:Name="MiscIc1" HorizontalContentAlignment="Center">
+                                    <Button
+                                        x:Name="CreditsBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowAboutCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=CreditsBtn}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="Credits|About">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="BookInformationVariant" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="Credits" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="AboutBtn"
+                                        Height="45"
+                                        Margin="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        Command="{Binding ShowAboutCommand}"
+                                        CommandParameter="{Binding Tag, ElementName=AboutBtn}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource LightBrush}"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        Tag="About|About">
+                                        <StackPanel
+                                            Margin="60,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            Orientation="Horizontal">
+                                            <Viewbox Width="16" Height="16">
+                                                <materialDesign:PackIcon
+                                                    Width="48"
+                                                    Height="48"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Kind="BookInformationVariant" />
+                                            </Viewbox>
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                FontFamily="{DynamicResource RajdhaniSemiBold}"
+                                                Text="About" />
+                                        </StackPanel>
+                                    </Button>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                        <!--#endregion-->
+                    </StackPanel>
+                </ScrollViewer>
+                <!--#endregion-->
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="25,0,0,20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    FontFamily="{StaticResource RajdhaniSemiBold}"
+                    FontSize="20"
+                    Foreground="{StaticResource LightBrush}"
+                    Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=D}" />
+            </Grid>
+            <!--#endregion-->
+            <!--#region Frame-->
+            <Grid
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="1"
+                Margin="0,100,0,70"
+                Background="{StaticResource DarkerBrush}">
+                <ContentControl
+                    x:Name="MainFrame"
+                    Width="1370"
+                    Height="860"
+                    Content="{Binding CurrentViewModel}" />
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+    </materialDesign:DialogHost>
+
+</Window>

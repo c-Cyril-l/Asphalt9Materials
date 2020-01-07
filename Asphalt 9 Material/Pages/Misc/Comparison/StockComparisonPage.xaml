@@ -1,0 +1,412 @@
+﻿<UserControl
+    x:Class="Asphalt_9_Materials.UI.Pages.Misc.Comparison.StockComparisonPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Asphalt_9_Materials.ViewModel.Converters;assembly=Asphalt9Materials.ViewModel"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:Asphalt_9_Materials.UI.Views"
+    d:DesignHeight="650"
+    d:DesignWidth="1225"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <local:ImageConverter
+            x:Key="ImageConverter"
+            DecodePixelHeight="320"
+            DecodePixelWidth="616" />
+        <local:ImageConverter
+            x:Key="ThumbnailConverter"
+            DecodePixelHeight="75"
+            DecodePixelWidth="65" />
+
+        <local:DecimalConverter x:Key="DecimalConverter" />
+
+
+    </UserControl.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <GroupBox
+            Height="105"
+            VerticalAlignment="Top"
+            Header="Car To Compare">
+            <ComboBox
+                Height="50"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                Cursor="Hand"
+                FontFamily="{DynamicResource RajdhaniMedium}"
+                FontSize="16"
+                Foreground="{StaticResource LightBrush}"
+                IsTextSearchCaseSensitive="False"
+                IsTextSearchEnabled="True"
+                ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                ItemsSource="{Binding CarCollection}"
+                SelectedItem="{Binding CarToAdd}">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse
+                                x:Name="CarImage"
+                                Width="75"
+                                Height="65"
+                                VerticalAlignment="Center"
+                                Stroke="{StaticResource SeparatorBrush}"
+                                StrokeThickness="1">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Image, Converter={StaticResource ThumbnailConverter}}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <TextBlock
+                                Margin="13,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="Name : " />
+                            <TextBlock VerticalAlignment="Center" Text="{Binding FullName}" />
+                            <TextBlock
+                                Margin="2,0"
+                                VerticalAlignment="Center"
+                                Text=", Class : " />
+                            <TextBlock VerticalAlignment="Center" Text="{Binding CarClass}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </GroupBox>
+        <GroupBox
+            Grid.Column="1"
+            VerticalAlignment="Top"
+            Header="Actions">
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    Width="220"
+                    Height="50"
+                    Margin="0,0,0,3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Command="{Binding AddingCarToCompare}"
+                    FontFamily="{DynamicResource RajdhaniSemiBold}"
+                    FontSize="18">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="32"
+                            Height="32"
+                            Margin="-16,-2,8,0"
+                            VerticalAlignment="Center"
+                            Kind="AddCircleOutline" />
+                        <TextBlock VerticalAlignment="Center">
+                            Add To List
+                        </TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button
+                    Width="220"
+                    Height="50"
+                    Margin="15,0,0,3"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Command="{Binding RemoveFromCompare}"
+                    FontFamily="{DynamicResource RajdhaniSemiBold}"
+                    FontSize="18"
+                    ToolTip="{Binding CurrentItemRemoveString}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="32"
+                            Height="32"
+                            Margin="-16,-2,8,0"
+                            VerticalAlignment="Center"
+                            Kind="RemoveCircleOutline" />
+                        <TextBlock VerticalAlignment="Center">
+                            Delete From List
+                        </TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button
+                    Width="200"
+                    Height="50"
+                    Margin="15,0,0,3"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Click="Button_Click"
+                    FontFamily="{DynamicResource RajdhaniSemiBold}"
+                    FontSize="18">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="32"
+                            Height="32"
+                            Margin="-16,-2,8,0"
+                            VerticalAlignment="Center"
+                            Kind="ImageEditOutline" />
+                        <TextBlock VerticalAlignment="Center">
+                            Screenshot
+                        </TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="0,0,0,5"
+            BorderThickness="0"
+            Header="Comparison List">
+
+            <StackPanel>
+
+                <!--#region Properties-->
+
+                <DataGrid
+                    x:Name="MaxStatsDataGrid"
+                    Grid.ColumnSpan="2"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    AutoGenerateColumns="False"
+                    Background="{StaticResource DarkBrush}"
+                    BorderBrush="{StaticResource SeparatorBrush}"
+                    CanUserSortColumns="True"
+                    FontFamily="{DynamicResource RajdhaniSemiBold}"
+                    FontSize="16"
+                    Foreground="{StaticResource LightBrush}"
+                    GridLinesVisibility="Horizontal"
+                    HeadersVisibility="Column"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding CompareCollection}"
+                    SelectedItem="{Binding CarToRemove}"
+                    SelectionMode="Single"
+                    SelectionUnit="FullRow">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu Background="{StaticResource DarkBrush}">
+                            <MenuItem Command="{Binding RemoveFromCompare}" Header="{Binding CurrentItemRemoveString}" />
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Setter Property="BorderThickness" Value="1" />
+                            <Setter Property="BorderBrush" Value="{StaticResource SeparatorBrush}" />
+                            <Setter Property="Height" Value="45" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Padding" Value="5" />
+                        </Style>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource DarkerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource DarkerBrush}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource DarkerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource DarkerBrush}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource DarkerBrush}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Width="*" CanUserSort="True">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="Car Image" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Ellipse
+                                        x:Name="CarImage"
+                                        Width="95"
+                                        Height="75"
+                                        Stroke="DarkOrange"
+                                        StrokeThickness="2">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding Image, Converter={StaticResource ThumbnailConverter}}" />
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn
+                            Width="*"
+                            CanUserSort="True"
+                            SortMemberPath="{Binding FullName}">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock x:Name="CarName" Text="Car Name" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <materialDesign:DialogHost Background="{StaticResource DarkerBrush}">
+                                        <Button
+                                            x:Name="BtnHeader"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                                            Content="{Binding FullName}"
+                                            Foreground="DarkOrange"
+                                            Style="{StaticResource MaterialDesignFlatButton}">
+
+                                            <Button.CommandParameter>
+                                                <StackPanel
+                                                    x:Name="ContentStack"
+                                                    MinWidth="835"
+                                                    MaxWidth="835">
+
+                                                    <views:CarInformations x:Name="CarStatsUserControl" />
+
+
+                                                    <StackPanel
+                                                        HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Bottom"
+                                                        Background="{StaticResource DarkerBrush}"
+                                                        Orientation="Horizontal">
+                                                        <Button
+                                                            Width="835"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Bottom"
+                                                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                                            Content="Close"
+                                                            IsCancel="True"
+                                                            Style="{StaticResource MaterialDesignFlatButton}" />
+
+
+                                                    </StackPanel>
+
+                                                </StackPanel>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                    </materialDesign:DialogHost>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn
+                            Width="*"
+                            CanUserSort="True"
+                            SortMemberPath="{Binding Performance.StockTopSpeed}">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock
+                                    x:Name="Speed"
+                                    VerticalAlignment="Center"
+                                    Text="Top Speed"
+                                    TextAlignment="Center" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Performance.StockTopSpeed, Converter={StaticResource DecimalConverter}}"
+                                        TextAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn
+                            Width="*"
+                            CanUserSort="True"
+                            SortMemberPath="{Binding Performance.StockAcceleration}">
+
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Text="Acceleration"
+                                    TextAlignment="Center" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Performance.StockAcceleration, Converter={StaticResource DecimalConverter}}"
+                                        TextAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn
+                            Width="*"
+                            CanUserSort="True"
+                            SortMemberPath="{Binding Performance.StockHandling}">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Text="Handling"
+                                    TextAlignment="Center" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Performance.StockHandling, Converter={StaticResource DecimalConverter}}"
+                                        TextAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn
+                            Width="*"
+                            CanUserSort="True"
+                            SortMemberPath="{Binding Performance.StockNitro}">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Text="Nitro"
+                                    TextAlignment="Center" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Performance.StockNitro, Converter={StaticResource DecimalConverter}}"
+                                        TextAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+            </StackPanel>
+
+        </GroupBox>
+
+    </Grid>
+
+</UserControl>

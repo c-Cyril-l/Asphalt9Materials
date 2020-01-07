@@ -1,0 +1,2846 @@
+﻿<UserControl
+    x:Class="Asphalt_9_Materials.UI.Views.CarInformations"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Asphalt_9_Materials.ViewModel.Converters;assembly=Asphalt9Materials.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="CarInformationsUC"
+    Height="835"
+    MinWidth="835"
+    MaxWidth="835"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:DecimalConverter x:Key="DecimalConverter" />
+        <converters:RefillMeasurementConverter x:Key="RefillConverter" />
+        <converters:ImageConverter
+            x:Key="ImageConverter"
+            DecodePixelHeight="360"
+            DecodePixelWidth="835" />
+
+        <converters:NumberSeparator x:Key="NumberSeparator" />
+        <converters:AdditionalValuesConverter x:Key="AdditionalValuesConverter" />
+
+        <converters:GetStageTotalNumber x:Key="GetStageTotalNumber" />
+
+        <Style x:Key="TextBlockVal" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Rajdhani Semibold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="{StaticResource LightBrush}" />
+        </Style>
+    </UserControl.Resources>
+
+
+    <StackPanel
+        x:Name="ContentStack"
+        MinWidth="835"
+        MaxWidth="835">
+        <StackPanel
+            MinHeight="360"
+            MaxHeight="360"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top">
+            <Image
+                Width="835"
+                Height="360"
+                HorizontalAlignment="Stretch"
+                Source="{Binding Image, Converter={StaticResource ImageConverter}}"
+                Stretch="Fill" />
+
+        </StackPanel>
+
+        <Grid x:Name="MainGrid" Margin="0">
+
+            <ScrollViewer
+                x:Name="StatsScrollViewer"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Background="{StaticResource DarkerBrush}"
+                CanContentScroll="True"
+                HorizontalScrollBarVisibility="Disabled"
+                IsDeferredScrollingEnabled="True"
+                VerticalScrollBarVisibility="Visible">
+
+                <StackPanel
+                    Height="475"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Background="{StaticResource DarkerBrush}"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+
+                    <!--#region Information-->
+                    <TextBlock
+                        Margin="22,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="{StaticResource LightBrush}"
+                        Text="Car Informations:" />
+
+
+
+                    <StackPanel
+                        MinWidth="730"
+                        MinHeight="80"
+                        MaxWidth="730"
+                        MaxHeight="80"
+                        Margin="5,15,5,184"
+                        VerticalAlignment="Top">
+                        <Grid Margin="-30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkerBrush}" />
+
+                            <!--#region Headers-->
+
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="6"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Release Date" />
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Brand" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Name" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Class" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Type" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Fuel" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="5"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Refill Time" />
+                            </StackPanel>
+
+                            <!--#endregion-->
+
+                            <!--#region Contents-->
+
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkBrush}" />
+
+                            <TextBlock
+                                x:Name="CarBrandTxt"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding CarBrand}" />
+                            <TextBlock
+                                x:Name="CarNameTxt"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding CarName}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding CarClass}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontFamily="Rajdhani Semibold"
+                                FontSize="14"
+                                Foreground="{Binding Foreground}"
+                                Text="{Binding Type}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Fuel}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Refill, Converter={StaticResource RefillConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="6"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding ReleaseDate}" />
+
+                            <!--#endregion-->
+
+                            <!--#region Borders-->
+
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+
+                            <!--#endregion-->
+
+                        </Grid>
+                    </StackPanel>
+                    <!--#endregion-->
+
+                    <!--#region Performance-->
+                    <TextBlock
+                        Margin="22,-160,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="{StaticResource LightBrush}"
+                        Text="Performance Stats:" />
+                    <StackPanel
+                        MinWidth="730"
+                        MinHeight="120"
+                        MaxWidth="730"
+                        MaxHeight="120"
+                        Margin="5,-120,5,0"
+                        VerticalAlignment="Top">
+                        <Grid Margin="-30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!--  Region Car Stats  -->
+                            <!--  Stock  -->
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                Fill="{StaticResource DarkerBrush}" />
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="32,18,32,16"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <StackPanel Margin="0,-3,0,-10" Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="0,0,0,3"
+                                        Style="{StaticResource TextBlockVal}"
+                                        Text="Max " />
+                                    <TextBlock
+                                        Margin="0,0,0,3"
+                                        Style="{StaticResource TextBlockVal}"
+                                        Text="{Binding Stars}" />
+                                </StackPanel>
+                                <materialDesign:PackIcon
+                                    Width="28"
+                                    Height="Auto"
+                                    Margin="0,-4,0,-7"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Stretch"
+                                    Foreground="DarkOrange"
+                                    Kind="Star" />
+                            </StackPanel>
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Top Speed" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Acceleration" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Handling" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Nitro" />
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                Fill="{StaticResource DarkBrush}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stock" />
+                            <TextBlock
+                                x:Name="TbSpeedStock"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Performance.StockTopSpeed, Converter={StaticResource DecimalConverter}}" />
+                            <TextBlock
+                                x:Name="TbAccelStock"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Performance.StockAcceleration, Converter={StaticResource DecimalConverter}}" />
+                            <TextBlock
+                                x:Name="TbHandlStock"
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Performance.StockHandling, Converter={StaticResource DecimalConverter}}" />
+                            <TextBlock
+                                x:Name="TbNitroStock"
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Performance.StockNitro, Converter={StaticResource DecimalConverter}}" />
+                            <!--  Max  -->
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Max" />
+                            <TextBlock
+                                x:Name="Speed"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Performance.MaxTopSpeed, Converter={StaticResource DecimalConverter}}" />
+                            <TextBlock
+                                x:Name="Accel"
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Performance.MaxAcceleration, Converter={StaticResource DecimalConverter}}" />
+                            <TextBlock
+                                x:Name="Handl"
+                                Grid.Row="2"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Performance.MaxHandling, Converter={StaticResource DecimalConverter}}" />
+                            <TextBlock
+                                x:Name="Nitro"
+                                Grid.Row="2"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Performance.MaxNitro, Converter={StaticResource DecimalConverter}}" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                Margin="0,0,2,0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+                            <!--  EndRegion  -->
+                        </Grid>
+                    </StackPanel>
+
+                    <!--#endregion-->
+
+                    <!--#region Ranks-->
+
+                    <TextBlock
+                        Margin="22,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="{StaticResource LightBrush}"
+                        Text="Car Ranks:" />
+                    <StackPanel
+                        MinWidth="730"
+                        MinHeight="80"
+                        MaxWidth="730"
+                        MaxHeight="80"
+                        Margin="5,20,5,0"
+                        VerticalAlignment="Top">
+                        <Grid Margin="-30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkerBrush}" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stock" />
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <materialDesign:PackIcon
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="DarkOrange"
+                                    Kind="Star" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="2"
+                                        Orientation="Horizontal"
+                                        Value="2" />
+                                </Viewbox>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="3"
+                                        Orientation="Horizontal"
+                                        Value="3" />
+                                </Viewbox>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="4"
+                                        Orientation="Horizontal"
+                                        Value="{Binding Stars}" />
+                                </Viewbox>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="5"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="5"
+                                        Orientation="Horizontal"
+                                        Value="{Binding Stars}" />
+                                </Viewbox>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="6"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="6"
+                                        Orientation="Horizontal"
+                                        Value="{Binding Stars}" />
+                                </Viewbox>
+                            </StackPanel>
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkBrush}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Ranks.Stock}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Ranks.FirstStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Ranks.SecondStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Ranks.ThirdStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Ranks.FourthStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Ranks.FifthStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="6"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Ranks.SixthStar}" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+                        </Grid>
+                    </StackPanel>
+                    <!--#endregion-->
+
+                    <!--#region Blueprints-->
+                    <TextBlock
+                        Margin="22,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="{StaticResource LightBrush}"
+                        Text="Blueprints:" />
+                    <StackPanel
+                        MinWidth="730"
+                        MinHeight="80"
+                        MaxWidth="730"
+                        MaxHeight="80"
+                        Margin="5,20,5,0"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="0.5,0.5">
+                        <Grid Margin="-30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkerBrush}" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="6"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Total" />
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <materialDesign:PackIcon
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="DarkOrange"
+                                    Kind="Star" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="2"
+                                        Orientation="Horizontal"
+                                        Value="2" />
+                                </Viewbox>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="3"
+                                        Orientation="Horizontal"
+                                        Value="3" />
+                                </Viewbox>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="4"
+                                        Orientation="Horizontal"
+                                        Value="{Binding Stars}" />
+                                </Viewbox>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="5"
+                                        Orientation="Horizontal"
+                                        Value="{Binding Stars}" />
+                                </Viewbox>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="5"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Viewbox
+                                    Height="16"
+                                    Margin="0,4,0,8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <materialDesign:RatingBar
+                                        Foreground="DarkOrange"
+                                        IsReadOnly="True"
+                                        Max="6"
+                                        Orientation="Horizontal"
+                                        Value="{Binding Stars}" />
+                                </Viewbox>
+                            </StackPanel>
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkBrush}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Blueprints.FirstStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Blueprints.SecondStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Blueprints.ThirdStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Blueprints.FourthStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Blueprints.FifthStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Blueprints.SixthStar}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="6"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Blueprints.Total}" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="7"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+                        </Grid>
+                    </StackPanel>
+                    <!--#endregion-->
+
+                    <!--#region Upgrades-->
+                    <TextBlock
+                        Margin="22,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="{StaticResource LightBrush}"
+                        Text="Upgrades:" />
+                    <StackPanel
+                        Height="585"
+                        MinWidth="730"
+                        MaxWidth="730"
+                        MaxHeight="585"
+                        Margin="5,20,5,0"
+                        VerticalAlignment="Top">
+                        <Grid Margin="-30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.ColumnSpan="6"
+                                Fill="{StaticResource DarkerBrush}" />
+
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Stages" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Top Speed" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Acceleration" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Handling" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Nitro" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="5"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Total" />
+                            </StackPanel>
+                            <!--  Stage0  -->
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.RowSpan="14"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                Fill="{StaticResource DarkBrush}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 0" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage0, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage0, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage0, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage0, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage0, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage1  -->
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 1" />
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage1, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage1, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage1, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage1, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage1, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage2  -->
+                            <TextBlock
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 2" />
+                            <TextBlock
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage2, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="3"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage2, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="3"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage2, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="3"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage2, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="3"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage2, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="3"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="3"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="3"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="3"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="3"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="3"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="3"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage3  -->
+                            <TextBlock
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 3" />
+                            <TextBlock
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage3, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="4"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage3, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="4"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage3, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="4"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage3, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="4"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage3, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="4"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="4"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="4"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="4"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="4"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="4"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="4"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage4  -->
+                            <TextBlock
+                                Grid.Row="5"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 4" />
+                            <TextBlock
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage4, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="5"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage4, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="5"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage4, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="5"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage4, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="5"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage4, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="5"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="5"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="5"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="5"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="5"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="5"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="5"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="5"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage5  -->
+                            <TextBlock
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 5" />
+                            <TextBlock
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage5, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="6"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage5, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="6"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage5, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="6"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage5, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="6"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage5, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="6"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="6"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="6"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="6"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="6"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="6"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="6"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage6  -->
+                            <TextBlock
+                                Grid.Row="7"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 6" />
+                            <TextBlock
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage6, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="7"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage6, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="7"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage6, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="7"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage6, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="7"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage6, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="7"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="7"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="7"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="7"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="7"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="7"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="7"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="7"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage7  -->
+                            <TextBlock
+                                Grid.Row="8"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 7" />
+                            <TextBlock
+                                Grid.Row="8"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage7, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="8"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage7, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="8"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage7, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="8"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage7, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="8"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage7, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="8"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="8"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="8"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="8"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="8"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="8"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="8"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="8"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage8  -->
+                            <TextBlock
+                                Grid.Row="9"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 8" />
+                            <TextBlock
+                                Grid.Row="9"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage8, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="9"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage8, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="9"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage8, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="9"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage8, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="9"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage8, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="9"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="9"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="9"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="9"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="9"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="9"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="9"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="9"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage9  -->
+                            <TextBlock
+                                Grid.Row="10"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 9" />
+                            <TextBlock
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage9, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="10"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage9, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="10"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage9, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="10"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage9, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="10"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage9, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="10"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="10"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="10"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="10"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="10"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="10"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="10"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="10"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage10  -->
+                            <TextBlock
+                                Grid.Row="11"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 10" />
+                            <TextBlock
+                                Grid.Row="11"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage10, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="11"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage10, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="11"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage10, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="11"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage10, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="11"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage10, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="11"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="11"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="11"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="11"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="11"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="11"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="11"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="11"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage11  -->
+                            <TextBlock
+                                Grid.Row="12"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 11" />
+                            <TextBlock
+                                Grid.Row="12"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage11, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="12"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage11, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="12"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage11, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="12"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage11, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="12"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage11, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <!--  Stage12  -->
+                            <TextBlock
+                                Grid.Row="13"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 12" />
+                            <TextBlock
+                                Grid.Row="13"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage12, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="13"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage12, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="13"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage12, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="13"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage12, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="13"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.Stage12, Converter={StaticResource GetStageTotalNumber}}" />
+                            <Border
+                                Grid.Row="13"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="13"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="13"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="13"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="13"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="13"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="13"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="13"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+
+                            <!--  Stage13  -->
+                            <TextBlock
+                                Grid.Row="14"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Stage 13" />
+                            <TextBlock
+                                Grid.Row="14"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Max" />
+                            <TextBlock
+                                Grid.Row="14"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Max" />
+                            <TextBlock
+                                Grid.Row="14"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Max" />
+                            <TextBlock
+                                Grid.Row="14"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Max" />
+                            <TextBlock
+                                Grid.Row="14"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.TotalStagesCost, Converter={StaticResource NumberSeparator}}" />
+                            <Border
+                                Grid.Row="14"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="14"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="14"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="14"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="14"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="14"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="14"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="12"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+                        </Grid>
+                    </StackPanel>
+                    <!--#endregion-->
+
+                    <!--#region Uncommon-->
+                    <TextBlock
+                        Margin="22,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="SkyBlue"
+                        Text="Uncommon Parts:" />
+                    <StackPanel
+                        MinWidth="730"
+                        MinHeight="80"
+                        MaxWidth="730"
+                        MaxHeight="80"
+                        Margin="5,20,5,0"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="0.5,0.5">
+                        <Grid Margin="-30,0">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkerBrush}" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Total" />
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Cost" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Top Speed" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Acceleration" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Handling" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Nitro" />
+                            </StackPanel>
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                Fill="{StaticResource DarkBrush}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.UncommonCost, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.UncommonQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.UncommonQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.UncommonQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.UncommonQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.UncommonTotalCost, Converter={StaticResource NumberSeparator}}" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+                        </Grid>
+                    </StackPanel>
+                    <!--#endregion-->
+
+                    <!--#region Rare-->
+                    <TextBlock
+                        Margin="22,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="MediumPurple"
+                        Text="Rare Parts:" />
+                    <StackPanel
+                        MinWidth="730"
+                        MinHeight="80"
+                        MaxWidth="730"
+                        MaxHeight="80"
+                        Margin="5,20,5,0"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="0.5,0.5">
+                        <Grid Margin="-30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkerBrush}" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Total" />
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Cost" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Top Speed" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Acceleration" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Handling" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Nitro" />
+                            </StackPanel>
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                Fill="{StaticResource DarkBrush}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.RareCost, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.RareQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.RareQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.RareQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.RareQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.RareTotalCost, Converter={StaticResource NumberSeparator}}" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+                        </Grid>
+                    </StackPanel>
+                    <!--#endregion-->
+
+                    <!--#region Epic-->
+                    <TextBlock
+                        Margin="22,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="DarkOrange"
+                        Text="Epic Parts:" />
+                    <StackPanel
+                        MinWidth="730"
+                        MinHeight="80"
+                        MaxWidth="730"
+                        MaxHeight="80"
+                        Margin="5,20,5,0"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="0.5,0.5">
+                        <Grid Margin="-30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.ColumnSpan="7"
+                                Fill="{StaticResource DarkerBrush}" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="Total" />
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Cost" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Top Speed" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Acceleration" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Handling" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Nitro" />
+                            </StackPanel>
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                Fill="{StaticResource DarkBrush}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.EpicCost, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.EpicQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.EpicQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.EpicQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.EpicQuantity, Converter={StaticResource AdditionalValuesConverter}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="5"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.EpicTotalCost, Converter={StaticResource NumberSeparator}}" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="6"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+                        </Grid>
+                    </StackPanel>
+                    <!--#endregion-->
+
+                    <!--#region Total Credits-->
+                    <TextBlock
+                        Margin="22,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="Rajdhani Semibold"
+                        FontSize="20"
+                        Foreground="Crimson"
+                        Text="Total Cost:" />
+                    <StackPanel
+                        MinWidth="730"
+                        MinHeight="80"
+                        MaxWidth="730"
+                        MaxHeight="80"
+                        Margin="5,20,5,0"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="0.5,0.5">
+                        <Grid Margin="-30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39" />
+                                <RowDefinition Height="39" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle
+                                Grid.Row="0"
+                                Grid.ColumnSpan="5"
+                                Fill="{StaticResource DarkerBrush}" />
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource TextBlockVal}" Text="Total Upgrades" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Foreground="SkyBlue"
+                                    Style="{StaticResource TextBlockVal}"
+                                    Text="Uncommons" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Foreground="MediumPurple"
+                                    Style="{StaticResource TextBlockVal}"
+                                    Text="Rares" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Foreground="DarkOrange"
+                                    Style="{StaticResource TextBlockVal}"
+                                    Text="Epics" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Foreground="SpringGreen"
+                                    Style="{StaticResource TextBlockVal}"
+                                    Text="Total Credit Cost" />
+                            </StackPanel>
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                Fill="{StaticResource DarkBrush}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding Upgrades.TotalStagesCost, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.UncommonTotalCost, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.RareTotalCost, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding AdditionalParts.EpicTotalCost, Converter={StaticResource NumberSeparator}}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="4"
+                                Style="{StaticResource TextBlockVal}"
+                                Text="{Binding TotalCreditCost, Converter={StaticResource NumberSeparator}}" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="0,0,0,1" />
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                BorderBrush="{StaticResource SeparatorBrush}"
+                                BorderThickness="1" />
+                        </Grid>
+                    </StackPanel>
+                    <!--#endregion-->
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+
+
+
+    </StackPanel>
+
+</UserControl>
