@@ -85,6 +85,14 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
   </a>
 </p >
 
+## Add New Car(s)
+
+<p align="center">
+  <a href="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/AddNew.PNG">
+    <img alt="Add New Car(s)" width="880" heigth="650" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/AddNew.PNG">
+  </a>
+</p >
+
 ## Update Car(s)
 
 <p align="center">
