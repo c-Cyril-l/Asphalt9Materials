@@ -50,7 +50,7 @@
                                 </TextBlock.InputBindings>
                             </TextBlock>
                         </Bold>
-                        Most of the informations about the cars as well images and some information about tokens and credits... in Introduction section has been taken from this amazing website.<LineBreak />
+                        Most of the information about the cars as well images and some information about tokens and credits... in Introduction section has been taken from this amazing website.<LineBreak />
                         <LineBreak />
                         <Bold Foreground="{StaticResource PrimaryHueMidBrush}">
                             2.
@@ -69,7 +69,7 @@
                                 </TextBlock.InputBindings>
                             </TextBlock>
                         </Bold>
-                        Many of early informations of cars and... taken from the database that has been provided in A9Dex.<LineBreak />
+                        Many of early information of cars and... taken from the database that has been provided in A9Dex.<LineBreak />
                         <LineBreak />
                         <Bold Foreground="{StaticResource PrimaryHueMidBrush}">
                             3.
@@ -88,7 +88,7 @@
                                 </TextBlock.InputBindings>
                             </TextBlock>
                         </Bold>
-                        Some informations in Introduction section has been haken from Asphalt.Fandom.com website.<LineBreak />
+                        Some information in Introduction section has been taken from Asphalt.Fandom.com website.<LineBreak />
                         <LineBreak />
                         <Bold Foreground="{StaticResource PrimaryHueMidBrush}">
                             3.
@@ -107,7 +107,7 @@
                                 </TextBlock.InputBindings>
                             </TextBlock>
                         </Bold>
-                        Some informations in Introduction section has been haken from wikipedia.</TextBlock>
+                        Some information in Introduction section has been taken from wikipedia.</TextBlock>
                 </StackPanel>
             </Grid>
         </ScrollViewer>

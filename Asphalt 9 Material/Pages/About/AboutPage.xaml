@@ -31,7 +31,7 @@
                         Foreground="{StaticResource LightBrush}"
                         LineHeight="22"
                         TextWrapping="WrapWithOverflow">
-                        Asphalt 9 Materials is unofficial and open source application to help Asphalt 9 users get informations about the cars and mostly everything about this game.<LineBreak />
+                        Asphalt 9 Materials is unofficial and open source application to help Asphalt 9 users get information about the cars and mostly everything about this game.<LineBreak />
                         This Application currently is client side so that it needs versioning to keep it up to date, using this application enables users knowing mostly everything about this game of the available cars and stats as well as it gives some tips and tricks about how play the game and improve faster, it also enables users to add, update, delete the cars ofc this will be client side as long as the application currently client sided, if you the user wanted your changes be available in next version of the application you can let us know, another cool feature that this application has is you can compare the cars to each other as much as you want.<LineBreak />
                         if you have any suggestions or critics you can let me know and I work on them due to the time I can spend on the development of this application.<LineBreak />
 
