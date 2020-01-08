@@ -21,9 +21,9 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 - [x] Enables the user to add new car(s) [Client-Side currently].
 - [x] Enables the user to update the car(s) [Client-Side currently].
 - [x] Enables the user to delete the car(s) [Client-Side currently].
-- [x] Enables the user to to compare th cars according to their performance stats and screenshot the results.
-- [x] Enables the user to to compare th cars according to their ranks and screenshot the results.
-- [x] Enables the user to to compare th cars according to their required blueprints of each of the car stars and screenshot the results.
+- [x] Enables the user to compare th cars according to their performance stats and screenshot the results.
+- [x] Enables the user to compare th cars according to their ranks and screenshot the results.
+- [x] Enables the user to compare th cars according to their required blueprints of each of the car stars and screenshot the results.
 - [x] Providing the enough information about the game.
 - [x] Providing enough information about the Tokens, Credits, Trade Coins and how to work with them inside the game.
 - [x] Providing some tips and tricks to help the users improve faster.
