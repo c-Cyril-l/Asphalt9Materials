@@ -21,9 +21,9 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 - [x] Enables the user to add new car(s) [Client-Side currently].
 - [x] Enables the user to update the car(s) [Client-Side currently].
 - [x] Enables the user to delete the car(s) [Client-Side currently].
-- [x] Enables the user to to compare th cars according to their performance stats and screenshot the results.
-- [x] Enables the user to to compare th cars according to their ranks and screenshot the results.
-- [x] Enables the user to to compare th cars according to their required blueprints of each of the car stars and screenshot the results.
+- [x] Enables the user to compare the cars according to their performance stats and screenshot the results.
+- [x] Enables the user to compare the cars according to their ranks and screenshot the results.
+- [x] Enables the user to compare the cars according to their required blueprints of each star and screenshot the results.
 - [x] Providing the enough information about the game.
 - [x] Providing enough information about the Tokens, Credits, Trade Coins and how to work with them inside the game.
 - [x] Providing some tips and tricks to help the users improve faster.
@@ -43,7 +43,7 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 
 |                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |
 | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img width="480" height="350" alt="Class D Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20D.PNG"> | <img width="480" height="350" alt="Class C Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20C.PNG"> | <img width="480" height="350" alt="Class B Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20B.PNG"> | <img width="480" height="350" alt="Class A Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20A.PNG"> | <img width="480" height="350" alt="Class S Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20S.PNG"> |
+| <img alt="Class D Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20D.PNG"> | <img  alt="Class C Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20C.PNG"> | <img alt="Class B Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20B.PNG"> | <img  alt="Class A Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20A.PNG"> | <img alt="Class S Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20S.PNG"> |
 
 ## Car Details
 
