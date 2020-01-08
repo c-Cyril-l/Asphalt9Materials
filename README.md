@@ -4,7 +4,7 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 
 # Requirements
 
-### The Below applications must be installed on client(s) PC to make the application work, If the user uses installer which will be available in release section as well as Softpedia then these application will install via internet inside the installer.
+> The applications Below must be installed on client(s) PC to make the application work, If the user uses installer which will be available in release section as well as Softpedia then these application will install via internet inside the installer.
 
 - .NET Framework 4.6 or higher.
 - SQL Server Express Edition 2017 or higher.
@@ -42,7 +42,7 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 ## Available Class Cars
 
 |                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |
-| :------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: |
+| :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
 | <img width="480" height="350" alt="Class D Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20D.PNG"> | <img width="480" height="350" alt="Class C Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20C.PNG"> | <img width="480" height="350" alt="Class B Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20B.PNG"> | <img width="480" height="350" alt="Class A Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20A.PNG"> | <img width="480" height="350" alt="Class S Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20S.PNG"> |
 
 ## Car Details
@@ -143,3 +143,7 @@ Asphalt 9 Materials Wiki</a>
 - <a href="https://en.wikipedia.org/wiki/Asphalt_9:_Legends">Wikipedia.Com</a>
 
 > <p>Some information in Introduction section has been taken from Asphalt 9 page in wikipedia.</p>
+
+# License
+
+- <a href="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/LICENSE">MIT License</a>
