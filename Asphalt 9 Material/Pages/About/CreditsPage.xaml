@@ -21,7 +21,7 @@
                         HorizontalAlignment="Left"
                         FontSize="38"
                         Foreground="{DynamicResource PrimaryHueMidBrush}">
-                        Credtis
+                        Credits
                     </Label>
                     <TextBlock
                         Margin="18,15,4,4"
@@ -60,7 +60,7 @@
                                 Foreground="Crimson"
                                 Tag="https://github.com/adnyey/A9Dex"
                                 Text="A9Dex"
-                                ToolTip="Go To A9Dex Githup Repository Page.">
+                                ToolTip="Go To A9Dex Github Repository Page.">
                                 <TextBlock.InputBindings>
                                     <MouseBinding
                                         Command="{Binding OpenLinkCommand}"

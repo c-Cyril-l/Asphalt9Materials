@@ -30,9 +30,9 @@
                                Foreground="{StaticResource LightBrush}">
                         There are currently three currencies in Asphalt 9.
                         <LineBreak /> <LineBreak />
-                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">1.</Bold> Credits allow you to upgrade your car’s stats. They can be obtained by purchasing them with tokens, rewards from multiplayer and Time-Limited Events. Credits also can be obtained after completing races from career mode.
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">1.</Bold> Credits allow you to upgrade your car’s stats. They can be obtained by purchasing them with tokens, rewards from multi-player and Time-Limited Events. Credits also can be obtained after completing races from career mode.
                          <LineBreak /> 
-                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">2.</Bold> Tokens can be spent on refueling the “gas tank”, refuel tickets, and more. They are obtained through purchasing them with real money, or getting them through multiplayer and Time-Limited Events rewards. They are also obtained by getting to the last race of each career season.
+                        <Bold Foreground="{StaticResource PrimaryHueMidBrush}">2.</Bold> Tokens can be spent on refueling the “gas tank”, refuel tickets, and more. They are obtained through purchasing them with real money, or getting them through multi-player and Time-Limited Events rewards. They are also obtained by getting to the last race of each career season.
                         <LineBreak /> 
                         <Bold Foreground="{StaticResource PrimaryHueMidBrush}">3.</Bold> Trade coins can be used to buy epic import parts for the cars from the “Legend store”. They are obtained by “selling” blueprints and import parts.
                          <LineBreak /> <LineBreak /> 

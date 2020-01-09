@@ -57,7 +57,7 @@
                                              IconBackground="DarkOrange"
                                              IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                                              Icon="O"/> <Bold Foreground="DarkOrange"> Double Tap Nitro Or Orange Nitro</Bold>
-                        use this kind of nitro when you want to go to the highest speed as well as in barells.
+                        use this kind of nitro when you want to go to the highest speed as well as in barrels.
                            <LineBreak />
                         <LineBreak />
                         <materialDesign:Chip Content="Perfect Nitro" Margin="0 -10 0 -10"
@@ -70,8 +70,8 @@
                         <materialDesign:Chip Content="Shockwave" Margin="0 -10 0 -10"
                                              IconBackground="MediumPurple"
                                              IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
-                                             Icon="S"/> <Bold Foreground="MediumPurple"> Shockwave Or Purple Nitro</Bold>
-                        use this kind of nitro when you want to go to the highest speed as soon as possible also in barells and when you want to wreck opponents.
+                                             Icon="S"/> <Bold Foreground="MediumPurple"> ShockWave Or Purple Nitro</Bold>
+                        use this kind of nitro when you want to go to the highest speed as soon as possible also in barrels and when you want to wreck opponents.
                         <LineBreak />
                         <LineBreak />
                         <Bold Foreground="{StaticResource PrimaryHueMidBrush}">5.</Bold>
@@ -87,11 +87,11 @@
                         <LineBreak />
                         <LineBreak />
                           <Bold Foreground="{StaticResource PrimaryHueMidBrush}">8.</Bold>
-                        Don't use 360 spining on the ground it costs you lose a lot of speed also if you use this against your Multiplayer opponents you get called "Dirty Player".
+                        Don't use 360 spinning on the ground it costs you lose a lot of speed also if you use this against your Multi-player opponents you get called "Dirty Player".
                         <LineBreak />
                         <LineBreak />
                                     <Bold Foreground="{StaticResource PrimaryHueMidBrush}">9.</Bold>
-                        Don't get triggered when you get wrecked by other players, they have the same feelling when you wreck them too, at the end it meant to be for fun not getting angry or cursing others.
+                        Don't get triggered when you get wrecked by other players, they have the same feeling when you wreck them too, at the end it meant to be for fun not getting angry or cursing others.
                         <LineBreak />
                         <LineBreak />
                     </TextBlock>

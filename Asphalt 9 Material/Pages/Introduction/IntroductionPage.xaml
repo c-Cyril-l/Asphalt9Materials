@@ -30,7 +30,7 @@
                              IsReadOnly="True"
                              SpellCheck.IsEnabled="True"
                              TextWrapping="WrapWithOverflow">
-                        Asphalt 9: Legends is an arcade racing video game developed and published by Gameloft as part of the Asphalt series. It was released on February 26th, 2018 for iOS in the Philippines as a soft launch, and it was released worldwide on July 25th, 2018.
+                        Asphalt 9: Legends is an arcade racing video game developed and published by GameLoft as part of the Asphalt series. It was released on February 26th, 2018 for iOS in the Philippines as a soft launch, and it was released worldwide on July 25th, 2018.
                     </TextBox>
          
                     <Rectangle Margin="18,0,0,0"
@@ -191,7 +191,7 @@
                         <LineBreak />
                         <Italic>CUSTOMISATION AT YOUR FINGERTIPS</Italic>
                         <LineBreak />
-                        Use the new car editor to define the exact colour and materials for your car. You can also pick the colour of the Rims and Brake Calipers and add carbon parts to fully customise your rides.
+                        Use the new car editor to define the exact color and materials for your car. You can also pick the color of the Rims and Brake Calipers and add carbon parts to fully customise your rides.
                         <LineBreak />
                         <LineBreak />
                         <Italic>BREATHTAKING LOCATIONS</Italic>
@@ -206,7 +206,7 @@
                         <LineBreak />
                         <Italic>BECOME A LEGEND</Italic>
                         <LineBreak />
-                        Start your journey in Career mode by completing over 60 seasons and 800 races. Become a real Asphalt legend by racing against up to 8 players in real time through the different leagues of the World Series Multiplayer mode.
+                        Start your journey in Career mode by completing over 60 seasons and 800 races. Become a real Asphalt legend by racing against up to 8 players in real time through the different leagues of the World Series Multi-player mode.
                         <LineBreak />
                         <LineBreak />
                         <Italic>ULTIMATE RACING CONTROL</Italic>
@@ -238,7 +238,7 @@
                         <LineBreak />
                         <LineBreak />
                         <Bold Foreground="{StaticResource PrimaryHueDarkBrush}">Hunted</Bold>
-                        : The race has a time limit. To win the race, the player will have to escape in time or will be busted. To take down the cops, you can either Shockwave-knockdown them, land on them, or do a 360, as they are stronger than normal cars. For this race mode, the player has to successfully do stunts without hitting the cars at the end (not doing so will cause you to hit the cops' barricade) to win the race. Any wreck instantly results in disqualification. In future updates, the player will no longer get busted upon any wrecks (unless running out of time or hitting the barricades at the end of the track).
+                        : The race has a time limit. To win the race, the player will have to escape in time or will be busted. To take down the cops, you can either ShockWave-knockdown them, land on them, or do a 360, as they are stronger than normal cars. For this race mode, the player has to successfully do stunts without hitting the cars at the end (not doing so will cause you to hit the cops' barricade) to win the race. Any wreck instantly results in disqualification. In future updates, the player will no longer get busted upon any wrecks (unless running out of time or hitting the barricades at the end of the track).
                         <LineBreak />
                         <LineBreak />
                     </TextBlock>
