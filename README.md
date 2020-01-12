@@ -29,6 +29,10 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 - [x] Providing some tips and tricks to help the users improve faster.
 - [x] The User can export the database used inside the application.
 
+# Demonstration Video
+
+[![Asphalt 9 Materials Video](https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Thumbnail.png)](https://www.youtube.com/watch?v=SHe5s0VB4e4)
+
 # Screenshots
 
 ## Introduction
@@ -41,8 +45,8 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 
 ## Available Class Cars
 
-|                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |                                                                                                                                              |
-| :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                     |                                                                                                                      |                                                                                                                     |                                                                                                                      |                                                                                                                     |
+| :------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
 | <img alt="Class D Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20D.PNG"> | <img  alt="Class C Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20C.PNG"> | <img alt="Class B Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20B.PNG"> | <img  alt="Class A Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20A.PNG"> | <img alt="Class S Cars" src="https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Class%20S.PNG"> |
 
 ## Car Details
@@ -135,6 +139,18 @@ Asphalt 9 Materials Wiki</a>
 > The Application is currently Client-Side which means every change the user makes like add, delete, update car(s) will remain as client change, if a user wants their changes will appear in next versions of application he can let us know.
 
 # Credits
+
+## Libraries Credits
+
+- <a href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit">MaterialDesignInXamlToolkit</a>
+
+> <p>Asphalt 9 Materials UI used this library as UI Framework.</p>
+
+- <a href="https://github.com/JamesNK/Newtonsoft.Json">Newtonsoft.Json</a>
+
+> <p>Used as drafting car information when a user try to add a new car.</p>
+
+## Content Credits
 
 - <a href="https://asphalt9.info/">Asphalt9.Info</a>
 
