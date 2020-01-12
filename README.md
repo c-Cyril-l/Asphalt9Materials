@@ -31,7 +31,7 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 
 # Demonstration Video
 
-[![Asphalt 9 Materials Video](https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Thumbnail.png)](https://www.youtube.com/watch?v=SHe5s0VB4e4)
+[![Asphalt 9 Materials Video](https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Thumbnail.PNG)](https://www.youtube.com/watch?v=SHe5s0VB4e4)
 
 # Screenshots
 
