@@ -176,8 +176,11 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.MainView
 
             var dS = new DatabaseScript();
 
-            await dS.GenerateDatabaseScript($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asphalt9DB.mdf")};integrated security=True;Initial Catalog=Asphalt9;",
-                                            dialogResult.Item3);
+            var connectionString =
+                $@"data source=.\SQLEXPRESS;attachdbfilename=|DataDirectory|\Asphalt9DB.mdf;integrated security=True;multipleactiveresultsets=True;connect timeout=50;user instance=True;Initial Catalog=Asphalt9";
+
+            await dS.GenerateDatabaseScript(connectionString,
+                dialogResult.Item3);
 
             MessageBox.Show($"Script Generated Successfully! \n {dialogResult.Item2}");
 
