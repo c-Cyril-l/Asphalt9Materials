@@ -29,6 +29,10 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 - [x] Providing some tips and tricks to help the users improve faster.
 - [x] The User can export the database used inside the application.
 
+# Installation Video
+
+[![Asphalt 9 Materials Video](https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Installation.PNG)](https://www.youtube.com/watch?v=44jjPia3a_U&list=PL-KKJ2dgWqTHQ_HcN43P9mLyWgF4IB94o&index=2&t=4s)
+
 # Demonstration Video
 
 [![Asphalt 9 Materials Video](https://github.com/c-Cyril-l/Asphalt9Materials/blob/master/Screenshots/Thumbnail.PNG)](https://www.youtube.com/watch?v=SHe5s0VB4e4)
