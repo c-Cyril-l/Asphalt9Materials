@@ -9,6 +9,12 @@ Unofficial Windows Application Database For Asphalt 9 Legends Game, it simply de
 - .NET Framework 4.6 or higher.
 - SQL Server Express Edition 2017 or higher.
 
+# Download
+
+- ### <a href="https://github.com/c-Cyril-l/Asphalt9Materials/releases">From Release</a>
+
+- ### <a href="https://www.softpedia.com/get/Gaming-Related/Asphalt9-Materials.shtml">From Softpedia</a>
+
 # Features
 
 - [x] Get access to all available cars and their details.
