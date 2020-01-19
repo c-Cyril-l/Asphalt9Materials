@@ -392,7 +392,6 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.Misc
                     case CarType.Epic:
                         Foreground = Brushes.DarkOrange;
                         break;
-                    case CarType.Uncommon:
                     default:
                         Foreground = Brushes.Gray;
                         break;

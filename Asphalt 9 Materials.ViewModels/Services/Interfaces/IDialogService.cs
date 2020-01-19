@@ -5,11 +5,12 @@ namespace Asphalt_9_Materials.ViewModel.Services.Interfaces
 {
     public interface IDialogService
     {
-
         /// <summary>
         /// OpenFileDialog.
         /// </summary> 
         /// <param name="filePath">The File path that comes from user selection.</param>
+        /// <param name="multiSelect">MultiSelect files option</param>
+        /// /// <param name="dialogTitle">Dialog title</param>
         /// <returns>file path</returns>
         string OpenFileDialog(string filePath, bool multiSelect, string dialogTitle);
 
@@ -18,6 +19,7 @@ namespace Asphalt_9_Materials.ViewModel.Services.Interfaces
         /// </summary>
         /// <param name="filter">filter</param>
         /// <param name="dialogTitle">Dialog title</param>
+        /// <param name="fileName">Filename</param>
         /// <param name="overWritePrompt">Overwrite prompt</param>
         /// <param name="initialDirectory">Initial Directory of the dialog</param>
         /// <returns>Whether the dialog result is successful as well as file path and filename.</returns>

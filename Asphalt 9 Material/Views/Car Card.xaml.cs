@@ -8,7 +8,7 @@ namespace Asphalt_9_Materials.UI.Views
     /// <summary>
     /// Interaction logic for Car_Card.xaml
     /// </summary>
-    public partial class CarCard : UserControl
+    public partial class CarCard
     {
 
         /// <summary>

@@ -23,7 +23,7 @@
     xmlns:vmCareer="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Career;assembly=Asphalt9Materials.ViewModel"
     xmlns:vmIntroduction="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Introduction;assembly=Asphalt9Materials.ViewModel"
     xmlns:vmMisc="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Misc;assembly=Asphalt9Materials.ViewModel"
-    xmlns:vmMiscComarison="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Misc.Comparison;assembly=Asphalt9Materials.ViewModel"
+    xmlns:vmMiscComparison="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Misc.Comparison;assembly=Asphalt9Materials.ViewModel"
     xmlns:vmPerformance="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Performance.Performance;assembly=Asphalt9Materials.ViewModel"
     xmlns:vmRanks="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Ranks;assembly=Asphalt9Materials.ViewModel"
     xmlns:vmTracks="clr-namespace:Asphalt_9_Materials.ViewModel.ViewModels.Routes;assembly=Asphalt9Materials.ViewModel"
@@ -35,7 +35,6 @@
     MaxHeight="1030"
     AllowsTransparency="True"
     Background="Transparent"
-    Closing="MainView_Closing"
     MouseLeftButtonDown="Window_MouseLeftButtonDown"
     ResizeMode="NoResize"
     SnapsToDevicePixels="True"
@@ -47,10 +46,6 @@
     <Window.Resources>
         <!--#region Converters-->
         <con:ToLowerCaseConverter x:Key="ToLowerCase" />
-        <con:ImageConverter
-            x:Key="ImageConverter"
-            DecodePixelHeight="1030"
-            DecodePixelWidth="1700" />
         <!--#endregion-->
         <!--#region Pages-->
         <DataTemplate DataType="{x:Type vmAbout:AboutViewModel}">
@@ -92,16 +87,16 @@
         <DataTemplate DataType="{x:Type vmMisc:ImportantNoteViewModel}">
             <miscPages:ImportantNotePage />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vmMiscComarison:MaxComparisonViewModel}">
+        <DataTemplate DataType="{x:Type vmMiscComparison:MaxComparisonViewModel}">
             <miscComparisonPages:MaxComparisonPage />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vmMiscComarison:StockComparisonViewModel}">
+        <DataTemplate DataType="{x:Type vmMiscComparison:StockComparisonViewModel}">
             <miscComparisonPages:StockComparisonPage />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vmMiscComarison:RankComparisonViewModel}">
+        <DataTemplate DataType="{x:Type vmMiscComparison:RankComparisonViewModel}">
             <miscComparisonPages:RankComparisonPage />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vmMiscComarison:BlueprintsComparisonViewModel}">
+        <DataTemplate DataType="{x:Type vmMiscComparison:BlueprintsComparisonViewModel}">
             <miscComparisonPages:BlueprintsComparisonPage />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vmBlueprints:BlueprintsViewModel}">
@@ -135,20 +130,6 @@
                         Storyboard.TargetProperty="Opacity"
                         From="0.0"
                         To="1.0"
-                        Duration="0:0:1" />
-                </Storyboard>
-            </BeginStoryboard>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="Window.Unloaded">
-            <BeginStoryboard>
-                <Storyboard x:Name="WindowCloseAnimate" Completed="WindowCloseAnimate_Completed">
-                    <DoubleAnimation
-                        AutoReverse="False"
-                        RepeatBehavior="1x"
-                        Storyboard.TargetName="MainView"
-                        Storyboard.TargetProperty="Opacity"
-                        From="1.0"
-                        To="0.0"
                         Duration="0:0:1" />
                 </Storyboard>
             </BeginStoryboard>

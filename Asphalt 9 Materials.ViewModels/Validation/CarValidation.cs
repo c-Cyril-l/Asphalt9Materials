@@ -76,7 +76,7 @@ namespace Asphalt_9_Materials.ViewModel.Validation
 
         #region Declarations
 
-        public string _refill;
+        private string _refill;
         private string _refillDetection;
 
         private string _epicCost;
@@ -699,28 +699,28 @@ namespace Asphalt_9_Materials.ViewModel.Validation
                     #region Blueprints Validation
 
                     case nameof(FirstStar):
-                        result = IntegerValidation(out int? firstStarBP, FirstStar);
-                        Car.Blueprints.FirstStar = (firstStarBP == 0) ? null : firstStarBP;
+                        result = IntegerValidation(out var firstStarBP, FirstStar);
+                        Car.Blueprints.FirstStar = firstStarBP == 0 ? null : firstStarBP;
                         break;
                     case nameof(SecondStar):
-                        result = IntegerValidation(out int? secondStarBP, SecondStar);
-                        Car.Blueprints.SecondStar = (secondStarBP == 0) ? null : secondStarBP;
+                        result = IntegerValidation(out var secondStarBP, SecondStar);
+                        Car.Blueprints.SecondStar = secondStarBP == 0 ? null : secondStarBP;
                         break;
                     case nameof(ThirdStar):
-                        result = IntegerValidation(out int? thirdStarBP, ThirdStar);
-                        Car.Blueprints.ThirdStar = (thirdStarBP == 0) ? null : thirdStarBP;
+                        result = IntegerValidation(out var thirdStarBP, ThirdStar);
+                        Car.Blueprints.ThirdStar = thirdStarBP == 0 ? null : thirdStarBP;
                         break;
                     case nameof(FourthStar):
-                        result = IntegerValidation(out int? fourthStarBP, FourthStar);
-                        Car.Blueprints.FourthStar = (fourthStarBP == 0) ? null : fourthStarBP;
+                        result = IntegerValidation(out var fourthStarBP, FourthStar);
+                        Car.Blueprints.FourthStar = fourthStarBP == 0 ? null : fourthStarBP;
                         break;
                     case nameof(FifthStar):
-                        result = IntegerValidation(out int? fifthStarBP, FifthStar);
-                        Car.Blueprints.FifthStar = (fifthStarBP == 0) ? null : fifthStarBP;
+                        result = IntegerValidation(out var fifthStarBP, FifthStar);
+                        Car.Blueprints.FifthStar = fifthStarBP == 0 ? null : fifthStarBP;
                         break;
                     case nameof(SixthStar):
-                        result = IntegerValidation(out int? sixthStarBP, SixthStar);
-                        Car.Blueprints.SixthStar = (sixthStarBP == 0) ? null : sixthStarBP;
+                        result = IntegerValidation(out var sixthStarBP, SixthStar);
+                        Car.Blueprints.SixthStar = sixthStarBP == 0 ? null : sixthStarBP;
                         break;
 
 
@@ -730,42 +730,42 @@ namespace Asphalt_9_Materials.ViewModel.Validation
 
                     case nameof(StockTopSpeed):
                         result = DoubleValidation(out var stockTopSpeed, StockTopSpeed);
-                        Car.Performance.StockTopSpeed = (stockTopSpeed == 0) ? null : stockTopSpeed;
+                        Car.Performance.StockTopSpeed = stockTopSpeed == 0 ? null : stockTopSpeed;
                         break;
 
                     case nameof(StockAcceleration):
                         result = DoubleValidation(out var stockAcceleration, StockAcceleration);
-                        Car.Performance.StockAcceleration = (stockAcceleration == 0) ? null : stockAcceleration;
+                        Car.Performance.StockAcceleration = stockAcceleration == 0 ? null : stockAcceleration;
                         break;
 
                     case nameof(StockHandling):
                         result = DoubleValidation(out var stockHandling, StockHandling);
-                        Car.Performance.StockHandling = (stockHandling == 0) ? null : stockHandling;
+                        Car.Performance.StockHandling = stockHandling == 0 ? null : stockHandling;
                         break;
 
                     case nameof(StockNitro):
                         result = DoubleValidation(out var stockNitro, StockNitro);
-                        Car.Performance.StockNitro = (stockNitro == 0) ? null : stockNitro;
+                        Car.Performance.StockNitro = stockNitro == 0 ? null : stockNitro;
                         break;
 
                     case nameof(MaxTopSpeed):
                         result = DoubleValidation(out var maxTopSpeed, MaxTopSpeed);
-                        Car.Performance.MaxTopSpeed = (maxTopSpeed == 0) ? null : maxTopSpeed;
+                        Car.Performance.MaxTopSpeed = maxTopSpeed == 0 ? null : maxTopSpeed;
                         break;
 
                     case nameof(MaxAcceleration):
                         result = DoubleValidation(out var maxAcceleration, MaxAcceleration);
-                        Car.Performance.MaxAcceleration = (maxAcceleration == 0) ? null : maxAcceleration;
+                        Car.Performance.MaxAcceleration = maxAcceleration == 0 ? null : maxAcceleration;
                         break;
 
                     case nameof(MaxHandling):
                         result = DoubleValidation(out var maxHandling, MaxHandling);
-                        Car.Performance.MaxHandling = (maxHandling == 0) ? null : maxHandling;
+                        Car.Performance.MaxHandling = maxHandling == 0 ? null : maxHandling;
                         break;
 
                     case nameof(MaxNitro):
                         result = DoubleValidation(out var maxNitro, MaxNitro);
-                        Car.Performance.MaxNitro = (maxNitro == 0) ? null : maxNitro;
+                        Car.Performance.MaxNitro = maxNitro == 0 ? null : maxNitro;
                         break;
 
                     #endregion
@@ -773,38 +773,38 @@ namespace Asphalt_9_Materials.ViewModel.Validation
                     #region Ranks Validation
 
                     case nameof(StockRank):
-                        result = IntegerValidation(out int? stockRank, StockRank);
-                        Car.Ranks.Stock = (stockRank == 0) ? null : stockRank;
+                        result = IntegerValidation(out var stockRank, StockRank);
+                        Car.Ranks.Stock = stockRank == 0 ? null : stockRank;
                         break;
 
                     case nameof(FirstStarRank):
-                        result = IntegerValidation(out int? firstStarRank, FirstStarRank);
-                        Car.Ranks.FirstStar = (firstStarRank == 0) ? null : firstStarRank;
+                        result = IntegerValidation(out var firstStarRank, FirstStarRank);
+                        Car.Ranks.FirstStar = firstStarRank == 0 ? null : firstStarRank;
                         break;
 
                     case nameof(SecondStarRank):
-                        result = IntegerValidation(out int? secondStarRank, SecondStarRank);
-                        Car.Ranks.SecondStar = (secondStarRank == 0) ? null : secondStarRank;
+                        result = IntegerValidation(out var secondStarRank, SecondStarRank);
+                        Car.Ranks.SecondStar = secondStarRank == 0 ? null : secondStarRank;
                         break;
 
                     case nameof(ThirdStarRank):
-                        result = IntegerValidation(out int? thirdStarRank, ThirdStarRank);
-                        Car.Ranks.ThirdStar = (thirdStarRank == 0) ? null : thirdStarRank;
+                        result = IntegerValidation(out var thirdStarRank, ThirdStarRank);
+                        Car.Ranks.ThirdStar = thirdStarRank == 0 ? null : thirdStarRank;
                         break;
 
                     case nameof(FourthStarRank):
-                        result = IntegerValidation(out int? fourthStarRank, FourthStarRank);
-                        Car.Ranks.FourthStar = (fourthStarRank == 0) ? null : fourthStarRank;
+                        result = IntegerValidation(out var fourthStarRank, FourthStarRank);
+                        Car.Ranks.FourthStar = fourthStarRank == 0 ? null : fourthStarRank;
                         break;
 
                     case nameof(FifthStarRank):
-                        result = IntegerValidation(out int? fifthStarRank, FifthStarRank);
-                        Car.Ranks.FifthStar = (fifthStarRank == 0) ? null : fifthStarRank;
+                        result = IntegerValidation(out var fifthStarRank, FifthStarRank);
+                        Car.Ranks.FifthStar = fifthStarRank == 0 ? null : fifthStarRank;
                         break;
 
                     case nameof(SixthStarRank):
                         result = IntegerValidation(out var sixthStarRank, SixthStarRank);
-                        Car.Ranks.SixthStar = (sixthStarRank == 0) ? null : sixthStarRank;
+                        Car.Ranks.SixthStar = sixthStarRank == 0 ? null : sixthStarRank;
                         break;
 
                     #endregion
@@ -813,67 +813,67 @@ namespace Asphalt_9_Materials.ViewModel.Validation
 
                     case nameof(Stage0):
                         result = IntegerValidation(out var stage0, Stage0);
-                        Car.Upgrades.Stage0 = (stage0 == 0) ? null : stage0;
+                        Car.Upgrades.Stage0 = stage0 == 0 ? null : stage0;
                         break;
 
                     case nameof(Stage1):
                         result = IntegerValidation(out var stage1, Stage1);
-                        Car.Upgrades.Stage1 = (stage1 == 0) ? null : stage1;
+                        Car.Upgrades.Stage1 = stage1 == 0 ? null : stage1;
                         break;
 
                     case nameof(Stage2):
                         result = IntegerValidation(out var stage2, Stage2);
-                        Car.Upgrades.Stage2 = (stage2 == 0) ? null : stage2;
+                        Car.Upgrades.Stage2 = stage2 == 0 ? null : stage2;
                         break;
 
                     case nameof(Stage3):
                         result = IntegerValidation(out var stage3, Stage3);
-                        Car.Upgrades.Stage3 = (stage3 == 0) ? null : stage3;
+                        Car.Upgrades.Stage3 = stage3 == 0 ? null : stage3;
                         break;
 
                     case nameof(Stage4):
                         result = IntegerValidation(out var stage4, Stage4);
-                        Car.Upgrades.Stage4 = (stage4 == 0) ? null : stage4;
+                        Car.Upgrades.Stage4 = stage4 == 0 ? null : stage4;
                         break;
 
                     case nameof(Stage5):
                         result = IntegerValidation(out var stage5, Stage5);
-                        Car.Upgrades.Stage5 = (stage5 == 0) ? null : stage5;
+                        Car.Upgrades.Stage5 = stage5 == 0 ? null : stage5;
                         break;
 
                     case nameof(Stage6):
                         result = IntegerValidation(out var stage6, Stage6);
-                        Car.Upgrades.Stage6 = (stage6 == 0) ? null : stage6;
+                        Car.Upgrades.Stage6 = stage6 == 0 ? null : stage6;
                         break;
 
                     case nameof(Stage7):
                         result = IntegerValidation(out var stage7, Stage7);
-                        Car.Upgrades.Stage7 = (stage7 == 0) ? null : stage7;
+                        Car.Upgrades.Stage7 = stage7 == 0 ? null : stage7;
                         break;
 
                     case nameof(Stage8):
                         result = IntegerValidation(out var stage8, Stage8);
-                        Car.Upgrades.Stage8 = (stage8 == 0) ? null : stage8;
+                        Car.Upgrades.Stage8 = stage8 == 0 ? null : stage8;
                         break;
 
                     case nameof(Stage9):
                         result = IntegerValidation(out var stage9, Stage9);
-                        Car.Upgrades.Stage9 = (stage9 == 0) ? null : stage9;
+                        Car.Upgrades.Stage9 = stage9 == 0 ? null : stage9;
                         break;
 
                     case nameof(Stage10):
                         result = IntegerValidation(out var stage10, Stage10);
-                        Car.Upgrades.Stage10 = (stage10 == 0) ? null : stage10;
+                        Car.Upgrades.Stage10 = stage10 == 0 ? null : stage10;
                         break;
 
                     case nameof(Stage11):
                         result = IntegerValidation(out var stage11, Stage11);
-                        Car.Upgrades.Stage11 = (stage11 == 0) ? null : stage11;
+                        Car.Upgrades.Stage11 = stage11 == 0 ? null : stage11;
                         break;
 
                     case nameof(Stage12):
                         result = IntegerValidation(out var stage12, Stage12);
-                        Car.Upgrades.Stage12 = (stage12 == 0) ? null : stage12;
+                        Car.Upgrades.Stage12 = stage12 == 0 ? null : stage12;
                         break;
 
                     #endregion
@@ -882,17 +882,17 @@ namespace Asphalt_9_Materials.ViewModel.Validation
 
                     case nameof(EpicCost):
                         result = IntegerValidation(out var epicCost, EpicCost);
-                        Car.AdditionalParts.EpicCost = (epicCost == 0) ? null : epicCost;
+                        Car.AdditionalParts.EpicCost = epicCost == 0 ? null : epicCost;
                         break;
 
                     case nameof(RareCost):
                         result = IntegerValidation(out var rareCost, RareCost);
-                        Car.AdditionalParts.RareCost = (rareCost == 0) ? null : rareCost;
+                        Car.AdditionalParts.RareCost = rareCost == 0 ? null : rareCost;
                         break;
 
                     case nameof(UncommonCost):
                         result = IntegerValidation(out var uncommonCost, UncommonCost);
-                        Car.AdditionalParts.UncommonCost = (uncommonCost == 0) ? null : uncommonCost;
+                        Car.AdditionalParts.UncommonCost = uncommonCost == 0 ? null : uncommonCost;
                         break;
                         #endregion
                 }
@@ -909,8 +909,8 @@ namespace Asphalt_9_Materials.ViewModel.Validation
         /// <returns>The Integer in correction state, error validation message in case of not being compatible, null in case nothing has been provided.</returns>
         private string IntegerValidation(out int? output, string input)
         {
-            var result = ValidateIntegers(out int value, input);
-            if ((result != null) && result.Any(char.IsLetter))
+            var result = ValidateIntegers(out var value, input);
+            if (result != null && result.Any(char.IsLetter))
             {
                 output = null;
                 return result;
@@ -929,8 +929,8 @@ namespace Asphalt_9_Materials.ViewModel.Validation
         /// <returns>The Double in correction state, error validation message in case of not being compatible, null in case nothing has been provided.</returns>
         private string DoubleValidation(out double? output, string input)
         {
-            var result = ValidateDoubles(out double value, input);
-            if ((result != null) && result.Any(char.IsLetter))
+            var result = ValidateDoubles(out var value, input);
+            if (result != null && result.Any(char.IsLetter))
             {
                 output = null;
                 return result;
@@ -946,18 +946,18 @@ namespace Asphalt_9_Materials.ViewModel.Validation
         /// <param name="output">output value as double.</param>
         /// <param name="input">The Input string to validate.</param>
         /// <returns>if there was an error returns the error otherwise a double value.</returns>
-        private string ValidateDoubles(out double output, string type)
+        private string ValidateDoubles(out double output, string input)
         {
             string result = null;
-            if (type.Length <= 0)
+            if (input.Length <= 0)
             {
                 output = 0;
                 return null;
             }
 
-            if (!double.TryParse(type, out output))
+            if (!double.TryParse(input, out output))
                 result = "This field can only contain numbers.";
-            else if (double.Parse(type) < 0)
+            else if (double.Parse(input) < 0)
                 result = "This field cannot accept negative numbers.";
 
             return result;

@@ -7,6 +7,7 @@ using Asphalt_9_Materials.ViewModel.Validation;
 using Helpers.Utilities;
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -52,17 +53,20 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.Misc
 
             #region Information Initialization
 
-            var refill = (double)Car.Refill;
+            if (Car.Refill != null)
+            {
+                var refill = (double)Car.Refill;
 
-            if (refill > 60)
-            {
-                Refill = $"{refill / 60}";
-                RefillDetection = "Hr(s)";
-            }
-            else
-            {
-                Refill = refill.ToString();
-                RefillDetection = "Min(s)";
+                if (refill > 60)
+                {
+                    Refill = $"{refill / 60}";
+                    RefillDetection = "Hr(s)";
+                }
+                else
+                {
+                    Refill = refill.ToString(CultureInfo.InvariantCulture);
+                    RefillDetection = "Min(s)";
+                }
             }
 
             CarImage = new BitmapImage(new Uri(Car.Image))

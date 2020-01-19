@@ -96,7 +96,7 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.Misc
                     .FirstOrDefault(item => string.Concat(item.Brand, " ", item.CarName)
                     .Equals(Car.FullName));
 
-                return (carToDelete != null) ? true : false;
+                return carToDelete != null;
             }
         }
 
@@ -117,7 +117,7 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.Misc
                         var carToDelete = a9.Grandes
                             .FirstOrDefault(item => string.Concat(item.Brand, " ", item.CarName).Equals(Car.FullName));
 
-                        var imgName = carToDelete.CarImage;
+                        var imgName = carToDelete?.CarImage;
 
                         if (carToDelete != null)
                         {
@@ -128,14 +128,11 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.Misc
                             var currentDispatcher = Application.Current.Dispatcher;
                             currentDispatcher?.Invoke(() =>
                             {
-                                if (Car != null)
-                                {
-                                    CarCollection.Remove(Car);
+                                if (Car == null) return;
+                                CarCollection.Remove(Car);
 
-                                    _car = new Car();
-                                    RaisePropertyChanged(nameof(Car));
-
-                                }
+                                _car = new Car();
+                                RaisePropertyChanged(nameof(Car));
                             });
 
                             // Notifying that the operation succeeded.
@@ -232,7 +229,6 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.Misc
                     case CarType.Epic:
                         Foreground = Brushes.DarkOrange;
                         break;
-                    case CarType.Uncommon:
                     default:
                         Foreground = Brushes.Gray;
                         break;

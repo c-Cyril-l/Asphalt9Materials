@@ -17,9 +17,12 @@ namespace Asphalt_9_Materials.ViewModel.Converters
         /// <returns>The Refill time in hours and minutes or just in minutes</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null) return null;
+
             var refill = (double)value;
 
             return (refill > 60) ? ($"{refill / 60} Hr(s)") : ($"{refill} Min(s)");
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

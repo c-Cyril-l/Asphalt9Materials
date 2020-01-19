@@ -35,7 +35,7 @@ namespace Asphalt_9_Materials.ViewModel.Services
         /// SaveFileDialog implementation.
         /// </summary>
         /// <param name="filter">filter</param>
-        /// <param name="dialogTitle">Dialog title</param>
+        /// <param name="title">Dialog title</param>
         /// <param name="overWritePrompt">Overwrite prompt</param>
         /// <param name="fileName">Filename</param>
         /// <param name="initialDirectory">Initial Directory of the dialog</param>

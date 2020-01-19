@@ -19,7 +19,7 @@ namespace Asphalt_9_Materials.ViewModel.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null) return null;
-            var decimalParse = decimal.Parse(value?.ToString()).ToString("0.##").Replace(".", ",");
+            var decimalParse = decimal.Parse(value.ToString()).ToString("0.##").Replace(".", ",");
             return decimalParse;
 
         }

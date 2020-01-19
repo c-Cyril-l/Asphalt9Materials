@@ -1,11 +1,9 @@
-﻿using System.Windows.Controls;
-
-namespace Asphalt_9_Materials.UI.Views
+﻿namespace Asphalt_9_Materials.UI.Views
 {
     /// <summary>
     /// Interaction logic for CarStats.xaml
     /// </summary>
-    public partial class CarStats : UserControl
+    public partial class CarStats
     {
         public CarStats() { InitializeComponent(); }
 

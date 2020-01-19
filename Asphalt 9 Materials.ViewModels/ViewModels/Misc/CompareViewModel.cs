@@ -53,17 +53,14 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.Misc
         /// </summary>
         private void AddCarToCompare(object sender = null)
         {
-            using (var a9 = new Asphalt9Entities())
+
+            foreach (var carItem in CarCollection)
             {
-                foreach (var carItem in CarCollection)
-                {
-                    if ((carItem.FullName != CarToAdd.FullName) ||
-                        CompareCollection.Contains(carItem))
-                        continue;
+                if (carItem.FullName != CarToAdd.FullName ||
+                    CompareCollection.Contains(carItem))
+                    continue;
 
-                    CompareCollection.Add(carItem);
-                }
-
+                CompareCollection.Add(carItem);
             }
 
         }
@@ -215,7 +212,6 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.Misc
                     case CarType.Epic:
                         Foreground = Brushes.DarkOrange;
                         break;
-                    case CarType.Uncommon:
                     default:
                         Foreground = Brushes.Gray;
                         break;

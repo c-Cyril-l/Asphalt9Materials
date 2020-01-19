@@ -71,7 +71,6 @@ namespace Asphalt_9_Materials.ViewModel.ViewModels.AvailableCars
                         return Brushes.Purple;
                     case CarType.Epic:
                         return Brushes.DarkOrange;
-                    case CarType.Uncommon:
                     default:
                         return Brushes.Gray;
                 }
